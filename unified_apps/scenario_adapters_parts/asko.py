@@ -30,6 +30,7 @@ ASKO_VEHICLE_FIELDS = {
     "reg_number": "ext-comp-1986",
     "registration_certificate": "ext-comp-1988",
     "vin": "ext-comp-1984",
+    "vehicle_year": "ext-comp-1996",
     "registration_region": "ext-comp-1989",
     "registration_country": "ext-comp-1990",
     "search_button": "ext-gen1537",
@@ -296,7 +297,6 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             "Год": self.deal.vehicle_year,
             "VIN": self.deal.vin,
             "СРТС": getattr(self.deal, "registration_certificate", ""),
-            "Дата выдачи СРТС": getattr(self.deal, "registration_certificate_issue_date", ""),
             "Страна регистрации ТС": getattr(self.deal, "vehicle_registration_country", ""),
             "Премия": self.deal.amount,
             "Валюта": self.deal.currency,
@@ -935,7 +935,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self.stage = "vehicle_selected"
         self.state(
-            "ASKO: автомобиль выбран, данные СРТС/региона/страны регистрации заполнены. "
+            "ASKO: автомобиль выбран, СРТС/регион/страна регистрации заполнены, год ТС проверен. "
             "Проверьте форму ТС и нажмите «Применить» в ASKO."
         )
 
@@ -1010,17 +1010,21 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
 
     def _fill_vehicle_details_after_selection(self) -> None:
-        """Заполняет дополнительные поля ТС после ручного выбора автомобиля оператором."""
+
+        """
+        Заполняет только поля, которые должны меняться после ручного выбора ТС.
+
+        Не меняем подтянутые ASKO значения: госномер, VIN, выбранный автомобиль,
+        тип/марку/модель и прочие поля. Год выпуска только сверяем с Bitrix.
+        """
         certificate = str(getattr(self.deal, "registration_certificate", "") or "").strip()
-        issue_date = self._format_bitrix_date(
-            getattr(self.deal, "registration_certificate_issue_date", "")
-        )
         country_value = self._map_vehicle_registration_country(
             getattr(self.deal, "vehicle_registration_country", "")
         )
 
+
+        self._verify_vehicle_year_matches_bitrix()
         self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
-        self._safe_set_vehicle_issue_date(issue_date)
         self._select_asko_combo_text(
             ASKO_VEHICLE_FIELDS["registration_region"],
             ASKO_TEMPORARY_ENTRY_REGION,
@@ -1033,62 +1037,44 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         )
 
         self.log(
-            "ASKO: дополнительные поля ТС заполнены: "
-            f"СРТС={certificate or 'пусто'}, "
-            f"дата выдачи={issue_date or 'пусто'}, "
+
+            "ASKO: поля ТС после выбора автомобиля обработаны: "
+            f"год сверен, СРТС={certificate or 'пусто'}, "
             f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
-            f"страна={country_value}."
+            f"страна={country_value}. Остальные поля ТС не менялись."
         )
 
-    def _safe_set_vehicle_issue_date(self, value: str) -> None:
-        if not value:
-            return
-
-        # ID поля даты выдачи СРТС в снимке страницы не указан, поэтому ищем
-        # ExtJS-компонент по fieldLabel, а если не нашли — обычный input рядом с label.
-        element_id = self.driver.execute_script(
-            """
-            if (window.Ext && Ext.ComponentMgr && Ext.ComponentMgr.all) {
-                let found = null;
-                Ext.ComponentMgr.all.each(function(cmp) {
-                    const label = String(cmp.fieldLabel || cmp.boxLabel || "").toLowerCase();
-                    if (!found && label.includes("дата") && label.includes("свид") && label.includes("рег")) {
-                        found = cmp.id;
-                    }
-                });
-                return found;
-            }
-            return null;
-            """
+    def _verify_vehicle_year_matches_bitrix(self) -> None:
+        bitrix_year = self._normalize_year(getattr(self.deal, "vehicle_year", ""))
+        asko_year = self._normalize_year(
+            self._read_input_value(ASKO_VEHICLE_FIELDS["vehicle_year"])
         )
 
-        if element_id:
-            self._safe_set(str(element_id), value)
+        if not bitrix_year:
+            self.log("ASKO: год ТС в Bitrix пустой, сверка ext-comp-1996 пропущена.")
             return
 
-        try:
-            from selenium.webdriver.common.by import By
-            from selenium.webdriver.support import expected_conditions as EC
-            from selenium.webdriver.support.ui import WebDriverWait
-
-            xpath = (
-                "//*[contains(normalize-space(.), 'Дата выдачи') "
-                "and (contains(normalize-space(.), 'свид') or contains(normalize-space(.), 'рег'))]"
-                "/following::input[1]"
+        if not asko_year:
+            raise RuntimeError(
+                "ASKO: после выбора автомобиля поле года ТС ext-comp-1996 пустое. "
+                f"В Bitrix UF_CRM_1686152614718 указан год {bitrix_year}."
             )
-            element = WebDriverWait(self.driver, 3).until(
-                EC.presence_of_element_located((By.XPATH, xpath))
-            )
-            self._set_input(element, value)
-            self.log(f"ASKO: Дата выдачи свид.рег.ТС ← {value}")
-        except Exception as exc:
-            self.log(f"ASKO: не заполнена дата выдачи свид.рег.ТС: {exc}")
 
-    def _format_bitrix_date(self, value) -> str:
-        parsed = self._load_module().parse_iso_date(value)
-        if parsed:
-            return parsed.strftime("%d.%m.%Y")
-        return str(value or "").strip()
+        if asko_year != bitrix_year:
+            raise RuntimeError(
+                "ASKO: год ТС в выбранном автомобиле не совпадает с Bitrix. "
+                f"ASKO ext-comp-1996: {asko_year}; "
+                f"Bitrix UF_CRM_1686152614718: {bitrix_year}. "
+                "Проверьте, что оператор выбрал правильный автомобиль."
+            )
+
+        self.log(f"ASKO: год ТС сверен с Bitrix ← {bitrix_year}")
+
+    def _normalize_year(self, value) -> str:
+        value = str(value or "")
+        digits = "".join(ch for ch in value if ch.isdigit())
+        return digits[:4]
+
 
     def _map_vehicle_registration_country(self, value) -> str:
         raw = str(value or "").strip()
@@ -1110,7 +1096,9 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             return
 
         self._select_asko_period(element_id, text)
-        self.log(f"ASKO: {label} выбран ← {text}")
+
+        self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
+
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
