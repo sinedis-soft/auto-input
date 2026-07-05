@@ -58,6 +58,8 @@ BITRIX_FIELDS = {
     "vehicle_model": "UF_CRM_1686152515152",
     "vehicle_year": "UF_CRM_1686152614718",
     "vin": "UF_CRM_1686152659867",
+    "registration_certificate": "UF_CRM_1686152429219",
+    "vehicle_registration_country": "UF_CRM_1686152306664",
 
     # ИД компании в ASKO KZ.
     # Используется на следующем этапе: Список застрахованных → Добавить → Юридическое лицо → ИД.
@@ -92,6 +94,8 @@ class DealData:
     vehicle_model: str
     vehicle_year: str
     vin: str
+    registration_certificate: str
+    vehicle_registration_country: str
     phone: str
     email: str
     amount: str
@@ -307,6 +311,8 @@ def extract_deal(result, webhook: str | None = None):
         vehicle_model=str(result.get(BITRIX_FIELDS["vehicle_model"]) or "").strip(),
         vehicle_year=str(result.get(BITRIX_FIELDS["vehicle_year"]) or "").strip(),
         vin=str(result.get(BITRIX_FIELDS["vin"]) or "").strip(),
+        registration_certificate=str(result.get(BITRIX_FIELDS["registration_certificate"]) or "").strip(),
+        vehicle_registration_country=str(result.get(BITRIX_FIELDS["vehicle_registration_country"]) or "").strip(),
         amount=str(result.get("OPPORTUNITY") or ""),
         currency=str(result.get("CURRENCY_ID") or "KZT"),
         raw=result,
