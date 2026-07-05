@@ -1138,7 +1138,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         if not text:
             return
 
-        self._select_asko_period(element_id, text)
+        self._select_asko_period(element_id, text, label=label)
         self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
 
 
@@ -1385,7 +1385,87 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 value,
             )
 
-    def _select_asko_period(self, element_id: str, term_text: str) -> None:
+    def _normalize_combo_text(self, value) -> str:
+        return " ".join(str(value or "").split()).casefold()
+
+    def _verify_asko_combo_selected(self, element_id: str, expected_text: str) -> bool:
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support import expected_conditions as EC
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        expected = self._normalize_combo_text(expected_text)
+        if not expected:
+            return True
+
+        def selected(driver) -> bool:
+            values = driver.execute_script(
+                """
+                const id = arguments[0];
+                const values = [];
+
+                function add(value) {
+                    if (value !== undefined && value !== null) {
+                        const text = String(value).replace(/\\s+/g, " ").trim();
+                        if (text) values.push(text);
+                    }
+                }
+
+                const el = document.getElementById(id);
+                if (el) {
+                    add(el.value);
+                    add(el.getAttribute("value"));
+                    add(el.textContent);
+                }
+
+                if (window.Ext && Ext.getCmp) {
+                    const cmp = Ext.getCmp(id);
+                    if (cmp) {
+                        if (cmp.getRawValue) add(cmp.getRawValue());
+                        if (cmp.getValue) add(cmp.getValue());
+                        if (cmp.lastSelectionText) add(cmp.lastSelectionText);
+
+                        const store = cmp.getStore ? cmp.getStore() : null;
+                        const value = cmp.getValue ? cmp.getValue() : null;
+                        if (store && value !== undefined && value !== null) {
+                            const valueField = cmp.valueField || "value";
+                            const displayField = cmp.displayField || "text";
+                            const index = store.findBy(function(rec) {
+                                return String(rec.get(valueField)) === String(value);
+                            });
+                            if (index >= 0) {
+                                const rec = store.getAt(index);
+                                add(rec.get(displayField));
+                                add(rec.get(valueField));
+                            }
+                        }
+                    }
+                }
+
+                return Array.from(new Set(values));
+                """,
+                element_id,
+            ) or []
+
+            return any(self._normalize_combo_text(value) == expected for value in values)
+
+        try:
+            WebDriverWait(self.driver, 5).until(selected)
+            return True
+        except Exception:
+            try:
+                element = WebDriverWait(self.driver, 1).until(
+                    EC.presence_of_element_located((By.ID, element_id))
+                )
+                current = element.get_attribute("value") or ""
+            except Exception:
+                current = ""
+            self.log(
+                f"ASKO: проверка выпадающего списка {element_id} не подтвердила выбор "
+                f"{expected_text!r}; сейчас в поле: {current!r}."
+            )
+            return False
+
+    def _select_asko_period(self, element_id: str, term_text: str, label: str = "Период страхования") -> None:
         from selenium.webdriver.common.by import By
         from selenium.webdriver.common.keys import Keys
         from selenium.webdriver.common.action_chains import ActionChains
@@ -1475,14 +1555,21 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             try:
                 element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
                 element.click()
+                element.send_keys(Keys.ENTER)
                 element.send_keys(Keys.TAB)
             except Exception:
                 pass
 
-            self.log(f"ASKO: Период страхования выбран через ExtJS ← {term_text}")
-            return
+            if self._verify_asko_combo_selected(element_id, term_text):
+                self.log(f"ASKO: {label} выбран через ExtJS ← {term_text}")
+                return
 
-        self.log(f"ASKO: ExtJS-выбор периода не сработал: {ext_result}")
+            self.log(
+                f"ASKO: {label} после ExtJS-выбора не подтвердился, "
+                "повторяю выбор кликом из списка."
+            )
+        else:
+            self.log(f"ASKO: ExtJS-выбор выпадающего списка не сработал: {ext_result}")
 
         element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
         element.click()
@@ -1508,6 +1595,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         try:
             element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
+            element.send_keys(Keys.ENTER)
             element.send_keys(Keys.TAB)
         except Exception:
             pass
@@ -1524,7 +1612,13 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             element_id,
         )
 
-        self.log(f"ASKO: Период страхования выбран кликом из списка ← {term_text}")
+        if not self._verify_asko_combo_selected(element_id, term_text):
+            raise RuntimeError(
+                f"ASKO: {label} не подтвердился после выбора из выпадающего списка. "
+                f"Ожидали: {term_text}"
+            )
+
+        self.log(f"ASKO: {label} выбран кликом из списка ← {term_text}")
 
     def _safe_set(self, element_id: str, value) -> None:
         from selenium.webdriver.common.by import By
