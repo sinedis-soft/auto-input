@@ -256,10 +256,10 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             start_date = datetime.strptime(self.deal.start_date, "%d.%m.%Y").date()
             start_value = module.asko_start_datetime(start_date)
         code, phone = module.normalize_phone(self.deal.phone)
+        term_text = self._settings_value("asko_term_text", "15 дней")
         pairs = [
             ("blank_number", self.deal.policy_number),
             ("start_datetime", start_value),
-            ("term", self._settings_value("asko_term_text", "15 дней")),
             ("payment_type", self._settings_value("asko_payment_type", "Безналичным")),
             ("payment_order", self._settings_value("asko_payment_order", "Единовременно")),
             ("phone_code", code),
@@ -271,6 +271,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         ]
         for key, value in pairs:
             self._safe_set(module.ASKO_MAIN_FIELDS[key], value)
+        self._select_asko_period(module.ASKO_MAIN_FIELDS["term"], term_text)
         self.stage = "filled"
         self.state("ASKO: основные поля заполнены в новом приложении. Проверьте данные в браузере.")
 
@@ -293,6 +294,30 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 element,
                 value,
             )
+
+    def _select_asko_period(self, element_id: str, term_text: str) -> None:
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.common.keys import Keys
+        from selenium.webdriver.support import expected_conditions as EC
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        if not term_text:
+            return
+        wait = WebDriverWait(self.driver, 10)
+        try:
+            element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
+            element.click()
+            element.send_keys(Keys.CONTROL, "a")
+            element.send_keys(term_text)
+            option = wait.until(
+                EC.element_to_be_clickable((By.XPATH, f"//*[normalize-space(text())='{term_text}' or normalize-space(.)='{term_text}']"))
+            )
+            option.click()
+            self.log(f"ASKO: Период страхования ← {term_text}")
+        except Exception:
+            self._safe_set(element_id, term_text)
+            self.log(f"ASKO: Период страхования установлен вводом текста ← {term_text}")
+
 
     def _safe_set(self, element_id: str, value) -> None:
         from selenium.webdriver.common.by import By
