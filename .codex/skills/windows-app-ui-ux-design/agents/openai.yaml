@@ -1,0 +1,3 @@
+display_name: Windows App UI/UX Design
+short_description: Design clean Windows 11-style desktop app interfaces with clear states, forms, logs, and settings.
+default_prompt: Use this skill to design or improve a Windows desktop application UI with Windows 11-style layout, accessible forms, clear actions, progress states, diagnostics, and user-friendly errors.
