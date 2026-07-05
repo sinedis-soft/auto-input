@@ -82,6 +82,7 @@ class WartaIntegratedAdapter(BaseScenarioAdapter):
     def next_step(self) -> None:
         if not self.deal_id:
             raise ValueError("Сначала загрузите сделку Bitrix24.")
+
         self._ensure_worker().submit(
             "start_or_continue",
             {
@@ -117,9 +118,11 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             path = str(ROOT / "asko_bitrix_filler")
             if path not in sys.path:
                 sys.path.insert(0, path)
+
             import asko_bitrix_filler as module
 
             self._module = module
+
         return self._module
 
     def _run_bg(self, func: Callable[[], None]) -> None:
@@ -154,11 +157,13 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             except Exception:
                 pass
             self.driver = None
+
         for profile in self._temporary_profiles:
             try:
                 shutil.rmtree(profile)
             except OSError:
                 pass
+
         self._temporary_profiles.clear()
 
     def _start_flow(self) -> None:
@@ -180,19 +185,47 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         elif self.stage == "policy_opened":
             self._fill_asko()
         else:
-            self.state("ASKO: текущий сценарий уже выполнен. Для новой сделки нажмите «Новый полис» или «Сбросить сценарий».")
+            self.state(
+                "ASKO: текущий сценарий уже выполнен. "
+                "Для новой сделки нажмите «Новый полис» или «Сбросить сценарий»."
+            )
 
     def _settings_value(self, key: str, default: str = "") -> str:
         return str(self.settings.get(key, default) or "")
 
+    def _extract_deal_with_company_phone(self, module, result: dict, webhook: str):
+        """
+        Новый asko_bitrix_filler.extract_deal должен принимать webhook:
+            extract_deal(result, webhook=webhook)
+
+        Это нужно, чтобы внутри ASKO-модуля получить DEAL.COMPANY_ID,
+        вызвать crm.company.get и взять PHONE из компании.
+
+        Fallback оставлен для совместимости со старой версией файла.
+        """
+        try:
+            return module.extract_deal(result, webhook=webhook)
+        except TypeError:
+            self.log(
+                "ASKO: asko_bitrix_filler.extract_deal() не принимает webhook. "
+                "Телефон из COMPANY.PHONE не будет получен. "
+                "Обновите asko_bitrix_filler.py."
+            )
+            return module.extract_deal(result)
+
     def _fetch_deal(self) -> None:
         module = self._load_module()
         webhook = self._settings_value("bitrix_webhook_url")
+
         self.log(f"ASKO: получаю сделку Bitrix24 ID {self.deal_id}...")
         result = module.bitrix_call(webhook, "crm.deal.get", {"id": self.deal_id})
-        self.deal = module.extract_deal(result)
+
+        self.deal = self._extract_deal_with_company_phone(module, result, webhook)
+
         preview = {
             "deal_id": self.deal.deal_id,
+            "Компания": getattr(self.deal, "company_name", ""),
+            "Источник телефона": getattr(self.deal, "phone_source", ""),
             "Номер бланка ASKO": self.deal.policy_number,
             "Госномер": self.deal.reg_number,
             "Дата начала": self.deal.start_date,
@@ -204,7 +237,21 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             "Премия": self.deal.amount,
             "Валюта": self.deal.currency,
         }
+
         self.data(preview)
+
+        if self.deal.phone:
+            self.log(
+                "ASKO: телефон для мобильного номера получен: "
+                f"{self.deal.phone} "
+                f"({getattr(self.deal, 'phone_source', 'источник не указан')})"
+            )
+        else:
+            self.log(
+                "ASKO: телефон не найден. "
+                "Проверьте COMPANY_ID в сделке и PHONE в карточке компании Bitrix24."
+            )
+
         self.stage = "deal_loaded"
         self.state("ASKO: данные сделки получены.")
 
@@ -221,6 +268,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         options.add_argument("--remote-allow-origins=*")
         options.add_argument("--lang=ru-RU")
         options.add_argument(f"--user-data-dir={profile}")
+
         return options
 
     def _cleanup_chrome_profile(self, profile: Path) -> None:
@@ -232,6 +280,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             profile / "LOCK",
             profile / "Default" / "LOCK",
         ]
+
         for stale_path in stale_paths:
             try:
                 if stale_path.is_dir():
@@ -239,13 +288,17 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 elif stale_path.exists():
                     stale_path.unlink()
             except OSError:
-                self.log(f"ASKO: Chrome profile занят, не удалось удалить {stale_path.name}. Попробую запасной профиль.")
+                self.log(
+                    f"ASKO: Chrome profile занят, не удалось удалить {stale_path.name}. "
+                    "Попробую запасной профиль."
+                )
 
     def _make_driver_with_profile(self, profile: Path):
         from selenium import webdriver
 
         profile.mkdir(parents=True, exist_ok=True)
         self._cleanup_chrome_profile(profile)
+
         return webdriver.Chrome(options=self._chrome_options(profile))
 
     def _short_error(self, exc: Exception) -> str:
@@ -254,41 +307,65 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
     def _make_driver(self):
         from selenium.common.exceptions import SessionNotCreatedException, WebDriverException
 
-        profile = Path(self._settings_value("asko_chrome_profile_dir", str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2")))
+        profile = Path(
+            self._settings_value(
+                "asko_chrome_profile_dir",
+                str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"),
+            )
+        )
+
         try:
             self.log(f"ASKO: запускаю Chrome с профилем {profile}")
             return self._make_driver_with_profile(profile)
+
         except (SessionNotCreatedException, WebDriverException) as exc:
             fallback_profile = Path(tempfile.mkdtemp(prefix="asko_chrome_profile_"))
             self._temporary_profiles.append(fallback_profile)
+
             self.log(
                 "ASKO: основной Chrome profile не запустился. "
                 "Чаще всего он занят открытым Chrome или повреждён. "
                 f"Пробую чистый временный профиль: {fallback_profile}. "
                 f"Краткая ошибка: {self._short_error(exc)}"
             )
+
             try:
                 return self._make_driver_with_profile(fallback_profile)
+
             except (SessionNotCreatedException, WebDriverException) as retry_exc:
                 raise RuntimeError(
                     "Chrome для ASKO не запустился даже с чистым временным профилем. "
                     "Закройте все окна Chrome/Chromedriver и попробуйте снова. "
-                    f"Первая ошибка: {self._short_error(exc)}; повторная ошибка: {self._short_error(retry_exc)}"
+                    f"Первая ошибка: {self._short_error(exc)}; "
+                    f"повторная ошибка: {self._short_error(retry_exc)}"
                 ) from retry_exc
 
     def _open_and_login(self) -> None:
         module = self._load_module()
+
         from selenium.webdriver.common.by import By
         from selenium.webdriver.support import expected_conditions as EC
         from selenium.webdriver.support.ui import WebDriverWait
 
         if not self.driver:
             self.driver = self._make_driver()
+
         self.driver.get(module.ASKO_LOGIN_URL)
+
         wait = WebDriverWait(self.driver, 25)
-        self._set_input(wait.until(EC.presence_of_element_located((By.ID, "tfSystemLogin"))), self._settings_value("asko_login"))
-        self._set_input(wait.until(EC.presence_of_element_located((By.ID, "tfSystemPassword"))), self._settings_value("asko_password"))
+
+        self._set_input(
+            wait.until(EC.presence_of_element_located((By.ID, "tfSystemLogin"))),
+            self._settings_value("asko_login"),
+        )
+
+        self._set_input(
+            wait.until(EC.presence_of_element_located((By.ID, "tfSystemPassword"))),
+            self._settings_value("asko_password"),
+        )
+
         wait.until(EC.element_to_be_clickable((By.ID, "btSystemLogin1"))).click()
+
         self.stage = "logged_in"
         self.state("ASKO: вход выполнен или ожидается загрузка кабинета.")
 
@@ -299,27 +376,39 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         if not self.driver:
             self._open_and_login()
+
         self._click_text_or_id("Полис ОГПО", "ext-gen238")
+
         try:
             self._click_text_or_id("Новый полис", "ext-gen277")
         except Exception:
             self._click_text_or_id("ОС ГПО BTC", "ext-gen1026")
-        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.TAG_NAME, "body")))
+
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
         self.stage = "policy_opened"
         self.state("ASKO: форма нового полиса открыта.")
 
     def _fill_asko(self) -> None:
         module = self._load_module()
+
         if not self.deal:
             self._fetch_deal()
+
         if not self.driver:
             self._open_and_login()
+
         start_value = ""
         if self.deal.start_date:
             start_date = datetime.strptime(self.deal.start_date, "%d.%m.%Y").date()
             start_value = module.asko_start_datetime(start_date)
+
         code, phone = module.normalize_phone(self.deal.phone)
+
         term_text = self._settings_value("asko_term_text", "15 дней")
+
         pairs = [
             ("blank_number", self.deal.policy_number),
             ("start_datetime", start_value),
@@ -330,11 +419,19 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             ("email", self.deal.email),
             ("notification_language", self._settings_value("asko_notification_language", "Русский")),
             ("client_form", self._settings_value("asko_client_form", "Физическое лицо")),
-            ("note", f"Bitrix deal ID: {self.deal.deal_id}; Госномер: {self.deal.reg_number}; VIN: {self.deal.vin}"),
+            (
+                "note",
+                f"Bitrix deal ID: {self.deal.deal_id}; "
+                f"Госномер: {self.deal.reg_number}; "
+                f"VIN: {self.deal.vin}",
+            ),
         ]
+
         for key, value in pairs:
             self._safe_set(module.ASKO_MAIN_FIELDS[key], value)
+
         self._select_asko_period(module.ASKO_MAIN_FIELDS["term"], term_text)
+
         self.stage = "filled"
         self.state("ASKO: основные поля заполнены в новом приложении. Проверьте данные в браузере.")
 
@@ -342,12 +439,14 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         from selenium.webdriver.common.keys import Keys
 
         value = "" if value is None else str(value)
+
         try:
             element.click()
             element.send_keys(Keys.CONTROL, "a")
             element.send_keys(Keys.BACKSPACE)
             element.send_keys(value)
             element.send_keys(Keys.TAB)
+
         except Exception:
             self.driver.execute_script(
                 "arguments[0].value=arguments[1];"
@@ -366,21 +465,30 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         if not term_text:
             return
+
         wait = WebDriverWait(self.driver, 10)
+
         try:
             element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
             element.click()
             element.send_keys(Keys.CONTROL, "a")
             element.send_keys(term_text)
+
             option = wait.until(
-                EC.element_to_be_clickable((By.XPATH, f"//*[normalize-space(text())='{term_text}' or normalize-space(.)='{term_text}']"))
+                EC.element_to_be_clickable(
+                    (
+                        By.XPATH,
+                        f"//*[normalize-space(text())='{term_text}' or normalize-space(.)='{term_text}']",
+                    )
+                )
             )
             option.click()
+
             self.log(f"ASKO: Период страхования ← {term_text}")
+
         except Exception:
             self._safe_set(element_id, term_text)
             self.log(f"ASKO: Период страхования установлен вводом текста ← {term_text}")
-
 
     def _safe_set(self, element_id: str, value) -> None:
         from selenium.webdriver.common.by import By
@@ -389,10 +497,14 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         if value is None or str(value) == "":
             return
+
         try:
-            element = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.ID, element_id)))
+            element = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.ID, element_id))
+            )
             self._set_input(element, value)
             self.log(f"ASKO: {element_id} ← {value}")
+
         except Exception as exc:
             self.log(f"ASKO: не заполнено {element_id}: {exc}")
 
@@ -403,17 +515,31 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         if element_id:
             try:
-                WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.ID, element_id))).click()
+                WebDriverWait(self.driver, 5).until(
+                    EC.element_to_be_clickable((By.ID, element_id))
+                ).click()
                 return
             except Exception:
                 pass
+
         xpath = f"//*[normalize-space(text())='{text}' or contains(normalize-space(.), '{text}')]"
-        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, xpath))).click()
+
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, xpath))
+        ).click()
 
 
-def build_adapter(scenario_key: str, settings: dict, log: LogCallback, state: StateCallback, data: DataCallback) -> BaseScenarioAdapter:
+def build_adapter(
+    scenario_key: str,
+    settings: dict,
+    log: LogCallback,
+    state: StateCallback,
+    data: DataCallback,
+) -> BaseScenarioAdapter:
     if scenario_key == "warta_poland":
         return WartaIntegratedAdapter(settings, log, state, data)
+
     if scenario_key == "asko_kazakhstan":
         return AskoIntegratedAdapter(settings, log, state, data)
+
     raise ValueError(f"Неизвестный сценарий: {scenario_key}")
