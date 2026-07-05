@@ -21,6 +21,14 @@ from .warta_page import WartaPage
 class WorkerSignals(QObject):
     result = Signal(object); error = Signal(str)
 
+
+class UiBridge(QObject):
+    """Thread-safe bridge from scenario adapter callbacks to Qt UI slots."""
+
+    log_signal = Signal(str)
+    state_signal = Signal(str)
+    data_signal = Signal(dict)
+
 class Runnable(QRunnable):
     def __init__(self, fn: Callable[[], object]): super().__init__(); self.fn = fn; self.signals = WorkerSignals()
     @Slot()
@@ -32,6 +40,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__(); self.setWindowTitle("Bitrix Policy Automation Hub — PySide6"); self.resize(1220, 820); self.setMinimumSize(980, 680)
         self.settings = load_settings(); self.log_service = LogService(); self.pool = QThreadPool.globalInstance(); self.adapter: BaseScenarioAdapter | None = None; self.selected_scenario = None; self.deal = None; self.deal_id = ""
+        self.ui_bridge = UiBridge(self)
         self._build_ui(); self._connect(); self.settings_page.set_values(self.settings); self.add_log("Новый PySide6 UI запущен. Старый Tkinter UI оставлен как fallback.")
 
     def _build_ui(self):
@@ -52,6 +61,10 @@ class MainWindow(QMainWindow):
         self.warta_page.next_requested.connect(self.next_step); self.warta_page.reset_requested.connect(self.reset_scenario); self.warta_page.close_worker_requested.connect(self.close_adapter)
         self.log_page.clear_requested.connect(self.clear_log); self.log_page.copy_requested.connect(self.copy_log); self.log_page.filter_changed.connect(lambda _v: self.refresh_logs())
         self.settings_page.save_requested.connect(self.save_settings_from_ui)
+        self.ui_bridge.log_signal.connect(self.on_adapter_log)
+        self.ui_bridge.state_signal.connect(self.on_adapter_state)
+        self.ui_bridge.data_signal.connect(self.on_adapter_data)
+
 
     def add_log(self, message: str, level: str = "info"):
         rec = self.log_service.add(message, level); self.bottom_log.appendPlainText(rec.format()); self.refresh_logs()
@@ -76,7 +89,8 @@ class MainWindow(QMainWindow):
     def _deal_loaded(self, result):
         deal_id, deal, scenario, adapter_settings, asko_term_text = result; self.deal_id = deal_id; self.deal = deal; self.selected_scenario = scenario
         if self.adapter: self.adapter.shutdown(); self.adapter = None
-        if scenario: self.adapter = build_adapter(scenario.adapter_key, adapter_settings, self.threadsafe_log, self.threadsafe_state, self.threadsafe_data)
+        if scenario: self.adapter = build_adapter(scenario.adapter_key, adapter_settings, self.ui_bridge.log_signal.emit, self.ui_bridge.state_signal.emit, self.ui_bridge.data_signal.emit)
+
         preview = self._preview(deal, scenario, asko_term_text); self.deal_page.set_preview(preview)
         self.set_status(f"Сделка {deal_id} загружена. Сценарий: {preview['scenario']}.")
 
@@ -95,9 +109,13 @@ class MainWindow(QMainWindow):
     def close_adapter(self):
         if self.adapter: self.adapter.shutdown(); self.set_status("Фоновый worker/Chrome закрыт.")
     def save_settings_from_ui(self, values: dict): self.settings.update(values); save_settings(self.settings); self.set_status(f"Настройки сохранены: {SETTINGS_FILE}")
-    def threadsafe_log(self, text: str): self.add_log(text)
-    def threadsafe_state(self, text: str): self.set_status(text)
-    def threadsafe_data(self, data: dict): self.add_log("Получены данные сценария."); self.deal_page.set_preview({**self._preview(self.deal or {}, self.selected_scenario, self.settings.get('asko_term_text', '')), **self._flatten_data(data)})
+    @Slot(str)
+    def on_adapter_log(self, text: str): self.add_log(text)
+    @Slot(str)
+    def on_adapter_state(self, text: str): self.set_status(text)
+    @Slot(dict)
+    def on_adapter_data(self, data: dict): self.add_log("Получены данные сценария."); self.deal_page.set_preview({**self._preview(self.deal or {}, self.selected_scenario, self.settings.get('asko_term_text', '')), **self._flatten_data(data)})
+
     def _flatten_data(self, data: dict) -> dict:
         if not data: return {}
         return {"phone": data.get("phone", ""), "email": data.get("email", ""), "policy_number": data.get("policy_number", ""), "reg_number": data.get("reg_number", ""), "vin": data.get("vin", ""), "start_date": data.get("start_date", ""), "asko_company_id": data.get("asko_company_id", "")}
