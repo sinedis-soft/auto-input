@@ -29,7 +29,6 @@ class UiBridge(QObject):
     state_signal = Signal(str)
     data_signal = Signal(dict)
 
-
 class Runnable(QRunnable):
     def __init__(self, fn: Callable[[], object]): super().__init__(); self.fn = fn; self.signals = WorkerSignals()
     @Slot()
@@ -40,7 +39,9 @@ class Runnable(QRunnable):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__(); self.setWindowTitle("Bitrix Policy Automation Hub — PySide6"); self.resize(1220, 820); self.setMinimumSize(980, 680)
+
         self.settings = load_settings(); self.log_service = LogService(); self.pool = QThreadPool.globalInstance(); self.adapter: BaseScenarioAdapter | None = None; self.asko_adapter: BaseScenarioAdapter | None = None; self.selected_scenario = None; self.deal = None; self.deal_id = ""; self.current_deal_id = ""; self.current_scenario_key = ""; self.current_adapter_settings: dict = {}
+
         self.ui_bridge = UiBridge(self)
         self._build_ui(); self._connect(); self.settings_page.set_values(self.settings); self.add_log("Новый PySide6 UI запущен. Старый Tkinter UI оставлен как fallback.")
 
@@ -58,6 +59,7 @@ class MainWindow(QMainWindow):
 
     def _connect(self):
         self.menu.currentRowChanged.connect(self.stack.setCurrentIndex); self.deal_page.load_requested.connect(self.load_deal)
+
         self.asko_page.next_requested.connect(self.asko_next_step); self.asko_page.new_policy_requested.connect(self.new_policy); self.asko_page.reset_requested.connect(self.reset_scenario); self.asko_page.close_chrome_requested.connect(self.close_adapter)
         self.warta_page.next_requested.connect(self.next_step); self.warta_page.reset_requested.connect(self.reset_scenario); self.warta_page.close_worker_requested.connect(self.close_adapter)
         self.log_page.clear_requested.connect(self.clear_log); self.log_page.copy_requested.connect(self.copy_log); self.log_page.filter_changed.connect(lambda _v: self.refresh_logs())
