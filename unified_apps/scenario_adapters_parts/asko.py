@@ -30,10 +30,47 @@ ASKO_VEHICLE_FIELDS = {
     "reg_number": "ext-comp-1986",
     "registration_certificate": "ext-comp-1988",
     "vin": "ext-comp-1984",
+    "registration_region": "ext-comp-1989",
+    "registration_country": "ext-comp-1990",
     "search_button": "ext-gen1537",
     "selected_vehicle": "ext-comp-1991",
     "apply_button": "ext-gen1648",
 }
+
+ASKO_TEMPORARY_ENTRY_REGION = "Временный въезд (Нерезиденты РК)"
+
+BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY = {
+    "529": "Армения",
+    "123": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "523": "Грузия",
+    "527": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "383": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "125": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "525": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+}
+
+BITRIX_COUNTRY_VALUE_TO_ASKO_REGISTRATION_COUNTRY = {
+    "armenia": "Армения",
+    "армен": "Армения",
+    "belarus": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "беларус": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "белорус": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "georgia": "Грузия",
+    "груз": "Грузия",
+    "kyrgyzstan": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "кыргыз": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "киргиз": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "mongolia": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "монгол": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "russia": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "росси": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "uzbekistan": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+    "узбе": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+    "tajikistan": "ТАДЖИКИСТАН/ Тәжікстан",
+    "тадж": "ТАДЖИКИСТАН/ Тәжікстан",
+}
+
+ASKO_DEFAULT_REGISTRATION_COUNTRY = "Другие страны"
 
 
 class AskoIntegratedAdapter(BaseScenarioAdapter):
@@ -258,6 +295,9 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             "ТС": self.deal.vehicle_model,
             "Год": self.deal.vehicle_year,
             "VIN": self.deal.vin,
+            "СРТС": getattr(self.deal, "registration_certificate", ""),
+            "Дата выдачи СРТС": getattr(self.deal, "registration_certificate_issue_date", ""),
+            "Страна регистрации ТС": getattr(self.deal, "vehicle_registration_country", ""),
             "Премия": self.deal.amount,
             "Валюта": self.deal.currency,
         }
@@ -891,11 +931,12 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         )
 
         self._wait_for_manual_vehicle_search_result(reg_number, timeout=timeout)
+        self._fill_vehicle_details_after_selection()
 
         self.stage = "vehicle_selected"
         self.state(
-            "ASKO: автомобиль выбран и данные ТС подтянулись. "
-            "Проверьте форму ТС и нажмите «Применить» в ASKO, если данные корректны."
+            "ASKO: автомобиль выбран, данные СРТС/региона/страны регистрации заполнены. "
+            "Проверьте форму ТС и нажмите «Применить» в ASKO."
         )
 
     def _wait_for_manual_vehicle_search_result(self, reg_number: str, timeout: int = 240) -> None:
@@ -967,6 +1008,109 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
     def _normalize_vehicle_reg_number(self, value: str) -> str:
         return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
+
+    def _fill_vehicle_details_after_selection(self) -> None:
+        """Заполняет дополнительные поля ТС после ручного выбора автомобиля оператором."""
+        certificate = str(getattr(self.deal, "registration_certificate", "") or "").strip()
+        issue_date = self._format_bitrix_date(
+            getattr(self.deal, "registration_certificate_issue_date", "")
+        )
+        country_value = self._map_vehicle_registration_country(
+            getattr(self.deal, "vehicle_registration_country", "")
+        )
+
+        self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
+        self._safe_set_vehicle_issue_date(issue_date)
+        self._select_asko_combo_text(
+            ASKO_VEHICLE_FIELDS["registration_region"],
+            ASKO_TEMPORARY_ENTRY_REGION,
+            "Регион регистрации",
+        )
+        self._select_asko_combo_text(
+            ASKO_VEHICLE_FIELDS["registration_country"],
+            country_value,
+            "Страна регистрации ТС",
+        )
+
+        self.log(
+            "ASKO: дополнительные поля ТС заполнены: "
+            f"СРТС={certificate or 'пусто'}, "
+            f"дата выдачи={issue_date or 'пусто'}, "
+            f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
+            f"страна={country_value}."
+        )
+
+    def _safe_set_vehicle_issue_date(self, value: str) -> None:
+        if not value:
+            return
+
+        # ID поля даты выдачи СРТС в снимке страницы не указан, поэтому ищем
+        # ExtJS-компонент по fieldLabel, а если не нашли — обычный input рядом с label.
+        element_id = self.driver.execute_script(
+            """
+            if (window.Ext && Ext.ComponentMgr && Ext.ComponentMgr.all) {
+                let found = null;
+                Ext.ComponentMgr.all.each(function(cmp) {
+                    const label = String(cmp.fieldLabel || cmp.boxLabel || "").toLowerCase();
+                    if (!found && label.includes("дата") && label.includes("свид") && label.includes("рег")) {
+                        found = cmp.id;
+                    }
+                });
+                return found;
+            }
+            return null;
+            """
+        )
+
+        if element_id:
+            self._safe_set(str(element_id), value)
+            return
+
+        try:
+            from selenium.webdriver.common.by import By
+            from selenium.webdriver.support import expected_conditions as EC
+            from selenium.webdriver.support.ui import WebDriverWait
+
+            xpath = (
+                "//*[contains(normalize-space(.), 'Дата выдачи') "
+                "and (contains(normalize-space(.), 'свид') or contains(normalize-space(.), 'рег'))]"
+                "/following::input[1]"
+            )
+            element = WebDriverWait(self.driver, 3).until(
+                EC.presence_of_element_located((By.XPATH, xpath))
+            )
+            self._set_input(element, value)
+            self.log(f"ASKO: Дата выдачи свид.рег.ТС ← {value}")
+        except Exception as exc:
+            self.log(f"ASKO: не заполнена дата выдачи свид.рег.ТС: {exc}")
+
+    def _format_bitrix_date(self, value) -> str:
+        parsed = self._load_module().parse_iso_date(value)
+        if parsed:
+            return parsed.strftime("%d.%m.%Y")
+        return str(value or "").strip()
+
+    def _map_vehicle_registration_country(self, value) -> str:
+        raw = str(value or "").strip()
+        if not raw:
+            return ASKO_DEFAULT_REGISTRATION_COUNTRY
+
+        if raw in BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY:
+            return BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY[raw]
+
+        lowered = raw.lower()
+        for needle, mapped in BITRIX_COUNTRY_VALUE_TO_ASKO_REGISTRATION_COUNTRY.items():
+            if needle in lowered:
+                return mapped
+
+        return ASKO_DEFAULT_REGISTRATION_COUNTRY
+
+    def _select_asko_combo_text(self, element_id: str, text: str, label: str) -> None:
+        if not text:
+            return
+
+        self._select_asko_period(element_id, text)
+        self.log(f"ASKO: {label} выбран ← {text}")
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
