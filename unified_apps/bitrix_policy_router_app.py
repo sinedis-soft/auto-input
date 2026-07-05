@@ -1,8 +1,10 @@
 """Unified Bitrix deal router for insurance automation projects.
 
 The app fetches a Bitrix deal, shows copied data, detects an automation scenario
+
 (WARTA Poland, ASKO Kazakhstan, or a future registered scenario), and runs the
 matching integrated adapter inside this application.
+
 """
 
 from __future__ import annotations
@@ -18,6 +20,7 @@ from tkinter import messagebox, scrolledtext, ttk
 
 import requests
 
+
 from scenario_adapters import BaseScenarioAdapter, build_adapter
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,6 +28,7 @@ SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
 
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
+
     "warta_url": "",
     "warta_login": "",
     "warta_password": "",
@@ -36,6 +40,7 @@ DEFAULT_SETTINGS = {
     "asko_notification_language": "Русский",
     "asko_client_form": "Физическое лицо",
     "asko_term_text": "15 дней",
+
 }
 
 BITRIX_FIELD_INSURANCE_COMPANY = "UF_CRM_1686683031442"
@@ -60,7 +65,9 @@ class Scenario:
     key: str
     title: str
     description: str
+
     adapter_key: str
+
     keywords: tuple[str, ...]
     required_fields: dict[str, tuple[str, ...]]
 
@@ -69,6 +76,7 @@ SCENARIOS = [
     Scenario(
         key="warta_poland",
         title="WARTA — польское пограничное страхование",
+
         description="Выполняет интегрированную worker-логику WARTA для OC graniczne.",
         adapter_key="warta_poland",
         keywords=("warta", "poland", "polska", "поль", "oc graniczne"),
@@ -80,6 +88,7 @@ SCENARIOS = [
     Scenario(
         key="asko_kazakhstan",
         title="ASKO — казахское пограничное страхование",
+
         description="Выполняет интегрированную Selenium/Bitrix-логику ASKO.",
         adapter_key="asko_kazakhstan",
         keywords=("asko", "kazakhstan", "казах", "kz", "огпо"),
@@ -169,6 +178,7 @@ class SettingsWindow(tk.Toplevel):
     def __init__(self, parent: "RouterApp"):
         super().__init__(parent)
         self.title("Настройки")
+
         self.geometry("860x620")
         self.minsize(760, 520)
         self.parent = parent
@@ -216,9 +226,11 @@ class SettingsWindow(tk.Toplevel):
     def save(self):
         for key, var in self.vars.items():
             self.parent.settings[key] = var.get().strip()
+
         save_settings(self.parent.settings)
         self.parent.set_status("Настройки сохранены.")
         self.destroy()
+
 
 class RouterApp(tk.Tk):
     def __init__(self):
@@ -289,6 +301,7 @@ class RouterApp(tk.Tk):
             scenario = detect_scenario(deal)
             self.deal = deal
             self.selected_scenario = scenario
+
             if self.adapter:
                 self.adapter.shutdown()
                 self.adapter = None
@@ -304,9 +317,11 @@ class RouterApp(tk.Tk):
                 "route_fields": {field: normalize_bitrix_value(deal.get(field)) for field in SCENARIO_HINT_FIELDS},
             }
             self.after(0, self._show_deal, preview)
+
             if scenario and self.adapter:
                 self.after(0, self.set_status, f"Сценарий выбран: {scenario.title}. Запускаю первый шаг в новом приложении.")
                 self.adapter.start(deal_id)
+
             else:
                 self.after(0, self.set_status, "Сценарий не определен. Добавьте ключевые слова/поля маршрутизации для этой страховой.")
         except Exception as exc:
@@ -356,3 +371,4 @@ if __name__ == "__main__":
     app = RouterApp()
     app.protocol("WM_DELETE_WINDOW", app.on_close)
     app.mainloop()
+
