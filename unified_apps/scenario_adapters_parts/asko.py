@@ -582,10 +582,10 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self.stage = "main_filled_wait_operator_next"
         self.state(
-            "ASKO: основные поля полиса заполнены. "
-            "Автоматически открываю «Список застрахованных» → «Добавить»."
+            "Основные поля полиса заполнены. Проверьте данные и вручную нажмите “Далее” "
+            "в ASKO. После перехода нажмите “Далее” в приложении, чтобы добавить "
+            "застрахованное юрлицо."
         )
-        self._continue_after_main_policy_fields()
 
     def _open_insured_list_add(self) -> None:
         """
