@@ -1,4 +1,15 @@
 {
   "bitrix_webhook_url": "https://sinedis.bitrix24.pl/rest/1/we9u5ut6ssq262r9/",
+  "warta_url": "https://eagent.warta.pl",
+  "warta_login": "JK287299",
+  "warta_password": "DSD2022!sergiusz04",
+  "asko_login": "DUSAHM9",
+  "asko_password": "Oral2026$$$",
+  "asko_chrome_profile_dir": "G:\\programming\\autoinput\\asko_bitrix_filler\\chrome_profile_asko2",
+  "asko_payment_type": "Безналичным",
+  "asko_payment_order": "Единовременно",
+  "asko_notification_language": "Русский",
+  "asko_client_form": "Физическое лицо",
+  "asko_term_text": "15 дней",
   "python_executable": "C:\\Users\\Пользователь\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
 }
