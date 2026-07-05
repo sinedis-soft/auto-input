@@ -29,7 +29,6 @@ class UiBridge(QObject):
     state_signal = Signal(str)
     data_signal = Signal(dict)
 
-
 class Runnable(QRunnable):
     def __init__(self, fn: Callable[[], object]): super().__init__(); self.fn = fn; self.signals = WorkerSignals()
     @Slot()
@@ -66,6 +65,7 @@ class MainWindow(QMainWindow):
         self.ui_bridge.state_signal.connect(self.on_adapter_state)
         self.ui_bridge.data_signal.connect(self.on_adapter_data)
 
+
     def add_log(self, message: str, level: str = "info"):
         rec = self.log_service.add(message, level); self.bottom_log.appendPlainText(rec.format()); self.refresh_logs()
 
@@ -90,6 +90,7 @@ class MainWindow(QMainWindow):
         deal_id, deal, scenario, adapter_settings, asko_term_text = result; self.deal_id = deal_id; self.deal = deal; self.selected_scenario = scenario
         if self.adapter: self.adapter.shutdown(); self.adapter = None
         if scenario: self.adapter = build_adapter(scenario.adapter_key, adapter_settings, self.ui_bridge.log_signal.emit, self.ui_bridge.state_signal.emit, self.ui_bridge.data_signal.emit)
+
         preview = self._preview(deal, scenario, asko_term_text); self.deal_page.set_preview(preview)
         self.set_status(f"Сделка {deal_id} загружена. Сценарий: {preview['scenario']}.")
 
@@ -114,6 +115,7 @@ class MainWindow(QMainWindow):
     def on_adapter_state(self, text: str): self.set_status(text)
     @Slot(dict)
     def on_adapter_data(self, data: dict): self.add_log("Получены данные сценария."); self.deal_page.set_preview({**self._preview(self.deal or {}, self.selected_scenario, self.settings.get('asko_term_text', '')), **self._flatten_data(data)})
+
     def _flatten_data(self, data: dict) -> dict:
         if not data: return {}
         return {"phone": data.get("phone", ""), "email": data.get("email", ""), "policy_number": data.get("policy_number", ""), "reg_number": data.get("reg_number", ""), "vin": data.get("vin", ""), "start_date": data.get("start_date", ""), "asko_company_id": data.get("asko_company_id", "")}
