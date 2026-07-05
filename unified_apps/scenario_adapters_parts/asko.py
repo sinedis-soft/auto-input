@@ -29,6 +29,7 @@ ASKO_INSURED_LEGAL_FIELDS = {
 ASKO_VEHICLE_FIELDS = {
     "reg_number": "ext-comp-1986",
     "registration_certificate": "ext-comp-1988",
+    "registration_certificate_issue_date": "ext-comp-1995",
     "vin": "ext-comp-1984",
     "vehicle_year": "ext-comp-1996",
     "registration_region": "ext-comp-1989",
@@ -144,6 +145,11 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self._open_new_policy()
         self._fill_asko()
 
+    def _continue_after_main_policy_fields(self) -> None:
+        """Автоматически продолжает ASKO-сценарий после заполнения основных полей."""
+        self._open_insured_list_add()
+        self._fill_legal_insured()
+
     def _next_step(self) -> None:
         if self.stage == "idle":
             self._start_flow()
@@ -161,8 +167,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             self._fill_asko()
 
         elif self.stage == "main_filled_wait_operator_next":
-            self._open_insured_list_add()
-            self._fill_legal_insured()
+            self._continue_after_main_policy_fields()
 
         elif self.stage == "insured_add_opened":
             self._fill_legal_insured()
@@ -297,6 +302,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             "Год": self.deal.vehicle_year,
             "VIN": self.deal.vin,
             "СРТС": getattr(self.deal, "registration_certificate", ""),
+            "Дата выдачи СРТС": self._vehicle_certificate_issue_date_value(),
             "Страна регистрации ТС": getattr(self.deal, "vehicle_registration_country", ""),
             "Премия": self.deal.amount,
             "Валюта": self.deal.currency,
@@ -568,9 +574,9 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.stage = "main_filled_wait_operator_next"
         self.state(
             "ASKO: основные поля полиса заполнены. "
-            "Нажмите «Далее» в приложении — робот сразу откроет "
-            "«Список застрахованных» → «Добавить» без нажатия «Далее» в ASKO."
+            "Автоматически открываю «Список застрахованных» → «Добавить»."
         )
+        self._continue_after_main_policy_fields()
 
     def _open_insured_list_add(self) -> None:
         """
@@ -1017,12 +1023,17 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         тип/марку/модель и прочие поля. Год выпуска только сверяем с Bitrix.
         """
         certificate = str(getattr(self.deal, "registration_certificate", "") or "").strip()
+        certificate_issue_date = self._vehicle_certificate_issue_date_value()
         country_value = self._map_vehicle_registration_country(
             getattr(self.deal, "vehicle_registration_country", "")
         )
 
         self._verify_vehicle_year_matches_bitrix()
         self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
+        self._safe_set(
+            ASKO_VEHICLE_FIELDS["registration_certificate_issue_date"],
+            certificate_issue_date,
+        )
         self._select_asko_combo_text(
             ASKO_VEHICLE_FIELDS["registration_region"],
             ASKO_TEMPORARY_ENTRY_REGION,
@@ -1038,10 +1049,28 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
             "ASKO: поля ТС после выбора автомобиля обработаны: "
             f"СРТС={certificate or 'пусто'}, "
-
+            f"дата выдачи СРТС={certificate_issue_date or 'пусто'}, "
             f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
             f"страна={country_value}. Остальные поля ТС не менялись."
         )
+
+
+    def _vehicle_certificate_issue_date_value(self) -> str:
+        """Возвращает дату выдачи СРТС для поля ASKO ext-comp-1995.
+
+        В текущей выгрузке Bitrix отдельного поля даты выдачи СРТС нет,
+        поэтому используем дату начала страхования как безопасный заполняемый
+        источник вместо того, чтобы оставлять обязательное поле пустым.
+        Если extract_deal() позже начнёт отдавать registration_certificate_issue_date,
+        оно будет использовано автоматически.
+        """
+        explicit_value = str(
+            getattr(self.deal, "registration_certificate_issue_date", "") or ""
+        ).strip()
+        if explicit_value:
+            return explicit_value
+
+        return str(getattr(self.deal, "start_date", "") or "").strip()
 
     def _verify_vehicle_year_matches_bitrix(self) -> None:
 
