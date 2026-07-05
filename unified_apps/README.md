@@ -33,7 +33,7 @@ python unified_apps\chrome_capture_app.py
 Сейчас маршрутизатор выполняет интегрированные сценарии без запуска старых окон:
 
 - WARTA — использует worker-логику из `warta_robot_app_v2/warta_worker.py`;
-- ASKO — использует Selenium/Bitrix-логику, перенесенную из `asko_bitrix_filler/asko_bitrix_filler.py` в адаптер `unified_apps/scenario_adapters.py`.
+- ASKO — использует Selenium/Bitrix-логику, перенесенную из `asko_bitrix_filler/asko_bitrix_filler.py` в адаптер `unified_apps/scenario_adapters_parts/asko.py`; `unified_apps/scenario_adapters.py` оставлен фасадом совместимости.
 
 
 Маршрутизация выполняется по полям сделки Bitrix24:
@@ -44,7 +44,7 @@ python unified_apps\chrome_capture_app.py
 
 ASKO выбирается при компании `1091 / АО «Страховая Компания «АСКО»`, продукте `425 / ОСГО ВТС нерезидента` и стране `1101 / КАЗАХСТАН`. WARTA выбирается при компании `231 / TUiR WARTA S.A.` и продукте `425 / ОСГО ВТС нерезидента`.
 
-Новые страховые сценарии добавляются через список `SCENARIOS` в `bitrix_policy_router_app.py` и фабрику `build_adapter()` в `scenario_adapters.py`: нужно указать обязательные поля `required_fields`, ключевые слова fallback-маршрутизации и новый адаптер выполнения.
+Новые страховые сценарии добавляются через список `SCENARIOS` в `bitrix_policy_router_app.py`, отдельный адаптер в `scenario_adapters_parts/` и фабрику `build_adapter()` в `scenario_adapters_parts/factory.py`: нужно указать обязательные поля `required_fields`, ключевые слова fallback-маршрутизации и новый адаптер выполнения.
 
 ## Как менять логины и пароли страховых
 
