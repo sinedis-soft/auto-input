@@ -1570,6 +1570,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 pass
 
             if self._verify_asko_combo_selected(element_id, term_text):
+
                 self.log(
                     f"ASKO: {label} установлен через ExtJS, дополнительно подтверждаю кликом ← {term_text}"
                 )
@@ -1578,6 +1579,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                     f"ASKO: {label} после ExtJS-выбора не подтвердился, "
                     "повторяю выбор кликом из списка."
                 )
+
         else:
             self.log(f"ASKO: ExtJS-выбор выпадающего списка не сработал: {ext_result}")
 
