@@ -39,7 +39,9 @@ class Runnable(QRunnable):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__(); self.setWindowTitle("Bitrix Policy Automation Hub — PySide6"); self.resize(1220, 820); self.setMinimumSize(980, 680)
-        self.settings = load_settings(); self.log_service = LogService(); self.pool = QThreadPool.globalInstance(); self.adapter: BaseScenarioAdapter | None = None; self.selected_scenario = None; self.deal = None; self.deal_id = ""
+
+        self.settings = load_settings(); self.log_service = LogService(); self.pool = QThreadPool.globalInstance(); self.adapter: BaseScenarioAdapter | None = None; self.asko_adapter: BaseScenarioAdapter | None = None; self.selected_scenario = None; self.deal = None; self.deal_id = ""; self.current_deal_id = ""; self.current_scenario_key = ""; self.current_adapter_settings: dict = {}
+
         self.ui_bridge = UiBridge(self)
         self._build_ui(); self._connect(); self.settings_page.set_values(self.settings); self.add_log("Новый PySide6 UI запущен. Старый Tkinter UI оставлен как fallback.")
 
@@ -57,14 +59,14 @@ class MainWindow(QMainWindow):
 
     def _connect(self):
         self.menu.currentRowChanged.connect(self.stack.setCurrentIndex); self.deal_page.load_requested.connect(self.load_deal)
-        self.asko_page.next_requested.connect(self.next_step); self.asko_page.new_policy_requested.connect(self.new_policy); self.asko_page.reset_requested.connect(self.reset_scenario); self.asko_page.close_chrome_requested.connect(self.close_adapter)
+
+        self.asko_page.next_requested.connect(self.asko_next_step); self.asko_page.new_policy_requested.connect(self.new_policy); self.asko_page.reset_requested.connect(self.reset_scenario); self.asko_page.close_chrome_requested.connect(self.close_adapter)
         self.warta_page.next_requested.connect(self.next_step); self.warta_page.reset_requested.connect(self.reset_scenario); self.warta_page.close_worker_requested.connect(self.close_adapter)
         self.log_page.clear_requested.connect(self.clear_log); self.log_page.copy_requested.connect(self.copy_log); self.log_page.filter_changed.connect(lambda _v: self.refresh_logs())
         self.settings_page.save_requested.connect(self.save_settings_from_ui)
         self.ui_bridge.log_signal.connect(self.on_adapter_log)
         self.ui_bridge.state_signal.connect(self.on_adapter_state)
         self.ui_bridge.data_signal.connect(self.on_adapter_data)
-
 
     def add_log(self, message: str, level: str = "info"):
         rec = self.log_service.add(message, level); self.bottom_log.appendPlainText(rec.format()); self.refresh_logs()
@@ -87,12 +89,58 @@ class MainWindow(QMainWindow):
         self.set_status("Загружаю сделку Bitrix24..."); runner = Runnable(work); runner.signals.result.connect(self._deal_loaded); runner.signals.error.connect(lambda e: self._error("Не удалось загрузить сделку", e)); self.pool.start(runner)
 
     def _deal_loaded(self, result):
-        deal_id, deal, scenario, adapter_settings, asko_term_text = result; self.deal_id = deal_id; self.deal = deal; self.selected_scenario = scenario
+        deal_id, deal, scenario, adapter_settings, asko_term_text = result; self.deal_id = deal_id; self.current_deal_id = str(deal_id); self.deal = deal; self.selected_scenario = scenario
+        self.current_scenario_key = scenario.adapter_key if scenario else "asko_kazakhstan"
+        self.current_adapter_settings = adapter_settings
         if self.adapter: self.adapter.shutdown(); self.adapter = None
+        self.asko_adapter = None
         if scenario: self.adapter = build_adapter(scenario.adapter_key, adapter_settings, self.ui_bridge.log_signal.emit, self.ui_bridge.state_signal.emit, self.ui_bridge.data_signal.emit)
-
+        if scenario and scenario.adapter_key == "asko_kazakhstan": self.asko_adapter = self.adapter
         preview = self._preview(deal, scenario, asko_term_text); self.deal_page.set_preview(preview)
         self.set_status(f"Сделка {deal_id} загружена. Сценарий: {preview['scenario']}.")
+
+    def _build_scenario_adapter(self, adapter_key: str) -> BaseScenarioAdapter:
+        return build_adapter(
+            adapter_key,
+            self.current_adapter_settings or self.settings.copy(),
+            self.ui_bridge.log_signal.emit,
+            self.ui_bridge.state_signal.emit,
+            self.ui_bridge.data_signal.emit,
+        )
+
+    def asko_next_step(self):
+        if not self.current_deal_id:
+            QMessageBox.warning(self, "Сделка не загружена", "Сначала загрузите сделку Bitrix24.")
+            return
+
+        if self.current_scenario_key and self.current_scenario_key != "asko_kazakhstan":
+            self.add_log(
+                f"ASKO: текущая сделка определена как {self.current_scenario_key}; запуск ASKO отменен.",
+                "warning",
+            )
+            QMessageBox.warning(self, "Не ASKO сценарий", "Текущая сделка не определена как ASKO.")
+            return
+
+        adapter_needs_start = (
+            self.asko_adapter is None
+            or str(getattr(self.asko_adapter, "deal_id", "") or "") != self.current_deal_id
+        )
+
+        if adapter_needs_start:
+            if self.asko_adapter:
+                self.asko_adapter.shutdown()
+            self.asko_adapter = self._build_scenario_adapter("asko_kazakhstan")
+            self.adapter = self.asko_adapter
+            self.add_log(f"ASKO: запускаю сценарий для сделки {self.current_deal_id}")
+            self.asko_adapter.start(self.current_deal_id)
+            return
+
+        if not str(getattr(self.asko_adapter, "deal_id", "") or ""):
+            self.add_log("ASKO: deal_id пустой, next_step не будет вызван.", "error")
+            return
+
+        self.add_log(f"ASKO: запускаю сценарий для сделки {self.current_deal_id}")
+        self._run_adapter("ASKO Далее", lambda: self.asko_adapter.next_step())
 
     def _preview(self, deal: dict, scenario, term: str) -> dict:
         route = {field: normalize_bitrix_value(deal.get(field)) for field in SCENARIO_HINT_FIELDS}
@@ -105,7 +153,7 @@ class MainWindow(QMainWindow):
     def new_policy(self): self._run_adapter("Новый полис", lambda: self.adapter.new_policy())
     def reset_scenario(self):
         if self.adapter: self.adapter.reset(); self.adapter.shutdown(); self.adapter = None
-        self.selected_scenario = None; self.deal = None; self.deal_page.set_preview({}); self.set_status("Сценарий сброшен.")
+        self.selected_scenario = None; self.deal = None; self.current_deal_id = ""; self.current_scenario_key = ""; self.current_adapter_settings = {}; self.asko_adapter = None; self.deal_page.set_preview({}); self.set_status("Сценарий сброшен.")
     def close_adapter(self):
         if self.adapter: self.adapter.shutdown(); self.set_status("Фоновый worker/Chrome закрыт.")
     def save_settings_from_ui(self, values: dict): self.settings.update(values); save_settings(self.settings); self.set_status(f"Настройки сохранены: {SETTINGS_FILE}")
@@ -115,7 +163,6 @@ class MainWindow(QMainWindow):
     def on_adapter_state(self, text: str): self.set_status(text)
     @Slot(dict)
     def on_adapter_data(self, data: dict): self.add_log("Получены данные сценария."); self.deal_page.set_preview({**self._preview(self.deal or {}, self.selected_scenario, self.settings.get('asko_term_text', '')), **self._flatten_data(data)})
-
     def _flatten_data(self, data: dict) -> dict:
         if not data: return {}
         return {"phone": data.get("phone", ""), "email": data.get("email", ""), "policy_number": data.get("policy_number", ""), "reg_number": data.get("reg_number", ""), "vin": data.get("vin", ""), "start_date": data.get("start_date", ""), "asko_company_id": data.get("asko_company_id", "")}
