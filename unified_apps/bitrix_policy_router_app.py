@@ -29,7 +29,7 @@ SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
 
-    "warta_url": "",
+    "warta_url": "https://eagent.warta.pl",
     "warta_login": "",
     "warta_password": "",
     "asko_login": "",
@@ -198,18 +198,30 @@ class SettingsWindow(tk.Toplevel):
         self._add_entry(bitrix, 0, "Bitrix24 webhook", "bitrix_webhook_url", secret=True)
         ttk.Label(bitrix, text="Webhook скрыт и не выводится в журнал.", foreground="#666666").grid(row=1, column=1, sticky="w", pady=(4, 0))
 
-        self._add_entry(warta, 0, "WARTA URL", "warta_url")
-        self._add_entry(warta, 1, "WARTA login", "warta_login")
-        self._add_entry(warta, 2, "WARTA password", "warta_password", secret=True)
+        ttk.Label(
+            warta,
+            text="Здесь меняются логин и пароль для входа в кабинет WARTA. Пароль скрыт и сохраняется только локально.",
+            foreground="#666666",
+            wraplength=640,
+        ).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 12))
+        self._add_entry(warta, 1, "WARTA URL", "warta_url")
+        self._add_entry(warta, 2, "WARTA login", "warta_login")
+        self._add_entry(warta, 3, "WARTA password", "warta_password", secret=True)
 
-        self._add_entry(asko, 0, "ASKO login", "asko_login")
-        self._add_entry(asko, 1, "ASKO password", "asko_password", secret=True)
-        self._add_entry(asko, 2, "Chrome profile dir", "asko_chrome_profile_dir")
-        self._add_entry(asko, 3, "Тип оплаты", "asko_payment_type")
-        self._add_entry(asko, 4, "Порядок оплаты", "asko_payment_order")
-        self._add_entry(asko, 5, "Язык уведомлений", "asko_notification_language")
-        self._add_entry(asko, 6, "Форма клиента", "asko_client_form")
-        self._add_entry(asko, 7, "Срок по умолчанию", "asko_term_text")
+        ttk.Label(
+            asko,
+            text="Здесь меняются логин и пароль для входа в ASKO. Если пароль изменился в страховой, обновите его тут и нажмите «Сохранить настройки».",
+            foreground="#666666",
+            wraplength=640,
+        ).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 12))
+        self._add_entry(asko, 1, "ASKO login", "asko_login")
+        self._add_entry(asko, 2, "ASKO password", "asko_password", secret=True)
+        self._add_entry(asko, 3, "Chrome profile dir", "asko_chrome_profile_dir")
+        self._add_entry(asko, 4, "Тип оплаты", "asko_payment_type")
+        self._add_entry(asko, 5, "Порядок оплаты", "asko_payment_order")
+        self._add_entry(asko, 6, "Язык уведомлений", "asko_notification_language")
+        self._add_entry(asko, 7, "Форма клиента", "asko_client_form")
+        self._add_entry(asko, 8, "Срок по умолчанию", "asko_term_text")
 
         for frame in (bitrix, warta, asko):
             frame.columnconfigure(1, weight=1)
@@ -228,7 +240,7 @@ class SettingsWindow(tk.Toplevel):
             self.parent.settings[key] = var.get().strip()
 
         save_settings(self.parent.settings)
-        self.parent.set_status("Настройки сохранены.")
+        self.parent.set_status("Настройки сохранены. Логины и пароли страховых будут использованы при следующем запуске сценария.")
         self.destroy()
 
 
