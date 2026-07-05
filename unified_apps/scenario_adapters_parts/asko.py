@@ -1487,6 +1487,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             )
             return False
 
+
     def _verify_asko_combo_or_raise(self, element_id: str, expected_text: str, label: str) -> None:
         if self._verify_asko_combo_selected(element_id, expected_text):
             self.log(f"ASKO: {label} подтверждён ← {expected_text}")
