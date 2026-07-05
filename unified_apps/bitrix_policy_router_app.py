@@ -21,7 +21,10 @@ from tkinter import messagebox, scrolledtext, ttk
 import requests
 
 
-from scenario_adapters import BaseScenarioAdapter, build_adapter
+if __package__:
+    from .scenario_adapters import BaseScenarioAdapter, build_adapter
+else:
+    from scenario_adapters import BaseScenarioAdapter, build_adapter
 
 ROOT = Path(__file__).resolve().parents[1]
 SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
