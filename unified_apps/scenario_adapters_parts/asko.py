@@ -935,7 +935,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self.stage = "vehicle_selected"
         self.state(
-            "ASKO: автомобиль выбран, СРТС/регион/страна регистрации заполнены, год ТС проверен. "
+            "ASKO: автомобиль выбран, СРТС/регион/страна регистрации заполнены; год ТС проверен без остановки сценария. "
             "Проверьте форму ТС и нажмите «Применить» в ASKO."
         )
 
@@ -1010,7 +1010,6 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
 
     def _fill_vehicle_details_after_selection(self) -> None:
-
         """
         Заполняет только поля, которые должны меняться после ручного выбора ТС.
 
@@ -1021,7 +1020,6 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         country_value = self._map_vehicle_registration_country(
             getattr(self.deal, "vehicle_registration_country", "")
         )
-
 
         self._verify_vehicle_year_matches_bitrix()
         self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
@@ -1039,34 +1037,50 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.log(
 
             "ASKO: поля ТС после выбора автомобиля обработаны: "
-            f"год сверен, СРТС={certificate or 'пусто'}, "
+            f"СРТС={certificate or 'пусто'}, "
+
             f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
             f"страна={country_value}. Остальные поля ТС не менялись."
         )
 
     def _verify_vehicle_year_matches_bitrix(self) -> None:
+
+        """Нефатально сверяет год ASKO с Bitrix, дожидаясь загрузки поля ASKO."""
+        import time
         bitrix_year = self._normalize_year(getattr(self.deal, "vehicle_year", ""))
-        asko_year = self._normalize_year(
-            self._read_input_value(ASKO_VEHICLE_FIELDS["vehicle_year"])
-        )
 
         if not bitrix_year:
             self.log("ASKO: год ТС в Bitrix пустой, сверка ext-comp-1996 пропущена.")
             return
 
-        if not asko_year:
-            raise RuntimeError(
-                "ASKO: после выбора автомобиля поле года ТС ext-comp-1996 пустое. "
-                f"В Bitrix UF_CRM_1686152614718 указан год {bitrix_year}."
+        asko_year = ""
+        deadline = time.time() + 15
+
+        while time.time() < deadline:
+            asko_year = self._normalize_year(
+                self._read_input_value(ASKO_VEHICLE_FIELDS["vehicle_year"])
             )
+            if asko_year:
+                break
+            self._sleep_short(0.5)
+
+        if not asko_year:
+            self.log(
+                "ASKO: предупреждение — поле года ТС ext-comp-1996 ещё пустое после ожидания. "
+                f"В Bitrix UF_CRM_1686152614718 указан год {bitrix_year}. "
+                "Робот продолжает заполнение без прерывания."
+            )
+            return
 
         if asko_year != bitrix_year:
-            raise RuntimeError(
-                "ASKO: год ТС в выбранном автомобиле не совпадает с Bitrix. "
+            self.log(
+                "ASKO: предупреждение — год ТС в выбранном автомобиле не совпадает с Bitrix. "
                 f"ASKO ext-comp-1996: {asko_year}; "
                 f"Bitrix UF_CRM_1686152614718: {bitrix_year}. "
-                "Проверьте, что оператор выбрал правильный автомобиль."
+                "Робот продолжает заполнение без прерывания; оператор должен проверить выбранный автомобиль."
             )
+            return
+
 
         self.log(f"ASKO: год ТС сверен с Bitrix ← {bitrix_year}")
 
@@ -1096,7 +1110,6 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             return
 
         self._select_asko_period(element_id, text)
-
         self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
 
 
