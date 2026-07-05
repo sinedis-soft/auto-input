@@ -88,9 +88,9 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
     def _load_module(self):
         if self._module is None:
-            path = str(ROOT / "asko_bitrix_filler")
-            if path not in sys.path:
-                sys.path.insert(0, path)
+            root_path = str(ROOT)
+            if not getattr(sys, "frozen", False) and root_path not in sys.path:
+                sys.path.insert(0, root_path)
 
             import asko_bitrix_filler as module
 
@@ -398,12 +398,13 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
     def _make_driver(self):
         from selenium.common.exceptions import SessionNotCreatedException, WebDriverException
 
-        profile = Path(
-            self._settings_value(
-                "asko_chrome_profile_dir",
-                str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"),
-            )
-        )
+        profile_setting = self._settings_value("asko_chrome_profile_dir", "")
+        if profile_setting:
+            profile = Path(profile_setting).expanduser()
+        elif getattr(sys, "frozen", False):
+            profile = Path(sys.executable).resolve().parent / "chrome_profile_asko2"
+        else:
+            profile = ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"
 
         try:
             self.log(f"ASKO: запускаю Chrome с профилем {profile}")

@@ -3,10 +3,43 @@
 from __future__ import annotations
 
 import json
+import os
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
+APP_NAME = "BitrixPolicyAutomationHub"
+SETTINGS_FILENAME = "bitrix_policy_router.settings.json"
+DEV_SETTINGS_FILE = ROOT / "unified_apps" / SETTINGS_FILENAME
+
+
+def is_frozen() -> bool:
+    return bool(getattr(sys, "frozen", False))
+
+
+def external_app_dir() -> Path:
+    """Return a writable external directory for frozen app data."""
+    if is_frozen():
+        appdata = os.environ.get("APPDATA")
+        if appdata:
+            return Path(appdata) / APP_NAME
+        return Path(sys.executable).resolve().parent
+    return ROOT
+
+
+def default_asko_chrome_profile_dir() -> Path:
+    if is_frozen():
+        return Path(sys.executable).resolve().parent / "chrome_profile_asko2"
+    return ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"
+
+
+def settings_file_path() -> Path:
+    if is_frozen():
+        return external_app_dir() / SETTINGS_FILENAME
+    return DEV_SETTINGS_FILE
+
+
+SETTINGS_FILE = settings_file_path()
 
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
@@ -15,7 +48,7 @@ DEFAULT_SETTINGS = {
     "warta_password": "",
     "asko_login": "",
     "asko_password": "",
-    "asko_chrome_profile_dir": str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"),
+    "asko_chrome_profile_dir": str(default_asko_chrome_profile_dir()),
     "asko_payment_type": "Безналичным",
     "asko_payment_order": "Единовременно",
     "asko_notification_language": "Русский",
