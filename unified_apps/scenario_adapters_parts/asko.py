@@ -30,10 +30,48 @@ ASKO_VEHICLE_FIELDS = {
     "reg_number": "ext-comp-1986",
     "registration_certificate": "ext-comp-1988",
     "vin": "ext-comp-1984",
+    "vehicle_year": "ext-comp-1996",
+    "registration_region": "ext-comp-1989",
+    "registration_country": "ext-comp-1990",
     "search_button": "ext-gen1537",
     "selected_vehicle": "ext-comp-1991",
     "apply_button": "ext-gen1648",
 }
+
+ASKO_TEMPORARY_ENTRY_REGION = "Временный въезд (Нерезиденты РК)"
+
+BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY = {
+    "529": "Армения",
+    "123": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "523": "Грузия",
+    "527": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "383": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "125": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "525": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+}
+
+BITRIX_COUNTRY_VALUE_TO_ASKO_REGISTRATION_COUNTRY = {
+    "armenia": "Армения",
+    "армен": "Армения",
+    "belarus": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "беларус": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "белорус": "РЕСПУБЛИКА БЕЛАРУСЬ / БЕЛОРУСИЯ РЕСПУБЛИКАСЫ",
+    "georgia": "Грузия",
+    "груз": "Грузия",
+    "kyrgyzstan": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "кыргыз": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "киргиз": "КЫРГЫЗСТАН / ҚЫРҒЫСТАН",
+    "mongolia": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "монгол": "МОНГОЛИЯ / МОНҒОЛИЯ",
+    "russia": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "росси": "РОССИЙСКАЯ ФЕДЕРАЦИЯ / РЕСЕЙ ФЕДЕРАЦИЯСЫ",
+    "uzbekistan": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+    "узбе": "УЗБЕКИСТАН / ӨЗБЕКСТАН",
+    "tajikistan": "ТАДЖИКИСТАН/ Тәжікстан",
+    "тадж": "ТАДЖИКИСТАН/ Тәжікстан",
+}
+
+ASKO_DEFAULT_REGISTRATION_COUNTRY = "Другие страны"
 
 
 class AskoIntegratedAdapter(BaseScenarioAdapter):
@@ -258,6 +296,8 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             "ТС": self.deal.vehicle_model,
             "Год": self.deal.vehicle_year,
             "VIN": self.deal.vin,
+            "СРТС": getattr(self.deal, "registration_certificate", ""),
+            "Страна регистрации ТС": getattr(self.deal, "vehicle_registration_country", ""),
             "Премия": self.deal.amount,
             "Валюта": self.deal.currency,
         }
@@ -891,11 +931,12 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         )
 
         self._wait_for_manual_vehicle_search_result(reg_number, timeout=timeout)
+        self._fill_vehicle_details_after_selection()
 
         self.stage = "vehicle_selected"
         self.state(
-            "ASKO: автомобиль выбран и данные ТС подтянулись. "
-            "Проверьте форму ТС и нажмите «Применить» в ASKO, если данные корректны."
+            "ASKO: автомобиль выбран, СРТС/регион/страна регистрации заполнены; год ТС проверен без остановки сценария. "
+            "Проверьте форму ТС и нажмите «Применить» в ASKO."
         )
 
     def _wait_for_manual_vehicle_search_result(self, reg_number: str, timeout: int = 240) -> None:
@@ -967,6 +1008,105 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
     def _normalize_vehicle_reg_number(self, value: str) -> str:
         return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
+
+    def _fill_vehicle_details_after_selection(self) -> None:
+        """
+        Заполняет только поля, которые должны меняться после ручного выбора ТС.
+
+        Не меняем подтянутые ASKO значения: госномер, VIN, выбранный автомобиль,
+        тип/марку/модель и прочие поля. Год выпуска только сверяем с Bitrix.
+        """
+        certificate = str(getattr(self.deal, "registration_certificate", "") or "").strip()
+        country_value = self._map_vehicle_registration_country(
+            getattr(self.deal, "vehicle_registration_country", "")
+        )
+
+        self._verify_vehicle_year_matches_bitrix()
+        self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
+        self._select_asko_combo_text(
+            ASKO_VEHICLE_FIELDS["registration_region"],
+            ASKO_TEMPORARY_ENTRY_REGION,
+            "Регион регистрации",
+        )
+        self._select_asko_combo_text(
+            ASKO_VEHICLE_FIELDS["registration_country"],
+            country_value,
+            "Страна регистрации ТС",
+        )
+
+        self.log(
+            "ASKO: поля ТС после выбора автомобиля обработаны: "
+            f"СРТС={certificate or 'пусто'}, "
+            f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
+            f"страна={country_value}. Остальные поля ТС не менялись."
+        )
+
+    def _verify_vehicle_year_matches_bitrix(self) -> None:
+        """Нефатально сверяет год ASKO с Bitrix, дожидаясь загрузки поля ASKO."""
+        import time
+
+        bitrix_year = self._normalize_year(getattr(self.deal, "vehicle_year", ""))
+
+        if not bitrix_year:
+            self.log("ASKO: год ТС в Bitrix пустой, сверка ext-comp-1996 пропущена.")
+            return
+
+        asko_year = ""
+        deadline = time.time() + 15
+
+        while time.time() < deadline:
+            asko_year = self._normalize_year(
+                self._read_input_value(ASKO_VEHICLE_FIELDS["vehicle_year"])
+            )
+            if asko_year:
+                break
+            self._sleep_short(0.5)
+
+        if not asko_year:
+            self.log(
+                "ASKO: предупреждение — поле года ТС ext-comp-1996 ещё пустое после ожидания. "
+                f"В Bitrix UF_CRM_1686152614718 указан год {bitrix_year}. "
+                "Робот продолжает заполнение без прерывания."
+            )
+            return
+
+        if asko_year != bitrix_year:
+            self.log(
+                "ASKO: предупреждение — год ТС в выбранном автомобиле не совпадает с Bitrix. "
+                f"ASKO ext-comp-1996: {asko_year}; "
+                f"Bitrix UF_CRM_1686152614718: {bitrix_year}. "
+                "Робот продолжает заполнение без прерывания; оператор должен проверить выбранный автомобиль."
+            )
+            return
+
+        self.log(f"ASKO: год ТС сверен с Bitrix ← {bitrix_year}")
+
+    def _normalize_year(self, value) -> str:
+        value = str(value or "")
+        digits = "".join(ch for ch in value if ch.isdigit())
+        return digits[:4]
+
+    def _map_vehicle_registration_country(self, value) -> str:
+        raw = str(value or "").strip()
+        if not raw:
+            return ASKO_DEFAULT_REGISTRATION_COUNTRY
+
+        if raw in BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY:
+            return BITRIX_COUNTRY_ID_TO_ASKO_REGISTRATION_COUNTRY[raw]
+
+        lowered = raw.lower()
+        for needle, mapped in BITRIX_COUNTRY_VALUE_TO_ASKO_REGISTRATION_COUNTRY.items():
+            if needle in lowered:
+                return mapped
+
+        return ASKO_DEFAULT_REGISTRATION_COUNTRY
+
+    def _select_asko_combo_text(self, element_id: str, text: str, label: str) -> None:
+        if not text:
+            return
+
+        self._select_asko_period(element_id, text)
+        self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
