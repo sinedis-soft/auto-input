@@ -554,22 +554,31 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         term_text = self._settings_value("asko_term_text", "15 дней")
 
-        pairs = [
+        text_pairs = [
             ("blank_number", self.deal.policy_number),
             ("start_datetime", start_value),
-            ("payment_type", self._settings_value("asko_payment_type", "Безналичным")),
-            ("payment_order", self._settings_value("asko_payment_order", "Единовременно")),
             ("phone_code", code),
             ("phone_number", phone),
             ("email", self.deal.email),
-            ("notification_language", self._settings_value("asko_notification_language", "Русский")),
-            ("client_form", self._settings_value("asko_client_form", "Физическое лицо")),
         ]
 
-        for key, value in pairs:
+        for key, value in text_pairs:
             self._safe_set(module.ASKO_MAIN_FIELDS[key], value)
 
-        self._select_asko_period(module.ASKO_MAIN_FIELDS["term"], term_text)
+        combo_pairs = [
+            ("term", term_text, "Период страхования"),
+            ("payment_type", self._settings_value("asko_payment_type", "Безналичным"), "Тип оплаты"),
+            ("payment_order", self._settings_value("asko_payment_order", "Единовременно"), "Порядок оплаты"),
+            (
+                "notification_language",
+                self._settings_value("asko_notification_language", "Русский"),
+                "Язык уведомлений",
+            ),
+            ("client_form", self._settings_value("asko_client_form", "Физическое лицо"), "Форма клиента"),
+        ]
+
+        for key, value, label in combo_pairs:
+            self._select_asko_period(module.ASKO_MAIN_FIELDS[key], value, label=label)
 
         self.stage = "main_filled_wait_operator_next"
         self.state(
@@ -1561,13 +1570,16 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 pass
 
             if self._verify_asko_combo_selected(element_id, term_text):
-                self.log(f"ASKO: {label} выбран через ExtJS ← {term_text}")
-                return
 
-            self.log(
-                f"ASKO: {label} после ExtJS-выбора не подтвердился, "
-                "повторяю выбор кликом из списка."
-            )
+                self.log(
+                    f"ASKO: {label} установлен через ExtJS, дополнительно подтверждаю кликом ← {term_text}"
+                )
+            else:
+                self.log(
+                    f"ASKO: {label} после ExtJS-выбора не подтвердился, "
+                    "повторяю выбор кликом из списка."
+                )
+
         else:
             self.log(f"ASKO: ExtJS-выбор выпадающего списка не сработал: {ext_result}")
 
@@ -1581,17 +1593,61 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         except Exception:
             pass
 
-        option_xpath = (
-            f"//*[contains(@class, 'x-combo-list-item') "
-            f"or contains(@class, 'x-boundlist-item') "
-            f"or contains(@class, 'x-list-item') "
-            f"or self::div]"
-            f"[normalize-space(.)='{term_text}']"
+        clicked_by_js = self.driver.execute_script(
+            """
+            const expected = String(arguments[0]).replace(/\\s+/g, " ").trim().toLowerCase();
+
+            function visible(el) {
+                const style = window.getComputedStyle(el);
+                const rect = el.getBoundingClientRect();
+                return style.display !== "none"
+                    && style.visibility !== "hidden"
+                    && rect.width > 0
+                    && rect.height > 0;
+            }
+
+            const nodes = Array.from(document.querySelectorAll(
+                ".x-combo-list-item, .x-boundlist-item, .x-list-item, " +
+                ".x-combo-list-inner div, .x-layer div"
+            ));
+
+            const candidates = nodes
+                .filter(visible)
+                .map(el => ({
+                    el,
+                    text: (el.innerText || el.textContent || "").replace(/\\s+/g, " ").trim(),
+                    rect: el.getBoundingClientRect(),
+                }))
+                .filter(item => item.text.toLowerCase() === expected);
+
+            candidates.sort((a, b) => (a.rect.width * a.rect.height) - (b.rect.width * b.rect.height));
+
+            if (!candidates.length) {
+                return false;
+            }
+
+            const chosen = candidates[0].el;
+            chosen.scrollIntoView({block: "center", inline: "center"});
+            chosen.dispatchEvent(new MouseEvent("mousedown", {bubbles: true, cancelable: true, view: window}));
+            chosen.click();
+            chosen.dispatchEvent(new MouseEvent("mouseup", {bubbles: true, cancelable: true, view: window}));
+            return true;
+            """,
+            term_text,
         )
 
-        option = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
+        if not clicked_by_js:
+            option_xpath = (
+                f"//*[contains(@class, 'x-combo-list-item') "
+                f"or contains(@class, 'x-boundlist-item') "
+                f"or contains(@class, 'x-list-item') "
+                f"or self::div]"
+                f"[normalize-space(.)='{term_text}']"
+            )
 
-        ActionChains(self.driver).move_to_element(option).click(option).perform()
+            option = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
+
+            ActionChains(self.driver).move_to_element(option).click(option).perform()
 
         try:
             element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
