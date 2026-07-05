@@ -1,0 +1,873 @@
+URL: https://eagent.warta.pl/property/?continue#/app/main/sale/815407376654/815407376656/proposaldata/VIEW/saleWidget?aid=2867416&agentOuid=A00015873003
+TITLE: eAgent - Sprzedaż Majątek
+
+[0] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickStartBookmark()
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__logos:nth-of-type(1) > a
+  xywh: 66,-1785,83,23
+
+[1] a type=
+  text: Start
+  value: 
+  nearby: Start
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__bookmarks:nth-of-type(2) > bookmarks > div.bookmarks > bookmark > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 163,-1786,38,38
+
+[2] a type=
+  text: Sprzedaż
+  value: 
+  nearby: Sprzedaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(1) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 364,-1790,72,38
+
+[3] a type=
+  text: Oferty
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 471,-1790,50,38
+
+[4] span type=
+  text: 
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 525,-1782,12,12
+
+[5] a type=
+  text: Polisy
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 571,-1790,46,38
+
+[6] span type=
+  text: 
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 621,-1782,12,12
+
+[7] a type=
+  text: Klienci
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 668,-1790,51,38
+
+[8] span type=
+  text: 
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 724,-1782,12,12
+
+[9] a type=
+  text: Rozliczenia
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 770,-1790,87,38
+
+[10] span type=
+  text: 
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 862,-1782,12,12
+
+[11] a type=
+  text: Więcej
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 908,-1790,52,38
+
+[12] span type=
+  text: 
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 964,-1782,12,12
+
+[13] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toogleQuickSearch()
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1)
+  xywh: 1016,-1785,25,18
+
+[14] div type=
+  text: A00015873003
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleContextSwitcher()
+  css: div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list > div.context-switcher > div.context-switcher--collapsed:nth-of-type(2) > div.context-switcher__policy-number
+  xywh: 1050,-1788,112,25
+
+[15] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2)
+  xywh: 1180,-1785,25,18
+
+[16] a type=
+  text: Dane do kalkulacji
+  value: 
+  nearby: 1 Dane do kalkulacji | 1
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(1) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 122,-1710,167,35
+
+[17] a type=
+  text: Konfiguracja wariantu
+  value: 
+  nearby: 2 Konfiguracja wariantu | 2
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(2) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 410,-1710,199,35
+
+[18] a type=
+  text: Podsumowanie
+  value: 
+  nearby: 4 Podsumowanie | 4
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(4) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 1014,-1710,144,35
+
+[19] button type=
+  text: KOPIUJ NUMER
+  value: 
+  nearby: KOPIUJ NUMER
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div > fields-messages > div:nth-of-type(1) > calculation-number > div.widget-button-container__calculation-number > button.widget-button-primary.widget-button__calculation-number
+  xywh: 466,-1632,155,31
+
+[20] span type=
+  text: 
+  value: 
+  nearby: Klienci - Pamiętaj o poprawnej weryfikacji tożsamości klientów
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: moto-proposal-clients > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-1548,17,17
+
+[21] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników Wyszukiwanie...
+  placeholder: 
+  name: client-second-name-0-search
+  id: client-second-name-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-second-name-0-search
+  xywh: 87,-1269,346,38
+
+[22] input type=search
+  text: 
+  value: Armenia
+  nearby: Brak wyników Armenia
+  placeholder: Wybierz
+  name: client-nationality-select-0-search
+  id: client-nationality-select-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-nationality-select-0-search
+  xywh: 463,-1269,346,38
+
+[23] input type=text
+  text: 
+  value: AV0385766
+  nearby: 
+  placeholder: Numer dokumentu
+  name: 
+  id: client-identity-document-number-0
+  aria-label: 
+  ng-model: ctrl.client.identityDocumentNumber
+  ng-click: 
+  css: #client-identity-document-number-0
+  xywh: 839,-1269,158,38
+
+[24] input type=search
+  text: 
+  value: Paszport
+  nearby: Brak wyników Paszport
+  placeholder: Wybierz
+  name: client-document-identity-types-select-0-search
+  id: client-document-identity-types-select-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-document-identity-types-select-0-search
+  xywh: 1027,-1269,158,38
+
+[25] input type=text
+  text: 
+  value: 
+  nearby: PESEL / REGON
+  placeholder: 
+  name: 
+  id: 8076bb5e31ab06b28cf46d2c5f4e5cf115861431-0
+  aria-label: 
+  ng-model: ctrl.client.identity
+  ng-click: 
+  css: #\38 076bb5e31ab06b28cf46d2c5f4e5cf115861431-0
+  xywh: 87,-1182,346,38
+
+[26] input type=text
+  text: 
+  value: Simonian
+  nearby: Nazwisko
+  placeholder: 
+  name: 
+  id: client-last-name-0
+  aria-label: 
+  ng-model: ctrl.client.lastName
+  ng-click: 
+  css: #client-last-name-0
+  xywh: 463,-1182,346,38
+
+[27] input type=search
+  text: 
+  value: Arman
+  nearby: Brak wyników Wyszukiwanie...
+  placeholder: 
+  name: client-first-name-0-search
+  id: client-first-name-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-first-name-0-search
+  xywh: 839,-1182,346,38
+
+[28] input type=search
+  text: 
+  value: Armenia
+  nearby: Brak wyników Armenia
+  placeholder: Wybierz
+  name: client-0-RESIDENT-country-select-search
+  id: client-0-RESIDENT-country-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-0-RESIDENT-country-select-search
+  xywh: 87,-1045,346,38
+
+[29] input type=text
+  text: 
+  value: 1415
+  nearby: Kod pocztowy
+  placeholder: 
+  name: 
+  id: client-0-RESIDENT-zip-code
+  aria-label: 
+  ng-model: adr.address.zipCode
+  ng-click: 
+  css: #client-0-RESIDENT-zip-code
+  xywh: 87,-957,346,38
+
+[30] input type=search
+  text: 
+  value: Ararat
+  nearby: Brak wyników Ararat
+  placeholder: 
+  name: client-0-RESIDENT-city-search
+  id: client-0-RESIDENT-city-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-0-RESIDENT-city-search
+  xywh: 87,-870,346,38
+
+[31] input type=search
+  text: 
+  value: Strite
+  nearby: Brak wyników Strite
+  placeholder: 
+  name: client-0-RESIDENT-street-search
+  id: client-0-RESIDENT-street-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  css: #client-0-RESIDENT-street-search
+  xywh: 87,-782,346,38
+
+[32] input type=text
+  text: 
+  value: 12f
+  nearby: Numer domu
+  placeholder: 
+  name: 
+  id: client-0-RESIDENT-street-no
+  aria-label: 
+  ng-model: adr.address.streetNo
+  ng-click: 
+  css: #client-0-RESIDENT-street-no
+  xywh: 87,-695,158,38
+
+[33] input type=text
+  text: 
+  value: 
+  nearby: Numer lokalu
+  placeholder: 
+  name: 
+  id: client-0-RESIDENT-flat-no
+  aria-label: 
+  ng-model: adr.address.flatNo
+  ng-click: 
+  css: #client-0-RESIDENT-flat-no
+  xywh: 275,-695,158,38
+
+[34] input type=text
+  text: 
+  value: 
+  nearby: Adres e-mail
+  placeholder: 
+  name: 
+  id: client-email-0
+  aria-label: 
+  ng-model: ctrl.client.email
+  ng-click: 
+  css: #client-email-0
+  xywh: 463,-1043,346,38
+
+[35] input type=text
+  text: 
+  value: 
+  nearby: Numer telefonu komórkowego
+  placeholder: 
+  name: 
+  id: client-cellphone-number-0
+  aria-label: 
+  ng-model: ctrl.client.cellphoneNumber
+  ng-click: 
+  css: #client-cellphone-number-0
+  xywh: 463,-956,346,38
+
+[36] input type=text
+  text: 
+  value: 
+  nearby: Numer telefonu stacjonarnego
+  placeholder: 
+  name: 
+  id: client-landline-number-0
+  aria-label: 
+  ng-model: ctrl.client.landlineNumber
+  ng-click: 
+  css: #client-landline-number-0
+  xywh: 463,-868,346,38
+
+[37] button type=
+  text: INNA OSOBA DO KONTAKTU
+  value: 
+  nearby: INNA OSOBA DO KONTAKTU
+  placeholder: 
+  name: 
+  id: proposal-client-other-contact-person
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.createContactPerson()
+  css: #proposal-client-other-contact-person
+  xywh: 919,-575,240,31
+
+[38] span type=
+  text: 
+  value: 
+  nearby: Załączniki
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: attachments > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-477,17,17
+
+[39] button type=
+  text: Dodaj załącznik
+  value: 
+  nearby: Dodaj załącznik
+  placeholder: 
+  name: 
+  id: attachment-add-button
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.gridStateService.$broadcast('addAttachments', 'undefined', 'undefined')
+  css: #attachment-add-button
+  xywh: 1004,-309,170,24
+
+[40] span type=
+  text: 
+  value: 
+  nearby: Kompetencje
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: competences > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header.widget-tile__header--collapsed:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--open:nth-of-type(2)
+  xywh: 1168,-195,17,17
+
+[41] span type=
+  text: 
+  value: 
+  nearby: Oświadczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: marketing-agreements > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-114,17,17
+
+[42] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.marketing-agreements-tile__body__table__row__inner > div.error-anchor > div.row > div.col-sm-5:nth-of-type(3) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 582,103,13,13
+
+[43] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.row > div.col-sm-4:nth-of-type(4) > div.row > div.col-sm-10:nth-of-type(2) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 1036,103,13,13
+
+[44] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.marketing-agreements-tile__body__table__row__inner > div.error-anchor > div.row > div.col-sm-5:nth-of-type(3) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 582,201,13,13
+
+[45] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.row > div.col-sm-4:nth-of-type(4) > div.row > div.col-sm-10:nth-of-type(2) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 1036,201,13,13
+
+[46] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.marketing-agreements-tile__body__table__row__inner > div.error-anchor > div.row > div.col-sm-5:nth-of-type(3) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 582,466,13,13
+
+[47] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.row > div.col-sm-4:nth-of-type(4) > div.row > div.col-sm-10:nth-of-type(2) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 1036,446,13,13
+
+[48] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.marketing-agreements-tile__body__table__row__inner > div.error-anchor > div.row > div.col-sm-5:nth-of-type(3) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 582,581,13,13
+
+[49] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: agreementExpanded = !agreementExpanded
+  css: div.row > div.col-sm-4:nth-of-type(4) > div.row > div.col-sm-10:nth-of-type(2) > div.marketing-agreements-tile__body__table__row__inner__content__toggle:nth-of-type(2) > span.marketing-agreements-tile__body__table__row__inner__content__toggle__icon
+  xywh: 1036,562,13,13
+
+[50] button type=button
+  text: WSTECZ
+  value: 
+  nearby: WSTECZ
+  placeholder: 
+  name: 
+  id: footer-button-show-prev
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.prev()
+  css: #footer-button-show-prev
+  xywh: 66,644,109,32
+
+[51] button type=
+  text: AKCJE
+  value: 
+  nearby: AKCJE
+  placeholder: 
+  name: 
+  id: actionMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #actionMenu
+  xywh: 189,644,101,32
+
+[52] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.removePolicy(productLine)
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(4) > div.property-saleview-footer__container__product-container:nth-of-type(1) > span.property-saleview-footer__container__product-container__close-icon
+  xywh: 373,639,10,10
+
+[53] button type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.gotoPolicy(productLine)
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(4) > div.property-saleview-footer__container__product-container:nth-of-type(1) > button.property-saleview-footer__container__product-container__product.property-saleview-footer__container__product-container__product--last
+  xywh: 306,632,78,53
+
+[54] button type=
+  text: PRODUKT
+  value: 
+  nearby: PRODUKT
+  placeholder: 
+  name: 
+  id: addProductMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #addProductMenu
+  xywh: 393,642,123,36
+
+[55] button type=
+  text: WYSTAW OFERTĘ
+  value: 
+  nearby: WYSTAW OFERTĘ
+  placeholder: 
+  name: 
+  id: footer-button-make-offer
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.makeOffer()
+  css: #footer-button-make-offer
+  xywh: 532,644,140,31
+
+[56] button type=
+  text: DALEJ
+  value: 
+  nearby: DALEJ
+  placeholder: 
+  name: 
+  id: footer-button-show-next
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.next()
+  css: #footer-button-show-next
+  xywh: 1110,644,96,32
+
+[57] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(1)
+  xywh: 66,709,75,18
+
+[58] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(2)
+  xywh: 141,709,36,18
+
+[59] a type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a
+  xywh: 186,709,48,18
+
+[60] a type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a
+  xywh: 263,709,74,18
+
+[61] div type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna | Pomoc +48 510 272 829 | Baza wiedzy | Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.openRemoteHelp()
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5)
+  xywh: 521,708,91,20
+
+[62] a type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a
+  xywh: 615,709,48,18
+
+[63] a type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a
+  xywh: 673,709,137,18
+
+[64] a type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a
+  xywh: 820,709,27,18
+
+[65] a type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a
+  xywh: 855,709,38,18
+
+[66] a type=button
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: footer_app_dropup
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #footer_app_dropup
+  xywh: 1105,709,100,18

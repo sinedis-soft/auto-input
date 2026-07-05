@@ -1,0 +1,140 @@
+URL: https://asko2.novelty.kz/index.html
+Title: d-Asko2 - d-Asko2
+Найдено элементов: 9
+
+[1] a type=
+  text: Информация
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen234
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen234
+  xpath: //*[@id="ext-gen234"]
+  xywh: 14,75,95,22
+
+[2] a type=
+  text: Список полисов
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen236
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen236
+  xpath: //*[@id="ext-gen236"]
+  xywh: 111,75,100,21
+
+[3] a type=
+  text: Полис ОГПО
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen238
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen238
+  xpath: //*[@id="ext-gen238"]
+  xywh: 213,75,83,21
+
+[4] a type=
+  text: Служба поддержки
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1115
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1115
+  xpath: //*[@id="ext-gen1115"]
+  xywh: 298,75,118,21
+
+[5] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1106
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1106
+  xpath: //*[@id="ext-gen1106"]
+  xywh: 8,105,16,16
+
+[6] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1110
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1110
+  xpath: //*[@id="ext-gen1110"]
+  xywh: 38,105,16,16
+
+[7] a type=
+  text: Инструкция
+  value: 
+  label: Инструкция пользователя
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.x-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(1) > div.x-panel.x-border-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(2) > div.x-tab-panel.x-border-panel:nth-of-type(1) > div.x-tab-panel-bwrap:nth-of-type(2) > div.x-tab-panel-body.x-tab-panel-body-top:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(3) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(2) > div.x-panel.x-panel-noborder:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-column-inner1:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(2) > div.x-panel-ml:nth-of-type(1) > div.x-panel-mr:nth-of-type(1) > div.x-panel-mc:nth-of-type(1) > div.x-panel-body.x-panel-body-noborder:nth-of-type(1) > a:nth-of-type(1)
+  xpath: /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]
+  xywh: 317,159,59,13
+
+[8] a type=
+  text: NDOC
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: rndoc
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #rndoc
+  xpath: //*[@id="rndoc"]
+  xywh: 178,36,71,28
+
+[9] a type=
+  text: Выйти
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen220
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen220
+  xpath: //*[@id="ext-gen220"]
+  xywh: 1830,31,64,25
+
+

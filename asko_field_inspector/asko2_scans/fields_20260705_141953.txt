@@ -1,0 +1,440 @@
+URL: https://asko2.novelty.kz/index.html
+Title: d-Asko2 - d-Asko2
+Найдено элементов: 29
+
+[1] a type=
+  text: Информация
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen234
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen234
+  xpath: //*[@id="ext-gen234"]
+  xywh: 14,75,85,21
+
+[2] a type=
+  text: Список полисов
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen236
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen236
+  xpath: //*[@id="ext-gen236"]
+  xywh: 101,75,112,22
+
+[3] a type=
+  text: Полис ОГПО
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen238
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen238
+  xpath: //*[@id="ext-gen238"]
+  xywh: 215,75,83,21
+
+[4] a type=
+  text: Служба поддержки
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1115
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1115
+  xpath: //*[@id="ext-gen1115"]
+  xywh: 299,75,118,21
+
+[5] input type=text
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: ext-comp-4621
+  id: ext-comp-4621
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4621
+  xpath: //*[@id="ext-comp-4621"]
+  xywh: 1676,244,123,20
+
+[6] input type=text
+  text: 
+  value: ОС ГПО ВТС
+  label: 
+  placeholder: 
+  name: ext-comp-4629
+  id: ext-comp-4629
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4629
+  xpath: //*[@id="ext-comp-4629"]
+  xywh: 1774,268,89,22
+
+[7] a type=
+  text: Пролонгация
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1006
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1006
+  xpath: //*[@id="ext-gen1006"]
+  xywh: 1676,300,152,23
+
+[8] a type=
+  text: Переоформить
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1010
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1010
+  xpath: //*[@id="ext-gen1010"]
+  xywh: 1676,327,152,23
+
+[9] a type=
+  text: Заявка на ошибку оператора 'день в день'
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1014
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1014
+  xpath: //*[@id="ext-gen1014"]
+  xywh: 1676,354,152,49
+
+[10] a type=
+  text: Заявка на переоформление
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1018
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1018
+  xpath: //*[@id="ext-gen1018"]
+  xywh: 1681,436,152,36
+
+[11] a type=
+  text: ОС ГПО Перевозчика
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1022
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1022
+  xpath: //*[@id="ext-gen1022"]
+  xywh: 1681,476,152,23
+
+[12] a type=
+  text: ОС ГПО BTC
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1026
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1026
+  xpath: //*[@id="ext-gen1026"]
+  xywh: 1681,503,152,23
+
+[13] a type=
+  text: Отчет по истекающим полисам
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1027
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1027
+  xpath: //*[@id="ext-gen1027"]
+  xywh: 1682,562,152,36
+
+[14] input type=text
+  text: 
+  value: 01.07.2026
+  label: 
+  placeholder: 
+  name: ext-comp-4561
+  id: ext-comp-4561
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4561
+  xpath: //*[@id="ext-comp-4561"]
+  xywh: 253,120,365,22
+
+[15] input type=text
+  text: 
+  value: 05.07.2026
+  label: 
+  placeholder: 
+  name: ext-comp-4562
+  id: ext-comp-4562
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4562
+  xpath: //*[@id="ext-comp-4562"]
+  xywh: 883,120,365,22
+
+[16] input type=text
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: ext-comp-4565
+  id: ext-comp-4565
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4565
+  xpath: //*[@id="ext-comp-4565"]
+  xywh: 1455,120,348,22
+
+[17] input type=text
+  text: 
+  value: 
+  label: Номер полиса
+  placeholder: 
+  name: ext-comp-4563
+  id: ext-comp-4563
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4563
+  xpath: //*[@id="ext-comp-4563"]
+  xywh: 253,146,382,20
+
+[18] input type=text
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: ext-comp-4567
+  id: ext-comp-4567
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4567
+  xpath: //*[@id="ext-comp-4567"]
+  xywh: 883,146,348,22
+
+[19] input type=text
+  text: 
+  value: 
+  label: Гос. номер
+  placeholder: 
+  name: ext-comp-4564
+  id: ext-comp-4564
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4564
+  xpath: //*[@id="ext-comp-4564"]
+  xywh: 252,172,382,20
+
+[20] a type=
+  text: Поиск
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1054
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1054
+  xpath: //*[@id="ext-gen1054"]
+  xywh: 882,172,77,23
+
+[21] a type=
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen960
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen960
+  xpath: //*[@id="ext-gen960"]
+  xywh: 4,251,1,1
+
+[22] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen969
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen969
+  xpath: //*[@id="ext-gen969"]
+  xywh: 9,864,16,16
+
+[23] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen971
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen971
+  xpath: //*[@id="ext-gen971"]
+  xywh: 31,864,16,16
+
+[24] input type=text
+  text: 
+  value: 1
+  label: 
+  placeholder: 
+  name: 
+  id: ext-comp-4606
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-4606
+  xpath: //*[@id="ext-comp-4606"]
+  xywh: 112,861,38,22
+
+[25] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen980
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen980
+  xpath: //*[@id="ext-gen980"]
+  xywh: 185,864,16,16
+
+[26] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen982
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen982
+  xpath: //*[@id="ext-gen982"]
+  xywh: 207,864,16,16
+
+[27] button type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen986
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen986
+  xpath: //*[@id="ext-gen986"]
+  xywh: 237,864,16,16
+
+[28] a type=
+  text: NDOC
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: rndoc
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #rndoc
+  xpath: //*[@id="rndoc"]
+  xywh: 178,36,71,28
+
+[29] a type=
+  text: Выйти
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen220
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen220
+  xpath: //*[@id="ext-gen220"]
+  xywh: 1830,31,64,25
+
+

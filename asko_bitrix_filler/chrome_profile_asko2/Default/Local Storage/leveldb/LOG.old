@@ -1,0 +1,8 @@
+2026/07/05-15:42:32.210 41c Reusing MANIFEST G:\programming\asko\asko_bitrix_filler\chrome_profile_asko2\Default\Local Storage\leveldb/MANIFEST-000001
+2026/07/05-15:42:32.214 41c Recovering log #3
+2026/07/05-15:42:32.219 41c Level-0 table #3: started
+2026/07/05-15:42:32.346 41c Level-0 table #3: 633119 bytes OK
+2026/07/05-15:42:32.348 41c Recovering log #4
+2026/07/05-15:42:32.351 41c Reusing old log G:\programming\asko\asko_bitrix_filler\chrome_profile_asko2\Default\Local Storage\leveldb/000004.log 
+2026/07/05-15:42:32.493 41c Delete type=0 #3
+2026/07/05-15:42:32.493 41c Delete type=2 #5

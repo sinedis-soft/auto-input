@@ -1,0 +1,3040 @@
+URL: https://eagent.warta.pl/property/?continue#/app/main/sale/816027008131/816027008133/calculation/VIEW/saleWidget?aid=2867416&agentOuid=A00015873003
+TITLE: eAgent - Sprzedaż Majątek
+
+[0] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickStartBookmark()
+  ng-options: 
+  css: app-menu > header.app-menu-header--property > div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__logos:nth-of-type(1) > a
+  xywh: 66,-1255,83,23
+
+[1] a type=
+  text: Start
+  value: 
+  nearby: Start
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__bookmarks:nth-of-type(2) > bookmarks > div.bookmarks > bookmark > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 163,-1256,38,38
+
+[2] a type=
+  text: Sprzedaż
+  value: 
+  nearby: Sprzedaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(1) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 364,-1260,72,38
+
+[3] a type=
+  text: Oferty
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 471,-1260,50,38
+
+[4] span type=
+  text: 
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 525,-1252,12,12
+
+[5] a type=
+  text: Polisy
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 571,-1260,46,38
+
+[6] span type=
+  text: 
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 621,-1252,12,12
+
+[7] a type=
+  text: Klienci
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 668,-1260,51,38
+
+[8] span type=
+  text: 
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 724,-1252,12,12
+
+[9] a type=
+  text: Rozliczenia
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 770,-1260,87,38
+
+[10] span type=
+  text: 
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 862,-1252,12,12
+
+[11] a type=
+  text: Więcej
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 908,-1260,52,38
+
+[12] span type=
+  text: 
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 964,-1252,12,12
+
+[13] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toogleQuickSearch()
+  ng-options: 
+  css: header.app-menu-header--property > div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1)
+  xywh: 1016,-1255,25,18
+
+[14] span type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1) > span.header-wrapper__top-menu__addition__link__icon--search
+  xywh: 1016,-1252,15,15
+
+[15] div type=
+  text: A00015873003
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleContextSwitcher()
+  ng-options: 
+  css: div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list > div.context-switcher > div.context-switcher--collapsed:nth-of-type(2) > div.context-switcher__policy-number
+  xywh: 1050,-1258,112,25
+
+[16] span type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list > div.context-switcher > div.context-switcher--collapsed:nth-of-type(2) > div.context-switcher__policy-number > span.context-switcher__icon-user.margin-auto:nth-of-type(1)
+  xywh: 1050,-1253,14,15
+
+[17] span type=
+  text: A00015873003
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list > div.context-switcher > div.context-switcher--collapsed:nth-of-type(2) > div.context-switcher__policy-number > span.context-switcher__unit-code-list:nth-of-type(2)
+  xywh: 1074,-1253,83,15
+
+[18] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: header.app-menu-header--property > div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2)
+  xywh: 1180,-1255,25,18
+
+[19] span type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2) > span.header-wrapper__top-menu__addition__link__icon--logout
+  xywh: 1180,-1252,15,15
+
+[20] span type=
+  text: 1 Dane do kalkulacji
+  value: 
+  nearby: 1 Dane do kalkulacji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb.saleview-container__breadcrumb-row__breadcrumb--active:nth-of-type(1) > span.saleview-container__breadcrumb__text-number-container
+  xywh: 87,-1180,202,35
+
+[21] span type=
+  text: 1
+  value: 
+  nearby: 1 Dane do kalkulacji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb.saleview-container__breadcrumb-row__breadcrumb--active:nth-of-type(1) > span.saleview-container__breadcrumb__text-number-container > span.saleview-container__breadcrumb-row__breadcrumb__text-number-container__number:nth-of-type(1)
+  xywh: 87,-1180,35,35
+
+[22] span type=
+  text: Dane do kalkulacji
+  value: 
+  nearby: 1 Dane do kalkulacji | 1
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb.saleview-container__breadcrumb-row__breadcrumb--active:nth-of-type(1) > span.saleview-container__breadcrumb__text-number-container > span.saleview-container__breadcrumb__text-number-container__name.saleview-container__breadcrumb__text-number-container__name--white:nth-of-type(2)
+  xywh: 122,-1180,167,35
+
+[23] span type=
+  text: 2 Konfiguracja wariantu
+  value: 
+  nearby: 2 Konfiguracja wariantu
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(2) > span.saleview-container__breadcrumb__text-number-container
+  xywh: 375,-1180,234,35
+
+[24] span type=
+  text: 2
+  value: 
+  nearby: 2 Konfiguracja wariantu
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(2) > span.saleview-container__breadcrumb__text-number-container > span.saleview-container__breadcrumb-row__breadcrumb__text-number-container__number
+  xywh: 375,-1180,35,35
+
+[25] a type=
+  text: Konfiguracja wariantu
+  value: 
+  nearby: 2 Konfiguracja wariantu | 2
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(2) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 410,-1180,199,35
+
+[26] span type=
+  text: 3 Dane do umowy
+  value: 
+  nearby: 3 Dane do umowy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(3) > span.saleview-container__breadcrumb__text-number-container
+  xywh: 705,-1180,187,35
+
+[27] span type=
+  text: 3
+  value: 
+  nearby: 3 Dane do umowy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(3) > span.saleview-container__breadcrumb__text-number-container > span.saleview-container__breadcrumb-row__breadcrumb__text-number-container__number
+  xywh: 705,-1180,35,35
+
+[28] a type=
+  text: Dane do umowy
+  value: 
+  nearby: 3 Dane do umowy | 3
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(3) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 740,-1180,152,35
+
+[29] span type=
+  text: 4 Podsumowanie
+  value: 
+  nearby: 4 Podsumowanie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(4) > span.saleview-container__breadcrumb__text-number-container
+  xywh: 979,-1180,179,35
+
+[30] span type=
+  text: 4
+  value: 
+  nearby: 4 Podsumowanie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(4) > span.saleview-container__breadcrumb__text-number-container > span.saleview-container__breadcrumb-row__breadcrumb__text-number-container__number
+  xywh: 979,-1180,35,35
+
+[31] a type=
+  text: Podsumowanie
+  value: 
+  nearby: 4 Podsumowanie | 4
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  ng-options: 
+  css: div.col-md-12 > breadcrumbs > div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(4) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 1014,-1180,144,35
+
+[32] button type=
+  text: KOPIUJ NUMER
+  value: 
+  nearby: KOPIUJ NUMER
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(1) > div > div > fields-messages > div:nth-of-type(1) > calculation-number > div.widget-button-container__calculation-number > button.widget-button-primary.widget-button__calculation-number
+  xywh: 466,-1102,155,31
+
+[33] span type=
+  text: Kalkulacja numer: 1783080019435E00KOM
+  value: 
+  nearby: KOPIUJ NUMER Kalkulacja numer: 1783080019435E00KOM | KOPIUJ NUMER
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-12 > div:nth-of-type(1) > div > div > fields-messages > div:nth-of-type(1) > calculation-number > span.widget-tile-calculation-number
+  xywh: 66,-1108,1140,44
+
+[34] span type=
+  text: Kalkulacja numer: 1783080019435E00KOM
+  value: 
+  nearby: Kalkulacja numer: 1783080019435E00KOM
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(1) > calculation-number > span.widget-tile-calculation-number > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading
+  xywh: 87,-1096,260,18
+
+[35] span type=
+  text: Wybór produktu
+  value: 
+  nearby: Wybór produktu
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(2) > product-group-choice > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,-1021,138,24
+
+[36] span type=
+  text: 
+  value: 
+  nearby: Wybór produktu
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(2) > product-group-choice > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-1018,17,17
+
+[37] button type=
+  text: Komunikacyjny roczny
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: options-MOTOR_R
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_R
+  xywh: 101,-956,165,85
+
+[38] span type=
+  text: Komunikacyjny roczny
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-pristine:nth-of-type(1) > span.product-group-choice-tile__choice-box__caption
+  xywh: 127,-936,113,46
+
+[39] button type=
+  text: OC Zielona Karta
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty | Komunikacyjny roczny
+  placeholder: 
+  name: 
+  id: options-MOTOR_ZK
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_ZK
+  xywh: 282,-956,165,85
+
+[40] span type=
+  text: OC Zielona Karta
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-pristine:nth-of-type(2) > span.product-group-choice-tile__choice-box__caption
+  xywh: 301,-925,125,22
+
+[41] button type=
+  text: OC krótkoterminowe
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty | OC Zielona Karta | Komunikacyjny roczny
+  placeholder: 
+  name: 
+  id: options-MOTOR_OCKT
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_OCKT
+  xywh: 463,-956,165,85
+
+[42] span type=
+  text: OC krótkoterminowe
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-pristine:nth-of-type(3) > span.product-group-choice-tile__choice-box__caption
+  xywh: 480,-936,129,46
+
+[43] button type=
+  text: OC graniczne
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty | OC krótkoterminowe | OC Zielona Karta | Komunikacyjny roczny
+  placeholder: 
+  name: 
+  id: options-MOTOR_OCG
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_OCG
+  xywh: 644,-956,165,85
+
+[44] span type=
+  text: OC graniczne
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-valid:nth-of-type(4) > span.product-group-choice-tile__choice-box__caption
+  xywh: 677,-925,99,22
+
+[45] button type=
+  text: Assistance Podróżnik
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty | OC graniczne | OC krótkoterminowe | OC Zielona Karta | Komunikacyjny roczny
+  placeholder: 
+  name: 
+  id: options-MOTOR_ASS
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_ASS
+  xywh: 825,-956,165,85
+
+[46] span type=
+  text: Assistance Podróżnik
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-pristine:nth-of-type(5) > span.product-group-choice-tile__choice-box__caption
+  xywh: 868,-936,78,46
+
+[47] button type=
+  text: NNW
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty | Assistance Podróżnik | OC graniczne | OC krótkoterminowe | OC Zielona Karta
+  placeholder: 
+  name: 
+  id: options-MOTOR_NNW
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #options-MOTOR_NNW
+  xywh: 1006,-956,165,85
+
+[48] span type=
+  text: NNW
+  value: 
+  nearby: Komunikacyjny roczny OC Zielona Karta OC krótkoterminowe OC graniczne Assistance Podróżnik NNW Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > product-group-choice-select > button.product-group-choice-tile__choice-box.ng-pristine:nth-of-type(6) > span.product-group-choice-tile__choice-box__caption
+  xywh: 1069,-925,39,22
+
+[49] a type=
+  text: Mapa systemu Zielonej Karty
+  value: 
+  nearby: Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: property-read-only > widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > div.col-md-4.col-md-offset-8 > a.product-group-choice-tile__link
+  xywh: 832,-863,204,18
+
+[50] span type=
+  text: 
+  value: 
+  nearby: Mapa systemu Zielonej Karty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.product-group-choice-tile.error-anchor > ng-transclude > div.col-md-4.col-md-offset-8 > a.product-group-choice-tile__link > span.product-group-choice-tile__link-icon
+  xywh: 1027,-862,13,18
+
+[51] span type=
+  text: Analiza potrzeb Klienta
+  value: 
+  nearby: Analiza potrzeb Klienta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(3) > customer-needs-analysis > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,-780,192,24
+
+[52] span type=
+  text: 
+  value: 
+  nearby: Analiza potrzeb Klienta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(3) > customer-needs-analysis > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-777,17,17
+
+[53] div type=
+  text: Rozwiń
+  value: 
+  nearby: Rozwiń | Produkty marki Warta kierowane są do klientów, poszukujących najszerszej ochrony, z różnorodnym zakresem ubezpieczenia i profesjonalną obsługą. Produkty marki HDI to ubezpieczenia o korzystnym stosunku ceny do wybranego zakresu ochrony i wysokiej jakości obsługi.
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleDescription()
+  ng-options: 
+  css: widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.widget-tile-row:nth-of-type(1) > div.row > div.col-md-12 > div.customer-needs-analysis__description > div.customer-needs-analysis__description__toggle
+  xywh: 87,-688,1098,20
+
+[54] span type=
+  text: Rozwiń
+  value: 
+  nearby: Rozwiń
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.widget-tile-row:nth-of-type(1) > div.row > div.col-md-12 > div.customer-needs-analysis__description > div.customer-needs-analysis__description__toggle > span:nth-of-type(1)
+  xywh: 87,-688,63,18
+
+[55] span type=
+  text: 
+  value: 
+  nearby: Rozwiń
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.widget-tile-row:nth-of-type(1) > div.row > div.col-md-12 > div.customer-needs-analysis__description > div.customer-needs-analysis__description__toggle > span:nth-of-type(1) > span.customer-needs-analysis__description__toggle__more-icon
+  xywh: 136,-686,13,13
+
+[56] span type=
+  text: Czy potrzebuje Pani/Pan ubezpieczenia OC granicznego dla pojazdu zarejestrowanego poza obszarem Porozumienia Wielostronnego? UWAGA: dotyczy pojazdu zarejestrowanego w kraju, który nie należy do Porozumienia Wielostronnego (lista krajów: www.pbuk.pl) oraz którego posiadacz nie ma ważnego ubezpieczenia granicznego lub Zielonej Karty przy wjeździe do Polski albo gdy w czasie pobytu wygasło dotychczasowe ubezpieczenie.
+  value: 
+  nearby: Czy potrzebuje Pani/Pan ubezpieczenia OC granicznego dla pojazdu zarejestrowanego poza obszarem Porozumienia Wielostronnego? UWAGA: dotyczy pojazdu zarejestrowanego w kraju, który nie należy do Porozumienia Wielostronnego (lista krajów: www.pbuk.pl) oraz którego posiadacz nie ma ważnego ubezpieczenia granicznego lub Zielonej Karty przy wjeździe do Polski albo gdy w czasie pobytu wygasło dotychczasowe ubezpieczenie.
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(3) > div > div > div.widget-tile-row.customer-needs-analysis__question > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.customer-needs-analysis__question__label > span.widget-input-label.customer-needs-analysis__question__label__text:nth-of-type(1)
+  xywh: 87,-614,346,176
+
+[57] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row.customer-needs-analysis__question > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.customer-needs-analysis__question__label > span.widget-input-tooltip-right.customer-needs-analysis__question__label__tooltip:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,-604,13,13
+
+[58] button type=button
+  text: TAK
+  value: 
+  nearby: TAK NIE
+  placeholder: 
+  name: customer-needs-analysis-APK_OCG
+  id: customer-needs-analysis-APK_OCG-TAK
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #customer-needs-analysis-APK_OCG-TAK
+  xywh: 463,-614,173,31
+
+[59] button type=button
+  text: NIE
+  value: 
+  nearby: TAK NIE | TAK
+  placeholder: 
+  name: customer-needs-analysis-APK_OCG
+  id: customer-needs-analysis-APK_OCG-NIE
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #customer-needs-analysis-APK_OCG-NIE
+  xywh: 636,-614,173,31
+
+[60] span type=
+  text: Szybkie wprowadzanie
+  value: 
+  nearby: Szybkie wprowadzanie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(4) > moto-fast-input > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,-374,189,24
+
+[61] span type=
+  text: 
+  value: 
+  nearby: Szybkie wprowadzanie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(4) > moto-fast-input > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,-371,17,17
+
+[62] span type=
+  text: PESEL / REGON
+  value: 
+  nearby: PESEL / REGON
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row:nth-of-type(1) > div.col-md-8 > div.widget-tile-row:nth-of-type(1) > ng-transclude > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 334,-309,92,18
+
+[63] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,-305,13,13
+
+[64] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 0c439aeb7e72c0d1f606cbb9b7955cfdc7cd6f0e
+  aria-label: 
+  ng-model: ctrl.fastInput.identity
+  ng-click: 
+  ng-options: 
+  css: #\30 c439aeb7e72c0d1f606cbb9b7955cfdc7cd6f0e
+  xywh: 463,-317,346,38
+
+[65] span type=
+  text: Numer rejestracyjny
+  value: 
+  nearby: Numer rejestracyjny
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row:nth-of-type(1) > div.col-md-8 > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 303,-251,123,18
+
+[66] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,-247,13,13
+
+[67] input type=text
+  text: 
+  value: 36AIN05
+  nearby: 
+  placeholder: 
+  name: 
+  id: fast-input-registration-number
+  aria-label: 
+  ng-model: ctrl.fastInput.registrationNumber
+  ng-click: 
+  ng-options: 
+  css: #fast-input-registration-number
+  xywh: 463,-259,346,38
+
+[68] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container-col-4 > checkbox.checkbox-inline.checkradio > label.checkradio-label > div.replacement-container > span.replacement
+  xywh: 463,-201,19,19
+
+[69] span type=
+  text: Bez numeru rejestracyjnego
+  value: 
+  nearby: Bez numeru rejestracyjnego
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row-only-bottom:nth-of-type(2) > ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container-col-4 > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text
+  xywh: 487,-201,170,19
+
+[70] span type=
+  text: Bez numeru rejestracyjnego
+  value: 
+  nearby: Bez numeru rejestracyjnego
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container-col-4 > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text > span
+  xywh: 487,-201,170,18
+
+[71] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container-col-4 > span.tooltip-position-inline-with-checkbox > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 666,-197,13,13
+
+[72] span type=
+  text: VIN
+  value: 
+  nearby: VIN
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > div.row:nth-of-type(3) > div.col-md-8 > div.widget-tile-row > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 405,-142,21,18
+
+[73] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row > div.row > div.col-md-6:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,-138,13,13
+
+[74] input type=text
+  text: 
+  value: WK0S0002400248856
+  nearby: 
+  placeholder: 
+  name: 
+  id: fast-input-vin
+  aria-label: 
+  ng-model: ctrl.fastInput.vin
+  ng-click: 
+  ng-options: 
+  css: #fast-input-vin
+  xywh: 463,-150,346,38
+
+[75] button type=button
+  text: SPRAWDŹ
+  value: 
+  nearby: SPRAWDŹ
+  placeholder: 
+  name: 
+  id: fast-input-check
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.check()
+  ng-options: 
+  css: #fast-input-check
+  xywh: 688,-82,121,31
+
+[76] span type=
+  text: Pojazd
+  value: 
+  nearby: Pojazd
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(5) > moto-calculation-vehicle > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,13,56,24
+
+[77] span type=
+  text: 
+  value: 
+  nearby: Pojazd
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(5) > moto-calculation-vehicle > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,16,17,17
+
+[78] span type=
+  text: Numer rejestracyjny
+  value: 
+  nearby: Numer rejestracyjny
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(1) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label
+  xywh: 305,78,123,18
+
+[79] input type=text
+  text: 
+  value: 36AIN05
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-registration-number
+  aria-label: 
+  ng-model: ctrl.vehicle.registrationNumber
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-registration-number
+  xywh: 458,70,356,38
+
+[80] span type=
+  text: Pojazd jest leasingowany / w kredycie
+  value: 
+  nearby: Pojazd jest leasingowany / w kredycie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-label:nth-of-type(1)
+  xywh: 195,133,226,18
+
+[81] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,137,13,13
+
+[82] button type=button
+  text: NIE
+  value: 
+  nearby: NIE W KREDYCIE W LEASINGU
+  placeholder: 
+  name: calculation-vehicle-third-party-financing
+  id: calculation-vehicle-third-party-financing-NONE
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-third-party-financing-NONE
+  xywh: 458,128,116,44
+
+[83] button type=button
+  text: W KREDYCIE
+  value: 
+  nearby: NIE W KREDYCIE W LEASINGU | NIE
+  placeholder: 
+  name: calculation-vehicle-third-party-financing
+  id: calculation-vehicle-third-party-financing-CREDIT
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-third-party-financing-CREDIT
+  xywh: 574,128,118,44
+
+[84] button type=button
+  text: W LEASINGU
+  value: 
+  nearby: NIE W KREDYCIE W LEASINGU | W KREDYCIE | NIE
+  placeholder: 
+  name: calculation-vehicle-third-party-financing
+  id: calculation-vehicle-third-party-financing-LEASING
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-third-party-financing-LEASING
+  xywh: 692,128,122,44
+
+[85] span type=
+  text: Rodzaj pojazdu
+  value: 
+  nearby: Rodzaj pojazdu
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 329,200,92,18
+
+[86] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,204,13,13
+
+[87] input type=search
+  text: 
+  value: Ciągnik samochodowy (siodłowy / balastowy)
+  nearby: Brak wyników Ciągnik samochodowy (siodłowy / balastowy)
+  placeholder: Wybierz
+  name: calculation-vehicle-type-select-search
+  id: calculation-vehicle-type-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-type-select-search
+  xywh: 458,192,356,38
+
+[88] span type=
+  text: 
+  value: 
+  nearby: Brak wyników Ciągnik samochodowy (siodłowy / balastowy)
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > dictionary-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,192,30,36
+
+[89] span type=
+  text: Numer VIN
+  value: 
+  nearby: Numer VIN
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(4) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 354,258,67,18
+
+[90] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,262,13,13
+
+[91] input type=text
+  text: 
+  value: WK0S0002400248856
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-vin
+  aria-label: 
+  ng-model: ctrl.vehicle.vin
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-vin
+  xywh: 458,250,356,38
+
+[92] span type=
+  text: Data pierwszej rejestracji
+  value: 
+  nearby: Data pierwszej rejestracji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(5) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 270,316,151,18
+
+[93] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,320,13,13
+
+[94] input type=text
+  text: 
+  value: 10-02-2019
+  nearby: 
+  placeholder: __-__-____
+  name: 
+  id: calculation-vehicle-first-registration-date
+  aria-label: 
+  ng-model: ctrl.vehicle.firstRegDate
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-first-registration-date
+  xywh: 458,308,356,38
+
+[95] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-6 > div.moto-calculation-vehicle-tile__body__toggle-unlisted-car > checkbox.checkbox-inline.checkradio > label.checkradio-label > div.replacement-container > span.replacement
+  xywh: 844,317,19,19
+
+[96] span type=
+  text: Pojazd spoza listy
+  value: 
+  nearby: Pojazd spoza listy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-4:nth-of-type(3) > ng-transclude > div.row > div.col-md-6 > div.moto-calculation-vehicle-tile__body__toggle-unlisted-car > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text
+  xywh: 868,317,106,19
+
+[97] span type=
+  text: Pojazd spoza listy
+  value: 
+  nearby: Pojazd spoza listy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-6 > div.moto-calculation-vehicle-tile__body__toggle-unlisted-car > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text > span
+  xywh: 868,317,106,18
+
+[98] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-6 > div.moto-calculation-vehicle-tile__body__toggle-unlisted-car > span.tooltip-position-inline-with-button > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 983,321,13,13
+
+[99] span type=
+  text: Marka
+  value: 
+  nearby: Marka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div:nth-of-type(6) > div.widget-tile-row:nth-of-type(1) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 383,374,38,18
+
+[100] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,378,13,13
+
+[101] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników DAF FORD IFA IVECO IVECO E.CARGO JELCZ KAMAZ KRAZ LIAZ MAN MAZ MERCEDES-BENZ RENAULT ROMAN SCANIA STAR STEYR TATRA VOLVO
+  placeholder: Wybierz
+  name: calculation-vehicle-ie-make-select-search
+  id: calculation-vehicle-ie-make-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-ie-make-select-search
+  xywh: 458,366,356,38
+
+[102] span type=
+  text: 
+  value: 
+  nearby: Brak wyników DAF FORD IFA IVECO IVECO E.CARGO JELCZ KAMAZ KRAZ LIAZ MAN MAZ MERCEDES-BENZ RENAULT ROMAN SCANIA STAR STEYR TATRA VOLVO
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(6) > div.widget-tile-row:nth-of-type(1) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,366,30,36
+
+[103] span type=
+  text: Rok produkcji
+  value: 
+  nearby: Rok produkcji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div:nth-of-type(6) > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 338,432,83,18
+
+[104] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,436,13,13
+
+[105] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: Wybierz
+  name: calculation-vehicle-ie-production-year-select-search
+  id: calculation-vehicle-ie-production-year-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-ie-production-year-select-search
+  xywh: 458,424,356,38
+
+[106] span type=
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.error-anchor:nth-of-type(2) > div.col-md-4 > info-expert-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,424,30,36
+
+[107] span type=
+  text: Paliwo
+  value: 
+  nearby: Paliwo
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div:nth-of-type(6) > div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 382,490,40,18
+
+[108] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,494,13,13
+
+[109] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: Wybierz
+  name: calculation-vehicle-ie-fuel-select-search
+  id: calculation-vehicle-ie-fuel-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-ie-fuel-select-search
+  xywh: 458,482,356,38
+
+[110] span type=
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > info-expert-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,482,30,36
+
+[111] span type=
+  text: Model
+  value: 
+  nearby: Model
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div:nth-of-type(6) > div.widget-tile-row:nth-of-type(4) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 383,548,38,18
+
+[112] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,552,13,13
+
+[113] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: Wybierz
+  name: calculation-vehicle-ie-model-select-search
+  id: calculation-vehicle-ie-model-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-ie-model-select-search
+  xywh: 458,540,356,38
+
+[114] span type=
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(6) > div.widget-tile-row:nth-of-type(4) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,540,30,36
+
+[115] span type=
+  text: Typ / Wersja pojazdu według Info-Ekspert
+  value: 
+  nearby: Typ / Wersja pojazdu według Info-Ekspert
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div:nth-of-type(6) > div.widget-tile-row:nth-of-type(5) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 171,606,250,18
+
+[116] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,610,13,13
+
+[117] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: Wybierz
+  name: calculation-vehicle-ie-type-select-search
+  id: calculation-vehicle-ie-type-select-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-ie-type-select-search
+  xywh: 458,598,356,38
+
+[118] span type=
+  text: 
+  value: 
+  nearby: Brak wyników
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(5) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > info-expert-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 784,598,30,36
+
+[119] span type=
+  text: Pojemność
+  value: 
+  nearby: Pojemność
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(7) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 355,664,66,18
+
+[120] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,668,13,13
+
+[121] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-capacity
+  aria-label: 
+  ng-model: ctrl.vehicle.capacity
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-capacity
+  xywh: 458,656,356,38
+
+[122] span type=
+  text: Moc
+  value: 
+  nearby: Moc
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(8) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 395,722,26,18
+
+[123] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,726,13,13
+
+[124] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-power
+  aria-label: 
+  ng-model: ctrl.vehicle.power
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-power
+  xywh: 458,714,356,38
+
+[125] span type=
+  text: DMC
+  value: 
+  nearby: DMC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(9) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 392,780,29,18
+
+[126] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,784,13,13
+
+[127] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-perm-gross-weight-ie
+  aria-label: 
+  ng-model: ctrl.vehicle.permGrossWeight
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-perm-gross-weight-ie
+  xywh: 458,772,321,38
+
+[128] span type=
+  text: Masa własna (kg)
+  value: 
+  nearby: Masa własna (kg)
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(10) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 318,838,103,18
+
+[129] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,842,13,13
+
+[130] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-own-weight
+  aria-label: 
+  ng-model: ctrl.vehicle.ownWeight
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-own-weight
+  xywh: 458,830,356,38
+
+[131] span type=
+  text: Ładowność (kg)
+  value: 
+  nearby: Ładowność (kg)
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(11) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 328,896,93,18
+
+[132] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,900,13,13
+
+[133] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-payload
+  aria-label: 
+  ng-model: ctrl.vehicle.payload
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-payload
+  xywh: 458,888,356,38
+
+[134] span type=
+  text: Liczba miejsc
+  value: 
+  nearby: Liczba miejsc
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(12) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 342,954,79,18
+
+[135] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,958,13,13
+
+[136] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: calculation-vehicle-number-of-seats
+  aria-label: 
+  ng-model: ctrl.vehicle.numberOfSeats
+  ng-click: 
+  ng-options: 
+  css: #calculation-vehicle-number-of-seats
+  xywh: 458,946,356,38
+
+[137] span type=
+  text: Kierownica po prawej stronie
+  value: 
+  nearby: Kierownica po prawej stronie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-default-vehicle > div.row > div.widget-tile-row:nth-of-type(13) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-label:nth-of-type(1)
+  xywh: 245,1009,176,18
+
+[138] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 431,1013,13,13
+
+[139] button type=button
+  text: TAK
+  value: 
+  nearby: TAK NIE
+  placeholder: 
+  name: 
+  id: vehicle-right-side-driver-true
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #vehicle-right-side-driver-true
+  xywh: 458,1004,178,31
+
+[140] button type=button
+  text: NIE
+  value: 
+  nearby: TAK NIE | TAK
+  placeholder: 
+  name: 
+  id: vehicle-right-side-driver-false
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #vehicle-right-side-driver-false
+  xywh: 636,1004,178,31
+
+[141] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container > checkbox.checkbox-inline.checkradio > label.checkradio-label > div.replacement-container > span.replacement
+  xywh: 458,1076,19,19
+
+[142] span type=
+  text: Pojazd wyposażony w instalację LPG
+  value: 
+  nearby: Pojazd wyposażony w instalację LPG
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(15) > ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text
+  xywh: 482,1076,219,19
+
+[143] span type=
+  text: Pojazd wyposażony w instalację LPG
+  value: 
+  nearby: Pojazd wyposażony w instalację LPG
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4.col-md-offset-4 > div.widget-input-checkbox-container > checkbox.checkbox-inline.checkradio > label.checkradio-label > span.text > span
+  xywh: 482,1076,219,18
+
+[144] span type=
+  text: Wprowadź klientów do taryfikacji - Pamiętaj o poprawnej weryfikacji tożsamości klientów
+  value: 
+  nearby: Wprowadź klientów do taryfikacji - Pamiętaj o poprawnej weryfikacji tożsamości klientów
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(6) > moto-calculation-clients > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,1183,781,24
+
+[145] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-clients > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 877,1190,13,13
+
+[146] span type=
+  text: 
+  value: 
+  nearby: Wprowadź klientów do taryfikacji - Pamiętaj o poprawnej weryfikacji tożsamości klientów
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(6) > moto-calculation-clients > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,1186,17,17
+
+[147] span type=
+  text: Klient nr 1
+  value: 
+  nearby: Klient nr 1
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-calculation-clients > property-read-only > widget-tile > div.widget-tile > div.widget-tile__body.widget-tile__body--with-padding:nth-of-type(2) > moto-client > div.moto-calculation-clients-tile__body__section:nth-of-type(1) > span.moto-calculation-clients-tile__body__section__heading:nth-of-type(1)
+  xywh: 87,1252,76,22
+
+[148] button type=
+  text: 
+  value: 
+  nearby: Klient nr 1
+  placeholder: 
+  name: 
+  id: client-remove-button-0
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.removeClient()
+  ng-options: 
+  css: #client-remove-button-0
+  xywh: 1157,1255,28,18
+
+[149] span type=
+  text: Czy ten Klient będzie Ubezpieczającym?
+  value: 
+  nearby: Czy ten Klient będzie Ubezpieczającym?
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(2) > moto-default-client > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-label:nth-of-type(1)
+  xywh: 188,1322,238,18
+
+[150] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right.widget-input-label-container-right--lower-padding-top > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1326,13,13
+
+[151] button type=button
+  text: TAK
+  value: 
+  nearby: TAK NIE
+  placeholder: 
+  name: 
+  id: client-insurer-0-true
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #client-insurer-0-true
+  xywh: 463,1317,173,31
+
+[152] button type=button
+  text: NIE
+  value: 
+  nearby: TAK NIE | TAK
+  placeholder: 
+  name: 
+  id: client-insurer-0-false
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #client-insurer-0-false
+  xywh: 636,1317,173,31
+
+[153] span type=
+  text: Rodzaj klienta
+  value: 
+  nearby: Rodzaj klienta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(2) > moto-default-client > div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 342,1376,84,18
+
+[154] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1380,13,13
+
+[155] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników Osoba fizyczna
+  placeholder: Wybierz
+  name: client-type-select-0-search
+  id: client-type-select-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #client-type-select-0-search
+  xywh: 463,1368,346,38
+
+[156] span type=
+  text: 
+  value: 
+  nearby: Brak wyników Osoba fizyczna
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > client-type-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 779,1368,30,36
+
+[157] span type=
+  text: Kraj obywatelstwa
+  value: 
+  nearby: Kraj obywatelstwa
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(2) > moto-default-client > div.widget-tile-row:nth-of-type(4) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 316,1434,110,18
+
+[158] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1438,13,13
+
+[159] input type=search
+  text: 
+  value: 
+  nearby: 
+  placeholder: Wybierz
+  name: client-nationality-select-0-search
+  id: client-nationality-select-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #client-nationality-select-0-search
+  xywh: 463,1426,346,38
+
+[160] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.widget-tile-row:nth-of-type(4) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > dictionary-dropdown > searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 779,1426,30,36
+
+[161] span type=
+  text: Nazwisko
+  value: 
+  nearby: Nazwisko
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-default-client > div:nth-of-type(5) > div.widget-tile-row:nth-of-type(1) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 369,1492,57,18
+
+[162] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1496,13,13
+
+[163] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: client-last-name-0
+  aria-label: 
+  ng-model: ctrl.client.lastName
+  ng-click: 
+  ng-options: 
+  css: #client-last-name-0
+  xywh: 463,1484,346,38
+
+[164] span type=
+  text: Imię
+  value: 
+  nearby: Imię
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-default-client > div:nth-of-type(5) > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 400,1550,26,18
+
+[165] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1554,13,13
+
+[166] input type=search
+  text: 
+  value: 
+  nearby: Brak wyników Wyszukiwanie...
+  placeholder: 
+  name: client-first-name-0-search
+  id: client-first-name-0-search
+  aria-label: 
+  ng-model: ctrl.selectModel.name
+  ng-click: 
+  ng-options: 
+  css: #client-first-name-0-search
+  xywh: 463,1542,346,38
+
+[167] span type=
+  text: 
+  value: 
+  nearby: Brak wyników Wyszukiwanie...
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(5) > div.widget-tile-row:nth-of-type(2) > ng-transclude > div.row > div.col-md-4:nth-of-type(2) > dynamically-searchable-dropdown > div.searchable-dropdown > span.searchable-dropdown__arrow:nth-of-type(1)
+  xywh: 779,1542,30,36
+
+[168] span type=
+  text: Data urodzenia
+  value: 
+  nearby: Data urodzenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: moto-default-client > div:nth-of-type(5) > div.widget-tile-row:nth-of-type(3) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 333,1608,93,18
+
+[169] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1612,13,13
+
+[170] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: __-__-____
+  name: 
+  id: client-birth-date-0
+  aria-label: 
+  ng-model: ctrl.client.birthDate
+  ng-click: 
+  ng-options: 
+  css: #client-birth-date-0
+  xywh: 463,1600,346,38
+
+[171] span type=
+  text: Kod pocztowy
+  value: 
+  nearby: Kod pocztowy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(2) > moto-default-client > div.widget-tile-row:nth-of-type(6) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 342,1666,84,18
+
+[172] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1670,13,13
+
+[173] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: client-zip-code-0
+  aria-label: 
+  ng-model: ctrl.client.zipCode
+  ng-click: 
+  ng-options: 
+  css: #client-zip-code-0
+  xywh: 463,1658,346,38
+
+[174] span type=
+  text: Klient VIP/Platinum
+  value: 
+  nearby: Klient VIP/Platinum
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div:nth-of-type(2) > moto-default-client > div.widget-tile-row:nth-of-type(7) > ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-label:nth-of-type(1)
+  xywh: 310,1724,116,18
+
+[175] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.col-md-4:nth-of-type(1) > div.widget-input-label-container-right > span.widget-input-tooltip-right:nth-of-type(2) > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 436,1728,13,13
+
+[176] input type=text
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: client-vip-status-0
+  aria-label: 
+  ng-model: ctrl.client.premiumCard.cardNumber
+  ng-click: 
+  ng-options: 
+  css: #client-vip-status-0
+  xywh: 463,1716,346,38
+
+[177] button type=
+  text: DODAJ KOLEJNEGO KLIENTA
+  value: 
+  nearby: DODAJ KOLEJNEGO KLIENTA
+  placeholder: 
+  name: 
+  id: calculation-add-client
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.addClient()
+  ng-options: 
+  css: #calculation-add-client
+  xywh: 571,1774,238,31
+
+[178] span type=
+  text: Okres ochrony
+  value: 
+  nearby: Okres ochrony
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: fields-messages > div:nth-of-type(7) > moto-short-term-insurance-period > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__heading:nth-of-type(1)
+  xywh: 87,1869,123,24
+
+[179] span type=
+  text: 
+  value: 
+  nearby: Okres ochrony
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  ng-options: 
+  css: fields-messages > div:nth-of-type(7) > moto-short-term-insurance-period > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,1872,17,17
+
+[180] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.col-md-7:nth-of-type(1) > ng-transclude > div.row > div.col-md-7:nth-of-type(1) > span.tooltip-position-inline-with-text > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 242,1929,13,13
+
+[181] button type=button
+  text: DZISIAJ
+  value: 
+  nearby: DZISIAJ JUTRO INNY
+  placeholder: 
+  name: insurance-period-switch
+  id: insurance-period-switch-today
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #insurance-period-switch-today
+  xywh: 87,1952,118,31
+
+[182] button type=button
+  text: JUTRO
+  value: 
+  nearby: DZISIAJ JUTRO INNY | DZISIAJ
+  placeholder: 
+  name: insurance-period-switch
+  id: insurance-period-switch-tomorrow
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #insurance-period-switch-tomorrow
+  xywh: 205,1952,117,31
+
+[183] button type=button
+  text: INNY
+  value: 
+  nearby: DZISIAJ JUTRO INNY | JUTRO | DZISIAJ
+  placeholder: 
+  name: insurance-period-switch
+  id: insurance-period-switch-other
+  aria-label: 
+  ng-model: ctrl.model
+  ng-click: 
+  ng-options: 
+  css: #insurance-period-switch-other
+  xywh: 322,1952,118,31
+
+[184] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ng-transclude > div.row > div.error-anchor:nth-of-type(2) > div.col-md-5 > span.tooltip-position-inline-with-text > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 588,1929,13,13
+
+[185] input type=text
+  text: 
+  value: 03-07-2026
+  nearby: 
+  placeholder: __-__-____
+  name: periodBeginDate
+  id: insurance-period-begin
+  aria-label: 
+  ng-model: ctrl.model.beginDate
+  ng-click: 
+  ng-options: 
+  css: #insurance-period-begin
+  xywh: 470,1952,244,38
+
+[186] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.error-anchor > div.col-md-7:nth-of-type(1) > ng-transclude > span.tooltip-position-inline-with-text > tooltip-label > div.tooltip-container > span.tooltip-container__icon-representation
+  xywh: 862,1929,13,13
+
+[187] input type=text
+  text: 
+  value: 01-08-2026
+  nearby: 
+  placeholder: __-__-____
+  name: periodEndDate
+  id: insurance-period-end
+  aria-label: 
+  ng-model: ctrl.model.endDate
+  ng-click: 
+  ng-options: 
+  css: #insurance-period-end
+  xywh: 745,1952,244,38
+
+[188] input type=text
+  text: 
+  value: 30
+  nearby: 
+  placeholder: 
+  name: periodInDays
+  id: period-in-days
+  aria-label: 
+  ng-model: ctrl.model.periodInDays
+  ng-click: 
+  ng-options: 
+  css: #period-in-days
+  xywh: 1019,1952,166,38
+
+[189] button type=
+  text: AKCJE
+  value: 
+  nearby: AKCJE
+  placeholder: 
+  name: 
+  id: actionMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #actionMenu
+  xywh: 66,679,101,32
+
+[190] span type=
+  text: 
+  value: 
+  nearby: AKCJE
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__action-left:nth-of-type(1) > possible-actions > div.dropup.dropdown > button.widget-button-secondary.dropdown-toggle > span.widget-button__dropup-toggle-icon
+  xywh: 137,689,13,13
+
+[191] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.removePolicy(productLine)
+  ng-options: 
+  css: div.property-saleview-footer.ui-scrollpoint:nth-of-type(2) > div.container > div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(3) > div.property-saleview-footer__container__product-container:nth-of-type(1) > span.property-saleview-footer__container__product-container__close-icon
+  xywh: 250,674,10,10
+
+[192] button type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.gotoPolicy(productLine)
+  ng-options: 
+  css: div.property-saleview-footer.ui-scrollpoint:nth-of-type(2) > div.container > div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(3) > div.property-saleview-footer__container__product-container:nth-of-type(1) > button.property-saleview-footer__container__product-container__product.property-saleview-footer__container__product-container__product--last
+  xywh: 182,667,78,53
+
+[193] button type=
+  text: PRODUKT
+  value: 
+  nearby: PRODUKT
+  placeholder: 
+  name: 
+  id: addProductMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #addProductMenu
+  xywh: 270,677,123,36
+
+[194] span type=
+  text: 
+  value: 
+  nearby: PRODUKT
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(3) > div.property-saleview-footer__container__action-left:nth-of-type(2) > div.dropup.dropdown > button.widget-button-secondary.dropdown-toggle > span.widget-button__icon-add
+  xywh: 286,681,10,24
+
+[195] button type=
+  text: DALEJ
+  value: 
+  nearby: DALEJ
+  placeholder: 
+  name: 
+  id: footer-button-show-next
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.next()
+  ng-options: 
+  css: #footer-button-show-next
+  xywh: 1110,679,96,32
+
+[196] span type=
+  text: 
+  value: 
+  nearby: DALEJ
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.property-saleview-footer.ui-scrollpoint:nth-of-type(2) > div.container > div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__action-right:nth-of-type(5) > button.widget-button-primary > span.widget-button__next-icon
+  xywh: 1182,689,8,13
+
+[197] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(1)
+  xywh: 66,2125,75,18
+
+[198] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(2)
+  xywh: 141,2125,36,18
+
+[199] a type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a
+  xywh: 186,2125,48,18
+
+[200] span type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a > span
+  xywh: 186,2125,48,18
+
+[201] a type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a
+  xywh: 263,2125,74,18
+
+[202] span type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a > translate > span
+  xywh: 263,2125,74,18
+
+[203] span type=
+  text: Pomoc
+  value: 
+  nearby: Pomoc +48 510 272 829
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(4) > translate > span
+  xywh: 367,2125,42,18
+
+[204] div type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna | Pomoc +48 510 272 829 | Baza wiedzy | Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.openRemoteHelp()
+  ng-options: 
+  css: div:nth-of-type(1) > ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5)
+  xywh: 521,2124,91,20
+
+[205] span type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5) > translate > span
+  xywh: 521,2125,85,18
+
+[206] a type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a
+  xywh: 615,2125,48,18
+
+[207] span type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a > span
+  xywh: 615,2125,48,18
+
+[208] a type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a
+  xywh: 673,2125,137,18
+
+[209] span type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a > span
+  xywh: 673,2125,137,18
+
+[210] a type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a
+  xywh: 820,2125,27,18
+
+[211] span type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a > translate > span
+  xywh: 820,2125,27,18
+
+[212] a type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: ui-view > app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a
+  xywh: 855,2125,38,18
+
+[213] span type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a > translate > span
+  xywh: 855,2125,38,18
+
+[214] span type=
+  text: Wersja
+  value: 
+  nearby: Wersja 109.9.1
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block__version:nth-of-type(10) > translate > span
+  xywh: 903,2125,41,18
+
+[215] a type=button
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: footer_app_dropup
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #footer_app_dropup
+  xywh: 1105,2125,100,18
+
+[216] span type=
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.app-footer > div.container > div.row > div.col-md-2.text-right:nth-of-type(2) > div.footer__apps.dropup > a.dropdown-toggle > translate > span
+  xywh: 1105,2125,80,18

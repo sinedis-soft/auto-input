@@ -1,0 +1,1029 @@
+URL: https://eagent.warta.pl/view360/?continue#/app/main/start?aid=2867416&agentOuid=A00015873003
+TITLE: Warta
+
+[0] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickStartBookmark()
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__logos:nth-of-type(1) > a
+  xywh: 66,15,83,23
+
+[1] a type=
+  text: Start
+  value: 
+  nearby: Start
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__bookmarks:nth-of-type(2) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 163,14,38,38
+
+[2] a type=
+  text: Sprzedaż
+  value: 
+  nearby: Sprzedaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(1) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 364,16,72,38
+
+[3] a type=
+  text: Oferty
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(2) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 471,16,50,38
+
+[4] span type=
+  text: 
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(2) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 525,24,12,12
+
+[5] a type=
+  text: Polisy
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(3) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 571,16,46,38
+
+[6] span type=
+  text: 
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(3) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 621,24,12,12
+
+[7] a type=
+  text: Klienci
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(4) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 668,16,51,38
+
+[8] span type=
+  text: 
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(4) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 724,24,12,12
+
+[9] a type=
+  text: Rozliczenia
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(5) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 770,16,87,38
+
+[10] span type=
+  text: 
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(5) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 862,24,12,12
+
+[11] a type=
+  text: Więcej
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(6) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 908,16,52,38
+
+[12] span type=
+  text: 
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(6) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 964,24,12,12
+
+[13] a type=
+  text: 
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toogleQuickSearch()
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks.ng-scope:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1)
+  xywh: 1016,21,25,18
+
+[14] div type=
+  text: A00015873003 198904
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleContextSwitcher()
+  css: div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list.ng-isolate-scope > div.context-switcher > div.context-switcher--collapsed.ng-scope:nth-of-type(2) > div.context-switcher__policy-number
+  xywh: 1050,10,112,40
+
+[15] a type=
+  text: 
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks.ng-scope:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2)
+  xywh: 1180,21,25,18
+
+[16] button type=
+  text: Całej Agencji
+  value: 
+  nearby: Całej Agencji Twoje
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.setFilterValue(filter)
+  css: div.row:nth-of-type(1) > div.col-md-6:nth-of-type(1) > div.tile-aggregates__header__actions__wrapper > div.tile-aggregates__header__actions__switch__wrapper.ng-scope:nth-of-type(2) > div.tile-aggregates__header__actions__switch > button.tile-aggregates__header__actions__switch__element.ng-scope:nth-of-type(1)
+  xywh: 143,289,91,29
+
+[17] button type=
+  text: Twoje
+  value: 
+  nearby: Całej Agencji Twoje | Całej Agencji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.setFilterValue(filter)
+  css: div.row:nth-of-type(1) > div.col-md-6:nth-of-type(1) > div.tile-aggregates__header__actions__wrapper > div.tile-aggregates__header__actions__switch__wrapper.ng-scope:nth-of-type(2) > div.tile-aggregates__header__actions__switch > button.tile-aggregates__header__actions__switch__element.ng-scope:nth-of-type(2)
+  xywh: 234,289,91,29
+
+[18] span type=
+  text: 
+  value: 
+  nearby: Dane z 02-07-2026 14:14:17 | Dane z
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.refresh()
+  css: div.ng-scope > div.tile-aggregates__header.ng-scope > div.row:nth-of-type(1) > div.col-md-6:nth-of-type(2) > div.tile-aggregates__header__date-time.ng-binding > span.tile-aggregates__header__date-time__icon-refresh
+  xywh: 575,293,25,20
+
+[19] div type=
+  text: 0
+  value: 
+  nearby: 0 | Polisy do wznowienia lub rocznicowe
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(1) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,359,69,49
+
+[20] div type=
+  text: 0
+  value: 
+  nearby: 0 | Polisy do wznowienia lub rocznicowe
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(1) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,359,69,49
+
+[21] div type=
+  text: 0
+  value: 
+  nearby: 0 | Polisy do zapłaty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(2) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,409,69,49
+
+[22] div type=
+  text: 0
+  value: 
+  nearby: 0 | Polisy do zapłaty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(2) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,409,69,49
+
+[23] div type=
+  text: 0
+  value: 
+  nearby: 0 | Braki w dokumentacji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(3) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,459,69,49
+
+[24] div type=
+  text: 0
+  value: 
+  nearby: 0 | Braki w dokumentacji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(3) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,459,69,49
+
+[25] div type=
+  text: 41
+  value: 
+  nearby: 41 | Polisy bez skanów lub podpisów
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(4) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,509,69,49
+
+[26] div type=
+  text: 0
+  value: 
+  nearby: 0 | 41 | Polisy bez skanów lub podpisów
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(4) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,509,69,49
+
+[27] div type=
+  text: 14 4%
+  value: 
+  nearby: 14 4% | Polisy bez skanów z ostatnich 12 miesięcy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > detailed-aggregate.ng-scope.ng-isolate-scope > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,559,69,49
+
+[28] div type=
+  text: -
+  value: 
+  nearby: - | 14 4% | Polisy bez skanów z ostatnich 12 miesięcy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > detailed-aggregate.ng-scope.ng-isolate-scope > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,559,69,49
+
+[29] div type=
+  text: 0
+  value: 
+  nearby: 0 | Zgłoszenia do wykonania
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(5) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,609,69,49
+
+[30] div type=
+  text: -
+  value: 
+  nearby: - | 0 | Zgłoszenia do wykonania
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(5) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,609,69,49
+
+[31] div type=
+  text: 3
+  value: 
+  nearby: 3 | Wnioski do korpo
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(6) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,659,69,49
+
+[32] div type=
+  text: -
+  value: 
+  nearby: - | 3 | Wnioski do korpo
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(6) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,659,69,49
+
+[33] div type=
+  text: 0
+  value: 
+  nearby: 0 | Niezatwierdzone dokumenty w Moja Warta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(7) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,709,69,49
+
+[34] div type=
+  text: 0
+  value: 
+  nearby: 0 | Niezatwierdzone dokumenty w Moja Warta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(7) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,709,69,49
+
+[35] div type=
+  text: -
+  value: 
+  nearby: - | Niezatwierdzone wnioski w Moja Warta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(8) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,759,69,49
+
+[36] div type=
+  text: 0
+  value: 
+  nearby: 0 | - | Niezatwierdzone wnioski w Moja Warta
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(8) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,759,69,49
+
+[37] div type=
+  text: -
+  value: 
+  nearby: - | Wnioski oczekujące
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(9) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,809,69,49
+
+[38] div type=
+  text: 0
+  value: 
+  nearby: 0 | - | Wnioski oczekujące
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(9) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,809,69,49
+
+[39] div type=
+  text: -
+  value: 
+  nearby: - | Propozycja zmiany WDCiR/INDYWIDUALNE
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPropertyAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(10) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(2)
+  xywh: 482,859,69,49
+
+[40] div type=
+  text: 0
+  value: 
+  nearby: 0 | - | Propozycja zmiany WDCiR/INDYWIDUALNE
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToLifeAggregatesSource()
+  css: div.tile-aggregates.ng-scope > div.ng-isolate-scope > div.ng-scope > simple-aggregate.ng-scope.ng-isolate-scope:nth-of-type(10) > div.tile-aggregates__aggregate.ng-scope > div.tile-aggregates__aggregate__counter.ng-scope:nth-of-type(3)
+  xywh: 551,859,69,49
+
+[41] a type=
+  text: haloTuWarta
+  value: 
+  nearby: haloTuWarta Platforma szkoleniowa (EDU) eTeczka Baza wiedzy eAgent
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: animateAndRedirect($event, ctrl.shortcut.href)
+  css: div.col-md-6:nth-of-type(1) > useful-shortcuts.ng-isolate-scope > div.tile-useful_shortcuts-link > div.useful_shortcuts-container:nth-of-type(2) > useful-shortcut.ng-scope.ng-isolate-scope:nth-of-type(1) > a.useful_shortcuts-link.ng-binding
+  xywh: 87,1000,513,48
+
+[42] a type=
+  text: Platforma szkoleniowa (EDU)
+  value: 
+  nearby: haloTuWarta Platforma szkoleniowa (EDU) eTeczka Baza wiedzy eAgent
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: animateAndRedirect($event, ctrl.shortcut.href)
+  css: div.col-md-6:nth-of-type(1) > useful-shortcuts.ng-isolate-scope > div.tile-useful_shortcuts-link > div.useful_shortcuts-container:nth-of-type(2) > useful-shortcut.ng-scope.ng-isolate-scope:nth-of-type(2) > a.useful_shortcuts-link.ng-binding
+  xywh: 87,1060,513,48
+
+[43] a type=
+  text: eTeczka
+  value: 
+  nearby: haloTuWarta Platforma szkoleniowa (EDU) eTeczka Baza wiedzy eAgent
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: animateAndRedirect($event, ctrl.shortcut.href)
+  css: div.col-md-6:nth-of-type(1) > useful-shortcuts.ng-isolate-scope > div.tile-useful_shortcuts-link > div.useful_shortcuts-container:nth-of-type(2) > useful-shortcut.ng-scope.ng-isolate-scope:nth-of-type(3) > a.useful_shortcuts-link.ng-binding
+  xywh: 87,1120,513,48
+
+[44] a type=
+  text: Baza wiedzy eAgent
+  value: 
+  nearby: haloTuWarta Platforma szkoleniowa (EDU) eTeczka Baza wiedzy eAgent
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: animateAndRedirect($event, ctrl.shortcut.href)
+  css: div.col-md-6:nth-of-type(1) > useful-shortcuts.ng-isolate-scope > div.tile-useful_shortcuts-link > div.useful_shortcuts-container:nth-of-type(2) > useful-shortcut.ng-scope.ng-isolate-scope:nth-of-type(4) > a.useful_shortcuts-link.ng-binding
+  xywh: 87,1180,513,48
+
+[45] div type=
+  text: MAJĄTEK
+  value: 
+  nearby: MAJĄTEK
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectNetwork(network)
+  css: rms-widget.ng-isolate-scope > div.ng-isolate-scope > div.ng-scope > div.tile-party-personal-details.ng-scope > div.tile-party-personal-details__radio-group:nth-of-type(1) > div.tile-party-personal-details__radio-group__button.ng-binding:nth-of-type(1)
+  xywh: 87,1299,161,25
+
+[46] div type=
+  text: ŻYCIE GRUP.
+  value: 
+  nearby: ŻYCIE GRUP. | MAJĄTEK
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectNetwork(network)
+  css: rms-widget.ng-isolate-scope > div.ng-isolate-scope > div.ng-scope > div.tile-party-personal-details.ng-scope > div.tile-party-personal-details__radio-group:nth-of-type(1) > div.tile-party-personal-details__radio-group__button.ng-binding:nth-of-type(2)
+  xywh: 248,1299,181,25
+
+[47] div type=
+  text: ŻYCIE IND.
+  value: 
+  nearby: ŻYCIE IND. | ŻYCIE GRUP. | MAJĄTEK
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectNetwork(network)
+  css: rms-widget.ng-isolate-scope > div.ng-isolate-scope > div.ng-scope > div.tile-party-personal-details.ng-scope > div.tile-party-personal-details__radio-group:nth-of-type(1) > div.tile-party-personal-details__radio-group__button.ng-binding:nth-of-type(3)
+  xywh: 429,1299,171,25
+
+[48] a type=
+  text: sylwia.martyniuk@warta.pl
+  value: 
+  nearby: sylwia.martyniuk@warta.pl
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.tile-party-personal-details.ng-scope > div.ng-scope:nth-of-type(2) > div > div.tile-party-personal-details__caption:nth-of-type(3) > span.tile-party-personal-details__caption__text:nth-of-type(2) > a.ng-binding
+  xywh: 119,1447,213,23
+
+[49] button type=
+  text: Całej Agencji
+  value: 
+  nearby: Całej Agencji Twoje
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.setFilterValue(filter)
+  css: div.row > div.col-md-6:nth-of-type(1) > div.tile-aggregates__header__actions__wrapper > div.tile-aggregates__header__actions__switch__wrapper.ng-scope:nth-of-type(2) > div.tile-aggregates__header__actions__switch > button.tile-aggregates__header__actions__switch__element.ng-scope:nth-of-type(1)
+  xywh: 672,323,91,29
+
+[50] button type=
+  text: Twoje
+  value: 
+  nearby: Całej Agencji Twoje | Całej Agencji
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.setFilterValue(filter)
+  css: div.row > div.col-md-6:nth-of-type(1) > div.tile-aggregates__header__actions__wrapper > div.tile-aggregates__header__actions__switch__wrapper.ng-scope:nth-of-type(2) > div.tile-aggregates__header__actions__switch > button.tile-aggregates__header__actions__switch__element.ng-scope:nth-of-type(2)
+  xywh: 762,323,91,29
+
+[51] span type=
+  text: 
+  value: 
+  nearby: Dane z 02-07-2026 12:33:11 | Dane z
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.refresh()
+  css: div.ng-scope > div.tile-aggregates__header.ng-scope:nth-of-type(1) > div.row > div.col-md-6:nth-of-type(2) > div.tile-aggregates__header__date-time.ng-binding > span.tile-aggregates__header__date-time__icon-refresh
+  xywh: 1160,293,25,20
+
+[52] div type=
+  text: 0
+  value: 
+  nearby: 0 | Akcje CRM
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToUnassignedLeadsSource()
+  css: div.ng-scope > div.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(3) > extended-lead.ng-scope.ng-isolate-scope > div.tile-aggregates__aggregate.ng-scope > div.tile-leads__lead_extended__counter.ng-scope:nth-of-type(4)
+  xywh: 1119,438,86,49
+
+[53] div type=
+  text: 0
+  value: 
+  nearby: 0 | Akcje CRM
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToUnassignedLeadsSource()
+  css: div.ng-scope > div.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(5) > extended-lead.ng-scope.ng-isolate-scope > div.tile-aggregates__aggregate.ng-scope > div.tile-leads__lead_extended__counter.ng-scope:nth-of-type(4)
+  xywh: 1119,522,86,49
+
+[54] div type=
+  text: archiwum
+  value: 
+  nearby: archiwum | Aktualności
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToArchive()
+  css: div.col-md-6:nth-of-type(3) > news.ng-scope.ng-isolate-scope > div > recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__switcher:nth-of-type(1)
+  xywh: 1081,623,98,26
+
+[55] div type=
+  text: 2026-06-25 Powiedz nam, co działa, a co warto zmienić.
+  value: 
+  nearby: 2026-06-25 Powiedz nam, co działa, a co warto zmienić.
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: div > recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(1) > div.start-news--recent__news.start-news--recent__news--first
+  xywh: 652,674,553,230
+
+[56] img type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(2) > div.start-news--recent__news.ng-scope > div.start-news--recent__news__attachments.ng-scope > img.start-news--recent__news__thumbnail
+  xywh: 667,919,145,55
+
+[57] span type=
+  text: 2026-06-19
+  value: 
+  nearby: 2026-06-19 [Travel] Ochrona, której nie widać na zdjęciu... przed morską niespodzianką w Grecji Słońce, plaża i błękitne kadry pełne beztroski. Tak zazwyczaj wyglądają idealne wakacyjne zdjęcia, którymi Twoi klienci już za chwilę będą chwalić się w social...
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(2) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__date.ng-binding:nth-of-type(1)
+  xywh: 827,919,110,32
+
+[58] span type=
+  text: [Travel] Ochrona, której nie widać na zdjęciu... przed morską niespodzianką w Grecji
+  value: 
+  nearby: 2026-06-19 [Travel] Ochrona, której nie widać na zdjęciu... przed morską niespodzianką w Grecji Słońce, plaża i błękitne kadry pełne beztroski. Tak zazwyczaj wyglądają idealne wakacyjne zdjęcia, którymi Twoi klienci już za chwilę będą chwalić się w social... | 2026-06-19
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(2) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__title.ng-binding:nth-of-type(2)
+  xywh: 827,966,343,35
+
+[59] span type=
+  text: Słońce, plaża i błękitne kadry pełne beztroski. Tak zazwyczaj wyglądają idealne wakacyjne zdjęcia, którymi Twoi klienci już za chwilę będą chwalić się w social...
+  value: 
+  nearby: 2026-06-19 [Travel] Ochrona, której nie widać na zdjęciu... przed morską niespodzianką w Grecji Słońce, plaża i błękitne kadry pełne beztroski. Tak zazwyczaj wyglądają idealne wakacyjne zdjęcia, którymi Twoi klienci już za chwilę będą chwalić się w social... | [Travel] Ochrona, której nie widać na zdjęciu... przed morską niespodzianką w Grecji | 2026-06-19
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(2) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__content.start-news--recent__news__content--truncated:nth-of-type(3)
+  xywh: 667,1002,503,40
+
+[60] img type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(3) > div.start-news--recent__news.ng-scope > div.start-news--recent__news__attachments.ng-scope > img.start-news--recent__news__thumbnail
+  xywh: 667,1072,145,55
+
+[61] span type=
+  text: 2026-06-18
+  value: 
+  nearby: 2026-06-18 Podkręć sprzedaż z Warta Twoje NNW - pakiet dla Ucznia! Koniec roku szkolnego to dla dzieci czas upragnionej swobody, ruchu i wakacyjnych przygód poza murami szkoły. Dla Ciebie to z kolei idealny moment...
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(3) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__date.ng-binding:nth-of-type(1)
+  xywh: 827,1072,110,32
+
+[62] span type=
+  text: Podkręć sprzedaż z Warta Twoje NNW - pakiet dla Ucznia!
+  value: 
+  nearby: 2026-06-18 Podkręć sprzedaż z Warta Twoje NNW - pakiet dla Ucznia! Koniec roku szkolnego to dla dzieci czas upragnionej swobody, ruchu i wakacyjnych przygód poza murami szkoły. Dla Ciebie to z kolei idealny moment... | 2026-06-18
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(3) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__title.ng-binding:nth-of-type(2)
+  xywh: 827,1119,343,35
+
+[63] span type=
+  text: Koniec roku szkolnego to dla dzieci czas upragnionej swobody, ruchu i wakacyjnych przygód poza murami szkoły. Dla Ciebie to z kolei idealny moment...
+  value: 
+  nearby: 2026-06-18 Podkręć sprzedaż z Warta Twoje NNW - pakiet dla Ucznia! Koniec roku szkolnego to dla dzieci czas upragnionej swobody, ruchu i wakacyjnych przygód poza murami szkoły. Dla Ciebie to z kolei idealny moment... | Podkręć sprzedaż z Warta Twoje NNW - pakiet dla Ucznia! | 2026-06-18
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(3) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__content.start-news--recent__news__content--truncated:nth-of-type(3)
+  xywh: 667,1155,503,40
+
+[64] img type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(4) > div.start-news--recent__news.ng-scope > div.start-news--recent__news__attachments.ng-scope > img.start-news--recent__news__thumbnail
+  xywh: 667,1225,145,55
+
+[65] span type=
+  text: 2026-05-22
+  value: 
+  nearby: 2026-05-22 [PROMOCJA] Pakiet Życie Plus - nawet 240 000 zł od 14 zł Promocja trwa! Sprawdź Pakiet dodatkowy Życie Plus w ubezpieczeniu Warta Dla Ciebie i Rodziny. Podwyższ sumę ubezpieczenia na wypadek śmierci klienta...
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(4) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__date.ng-binding:nth-of-type(1)
+  xywh: 827,1225,110,32
+
+[66] span type=
+  text: [PROMOCJA] Pakiet Życie Plus - nawet 240 000 zł od 14 zł
+  value: 
+  nearby: 2026-05-22 [PROMOCJA] Pakiet Życie Plus - nawet 240 000 zł od 14 zł Promocja trwa! Sprawdź Pakiet dodatkowy Życie Plus w ubezpieczeniu Warta Dla Ciebie i Rodziny. Podwyższ sumę ubezpieczenia na wypadek śmierci klienta... | 2026-05-22
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(4) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__title.ng-binding:nth-of-type(2)
+  xywh: 827,1272,343,35
+
+[67] span type=
+  text: Promocja trwa! Sprawdź Pakiet dodatkowy Życie Plus w ubezpieczeniu Warta Dla Ciebie i Rodziny. Podwyższ sumę ubezpieczenia na wypadek śmierci klienta...
+  value: 
+  nearby: 2026-05-22 [PROMOCJA] Pakiet Życie Plus - nawet 240 000 zł od 14 zł Promocja trwa! Sprawdź Pakiet dodatkowy Życie Plus w ubezpieczeniu Warta Dla Ciebie i Rodziny. Podwyższ sumę ubezpieczenia na wypadek śmierci klienta... | [PROMOCJA] Pakiet Życie Plus - nawet 240 000 zł od 14 zł | 2026-05-22
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleNews(news)
+  css: recent-news.ng-isolate-scope > div.start-news--recent > div.start-news--recent__news-list:nth-of-type(2) > div.ng-scope:nth-of-type(4) > div.start-news--recent__news.ng-scope > span.start-news--recent__news__content.start-news--recent__news__content--truncated:nth-of-type(3)
+  xywh: 667,1308,503,40
+
+[68] a type=
+  text: Pokaż
+  value: 
+  nearby: Pokaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.showHideData()
+  css: div > div.tile-user-data__header:nth-of-type(1) > div.row > div.col-md-4.pull-right:nth-of-type(2) > div.tile-user-data__header__toggle > a.tile-user-data__header__toggle__link
+  xywh: 1127,1541,57,18
+
+[69] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(1)
+  xywh: 66,1635,75,18
+
+[70] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(2)
+  xywh: 141,1635,36,18
+
+[71] a type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a
+  xywh: 186,1635,48,18
+
+[72] a type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a
+  xywh: 263,1635,74,18
+
+[73] div type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna | Pomoc +48 510 272 829 | Baza wiedzy | Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.openRemoteHelp()
+  css: app-footer.ng-isolate-scope > div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5)
+  xywh: 521,1634,91,20
+
+[74] a type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a
+  xywh: 615,1635,48,18
+
+[75] a type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a
+  xywh: 673,1635,137,18
+
+[76] a type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a
+  xywh: 820,1635,27,18
+
+[77] a type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a
+  xywh: 855,1635,38,18
+
+[78] a type=button
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: footer_app_dropup
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #footer_app_dropup
+  xywh: 1105,1635,100,18

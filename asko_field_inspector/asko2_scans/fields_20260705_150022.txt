@@ -1,0 +1,485 @@
+URL: https://asko2.novelty.kz/index.html
+Title: d-Asko2 - d-Asko2
+Найдено элементов: 32
+
+[1] a type=
+  text: Информация
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen230
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen230
+  xpath: //*[@id="ext-gen230"]
+  xywh: 14,75,85,21
+
+[2] a type=
+  text: Список полисов
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen232
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen232
+  xpath: //*[@id="ext-gen232"]
+  xywh: 101,75,100,21
+
+[3] a type=
+  text: Полис ОГПО
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen234
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen234
+  xpath: //*[@id="ext-gen234"]
+  xywh: 203,75,90,22
+
+[4] a type=
+  text: Служба поддержки
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1111
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1111
+  xpath: //*[@id="ext-gen1111"]
+  xywh: 296,75,118,21
+
+[5] a type=
+  text: Новый полис
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen273
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen273
+  xpath: //*[@id="ext-gen273"]
+  xywh: 8,107,79,13
+
+[6] a type=
+  text: 06.07.2026-05.07.2027
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen278
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen278
+  xpath: //*[@id="ext-gen278"]
+  xywh: 8,172,112,13
+
+[7] a type=
+  text: Добавить
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen282
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen282
+  xpath: //*[@id="ext-gen282"]
+  xywh: 8,238,62,13
+
+[8] a type=
+  text: Выбрать
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen286
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen286
+  xpath: //*[@id="ext-gen286"]
+  xywh: 8,305,54,13
+
+[9] a type=
+  text: Добавить
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen294
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen294
+  xpath: //*[@id="ext-gen294"]
+  xywh: 8,371,62,13
+
+[10] a type=
+  text: Премия: 0 тг
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen308
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen308
+  xpath: //*[@id="ext-gen308"]
+  xywh: 8,438,65,13
+
+[11] a type=
+  text: Печать анкеты
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen311
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen311
+  xpath: //*[@id="ext-gen311"]
+  xywh: 10,487,89,13
+
+[12] a type=
+  text: Сохранить
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen318
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen318
+  xpath: //*[@id="ext-gen318"]
+  xywh: 10,525,61,13
+
+[13] a type=
+  text: Сохранить как черновик
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen319
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen319
+  xpath: //*[@id="ext-gen319"]
+  xywh: 10,558,218,13
+
+[14] input type=checkbox
+  text: 
+  value: on
+  label: 
+  placeholder: 
+  name: ext-comp-1564
+  id: ext-comp-1564
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1564
+  xpath: //*[@id="ext-comp-1564"]
+  xywh: 550,133,13,13
+
+[15] input type=checkbox
+  text: 
+  value: on
+  label: 
+  placeholder: 
+  name: ext-comp-1565
+  id: ext-comp-1565
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1565
+  xpath: //*[@id="ext-comp-1565"]
+  xywh: 1031,133,13,13
+
+[16] input type=text
+  text: 
+  value: 
+  label: ИИН
+  placeholder: 
+  name: ext-comp-1538
+  id: ext-comp-1538
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1538
+  xpath: //*[@id="ext-comp-1538"]
+  xywh: 598,150,1251,20
+
+[17] input type=text
+  text: 
+  value: 
+  label: Наименование
+  placeholder: 
+  name: ext-comp-1539
+  id: ext-comp-1539
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1539
+  xpath: //*[@id="ext-comp-1539"]
+  xywh: 598,174,1251,20
+
+[18] input type=text
+  text: 
+  value: 10132664
+  label: ИД
+  placeholder: 
+  name: ext-comp-1740
+  id: ext-comp-1740
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1740
+  xpath: //*[@id="ext-comp-1740"]
+  xywh: 598,198,1251,20
+
+[19] a type=
+  text: поиск
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1244
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1244
+  xpath: //*[@id="ext-gen1244"]
+  xywh: 358,222,75,23
+
+[20] input type=text
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: ext-comp-1544
+  id: ext-comp-1544
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1544
+  xpath: //*[@id="ext-comp-1544"]
+  xywh: 598,222,1234,22
+
+[21] input type=text
+  text: 
+  value: Казахстан
+  label: 
+  placeholder: 
+  name: ext-comp-1561
+  id: ext-comp-1561
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1561
+  xpath: //*[@id="ext-comp-1561"]
+  xywh: 598,254,415,22
+
+[22] input type=text
+  text: 
+  value: 
+  label: Банковские реквизиты
+  placeholder: 
+  name: ext-comp-1550
+  id: ext-comp-1550
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1550
+  xpath: //*[@id="ext-comp-1550"]
+  xywh: 598,280,1251,20
+
+[23] input type=text
+  text: 
+  value: Некоммерческие организации, обслуживающие домашние хозяйства
+  label: 
+  placeholder: 
+  name: ext-comp-1559
+  id: ext-comp-1559
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1559
+  xpath: //*[@id="ext-comp-1559"]
+  xywh: 839,304,929,22
+
+[24] input type=text
+  text: 
+  value:  
+  label: 
+  placeholder: 
+  name: ext-comp-1560
+  id: ext-comp-1560
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1560
+  xpath: //*[@id="ext-comp-1560"]
+  xywh: 839,330,946,22
+
+[25] input type=text
+  text: 
+  value: 
+  label: Адрес
+  placeholder: 
+  name: ext-comp-1572
+  id: ext-comp-1572
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1572
+  xpath: //*[@id="ext-comp-1572"]
+  xywh: 598,375,609,20
+
+[26] input type=text
+  text: 
+  value: 
+  label: Первый руководитель
+  placeholder: 
+  name: ext-comp-1688
+  id: ext-comp-1688
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1688
+  xpath: //*[@id="ext-comp-1688"]
+  xywh: 598,399,609,20
+
+[27] input type=checkbox
+  text: 
+  value: on
+  label: 
+  placeholder: 
+  name: ext-comp-1687
+  id: ext-comp-1687
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-comp-1687
+  xpath: //*[@id="ext-comp-1687"]
+  xywh: 358,428,13,13
+
+[28] select type=
+  text: РНН Уд. личности Паспорт СИК Фото прочее Вод.удостоверение
+  value: 1
+  label: 
+  placeholder: 
+  name: DocType
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.x-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(1) > div.x-panel.x-border-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(2) > div.x-tab-panel.x-border-panel:nth-of-type(1) > div.x-tab-panel-bwrap:nth-of-type(2) > div.x-tab-panel-body.x-tab-panel-body-top:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder.x-border-panel:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder.x-border-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(2) > div.x-panel-body.x-panel-body-noborder:nth-of-type(1) > div.x-column-inner1:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(57) > div:nth-of-type(1) > form:nth-of-type(1) > div.fileupload-buttonbar:nth-of-type(1) > select.doc_type:nth-of-type(1)
+  xpath: /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[57]/div[1]/form[1]/div[1]/select[1]
+  xywh: 356,472,129,18
+
+[29] label type=button
+  text: 
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: div.x-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(1) > div.x-panel.x-border-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-border-layout-ct:nth-of-type(2) > div.x-tab-panel.x-border-panel:nth-of-type(1) > div.x-tab-panel-bwrap:nth-of-type(2) > div.x-tab-panel-body.x-tab-panel-body-top:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder.x-border-panel:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder.x-border-panel:nth-of-type(1) > div.x-panel-bwrap:nth-of-type(1) > div.x-panel-body.x-panel-body-noheader.x-panel-body-noborder:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(2) > div.x-panel-bwrap:nth-of-type(2) > div.x-panel-body.x-panel-body-noborder:nth-of-type(1) > div.x-column-inner1:nth-of-type(1) > div.x-panel.x-panel-noborder:nth-of-type(57) > div:nth-of-type(1) > form:nth-of-type(1) > div.fileupload-buttonbar:nth-of-type(1) > label.fileinput-button.ui-button.ui-widget:nth-of-type(1)
+  xpath: /html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[57]/div[1]/form[1]/div[1]/label[1]
+  xywh: 489,470,32,24
+
+[30] a type=
+  text: Применить
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen1445
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen1445
+  xpath: //*[@id="ext-gen1445"]
+  xywh: 358,535,102,23
+
+[31] a type=
+  text: NDOC
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: rndoc
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #rndoc
+  xpath: //*[@id="rndoc"]
+  xywh: 178,36,71,28
+
+[32] a type=
+  text: Выйти
+  value: 
+  label: 
+  placeholder: 
+  name: 
+  id: ext-gen216
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  ng-options: 
+  css: #ext-gen216
+  xpath: //*[@id="ext-gen216"]
+  xywh: 1830,31,64,25
+
+

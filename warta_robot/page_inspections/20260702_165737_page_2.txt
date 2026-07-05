@@ -1,0 +1,574 @@
+URL: https://eagent.warta.pl/property/?continue#/app/main/sale/815407376654/815407376656/variant/VIEW/saleWidget?aid=2867416&agentOuid=A00015873003
+TITLE: eAgent - Sprzedaż Majątek
+
+[0] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickStartBookmark()
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__logos:nth-of-type(1) > a
+  xywh: 66,-63,83,23
+
+[1] a type=
+  text: Start
+  value: 
+  nearby: Start
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__bookmarks:nth-of-type(2) > bookmarks > div.bookmarks > bookmark > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 163,-64,38,38
+
+[2] a type=
+  text: Sprzedaż
+  value: 
+  nearby: Sprzedaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(1) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 364,-68,72,38
+
+[3] a type=
+  text: Oferty
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 471,-68,50,38
+
+[4] span type=
+  text: 
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(2) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 525,-60,12,12
+
+[5] a type=
+  text: Polisy
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 571,-68,46,38
+
+[6] span type=
+  text: 
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(3) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 621,-60,12,12
+
+[7] a type=
+  text: Klienci
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 668,-68,51,38
+
+[8] span type=
+  text: 
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(4) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 724,-60,12,12
+
+[9] a type=
+  text: Rozliczenia
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 770,-68,87,38
+
+[10] span type=
+  text: 
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(5) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 862,-60,12,12
+
+[11] a type=
+  text: Więcej
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > a.bookmarks__bookmark__link
+  xywh: 908,-68,52,38
+
+[12] span type=
+  text: 
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks > div.bookmarks > bookmark:nth-of-type(6) > div.bookmarks__bookmark.bookmarks__bookmark--top > span.bookmarks__bookmark__more-icon
+  xywh: 964,-60,12,12
+
+[13] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toogleQuickSearch()
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1)
+  xywh: 1016,-63,25,18
+
+[14] div type=
+  text: A00015873003
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleContextSwitcher()
+  css: div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list > div.context-switcher > div.context-switcher--collapsed:nth-of-type(2) > div.context-switcher__policy-number
+  xywh: 1050,-66,112,25
+
+[15] a type=
+  text: 
+  value: 
+  nearby: A00015873003
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2)
+  xywh: 1180,-63,25,18
+
+[16] a type=
+  text: Dane do kalkulacji
+  value: 
+  nearby: 1 Dane do kalkulacji | 1
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(1) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 122,12,167,35
+
+[17] a type=
+  text: Dane do umowy
+  value: 
+  nearby: 3 Dane do umowy | 3
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(3) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 740,12,152,35
+
+[18] a type=
+  text: Podsumowanie
+  value: 
+  nearby: 4 Podsumowanie | 4
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.goToPage(page.path)
+  css: div.row > div.col-md-12 > div.saleview-container__breadcrumb-row > div.saleview-container__breadcrumb-row__breadcrumb:nth-of-type(4) > span.saleview-container__breadcrumb__text-number-container > a.saleview-container__breadcrumb__text-number-container__name
+  xywh: 1014,12,144,35
+
+[19] button type=
+  text: KOPIUJ NUMER
+  value: 
+  nearby: KOPIUJ NUMER
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div > fields-messages > div:nth-of-type(1) > calculation-number > div.widget-button-container__calculation-number > button.widget-button-primary.widget-button__calculation-number
+  xywh: 466,90,155,31
+
+[20] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.resetVariants()
+  css: fields-messages > div:nth-of-type(2) > variants > div.variant-reset-text-container > div.variant-reset-text-container__text > span.variant-reset-text-container__text__icon
+  xywh: 1129,175,16,13
+
+[21] span type=
+  text: 
+  value: 
+  nearby: Warianty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: variants > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,174,17,17
+
+[22] th type=
+  text: A 150 zł
+  value: 
+  nearby: A 150 zł B 150 zł
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectVariant(column)
+  css: div.variant-tile__body.variant-tile__body--one-selected > premium-column-overview > table.premium-column-overview.premium-column-overview--two-variants > thead > tr > th.premium-column-overview__column.premium-column-overview__column--first:nth-of-type(1)
+  xywh: 580,308,314,39
+
+[23] th type=
+  text: B 150 zł
+  value: 
+  nearby: A 150 zł B 150 zł | A 150 zł
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectVariant(column)
+  css: div.variant-tile__body.variant-tile__body--one-selected > premium-column-overview > table.premium-column-overview.premium-column-overview--two-variants > thead > tr > th.premium-column-overview__column.premium-column-overview__column--last:nth-of-type(2)
+  xywh: 894,308,311,39
+
+[24] th type=
+  text: A 150 zł
+  value: 
+  nearby: A 150 zł B 150 zł
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectVariant(variant)
+  css: div.widget-tile__body:nth-of-type(2) > div.variant-tile__body.variant-tile__body--one-selected > table.variant-tile__body__grid > thead > tr > th.variant-tile__body__grid__group-header.variant-tile__body__grid__group-header--selected:nth-of-type(2)
+  xywh: 580,229,312,112
+
+[25] th type=
+  text: B 150 zł
+  value: 
+  nearby: A 150 zł B 150 zł | A 150 zł
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.selectVariant(variant)
+  css: div.widget-tile__body:nth-of-type(2) > div.variant-tile__body.variant-tile__body--one-selected > table.variant-tile__body__grid > thead > tr > th.variant-tile__body__grid__group-header:nth-of-type(3)
+  xywh: 892,229,312,112
+
+[26] span type=
+  text: 
+  value: 
+  nearby: Sposób płatności
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggle()
+  css: payment-method > property-read-only > widget-tile > div.widget-tile > div.widget-tile__header:nth-of-type(1) > span.widget-tile__header__icon.widget-tile__header__icon--close:nth-of-type(2)
+  xywh: 1168,444,17,17
+
+[27] button type=button
+  text: WSTECZ
+  value: 
+  nearby: WSTECZ
+  placeholder: 
+  name: 
+  id: footer-button-show-prev
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.prev()
+  css: #footer-button-show-prev
+  xywh: 66,613,109,32
+
+[28] button type=
+  text: AKCJE
+  value: 
+  nearby: AKCJE
+  placeholder: 
+  name: 
+  id: actionMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #actionMenu
+  xywh: 189,613,101,32
+
+[29] span type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.removePolicy(productLine)
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(4) > div.property-saleview-footer__container__product-container:nth-of-type(1) > span.property-saleview-footer__container__product-container__close-icon
+  xywh: 373,608,10,10
+
+[30] button type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.gotoPolicy(productLine)
+  css: div.row > div.col-md-12 > div.property-saleview-footer__container > div.property-saleview-footer__container__products:nth-of-type(4) > div.property-saleview-footer__container__product-container:nth-of-type(1) > button.property-saleview-footer__container__product-container__product.property-saleview-footer__container__product-container__product--last
+  xywh: 306,601,78,53
+
+[31] button type=
+  text: PRODUKT
+  value: 
+  nearby: PRODUKT
+  placeholder: 
+  name: 
+  id: addProductMenu
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #addProductMenu
+  xywh: 393,611,123,36
+
+[32] button type=
+  text: WYSTAW OFERTĘ
+  value: 
+  nearby: WYSTAW OFERTĘ
+  placeholder: 
+  name: 
+  id: footer-button-make-offer
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.makeOffer()
+  css: #footer-button-make-offer
+  xywh: 532,613,140,31
+
+[33] button type=
+  text: DALEJ
+  value: 
+  nearby: DALEJ
+  placeholder: 
+  name: 
+  id: footer-button-show-next
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.next()
+  css: #footer-button-show-next
+  xywh: 1110,613,96,32
+
+[34] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(1)
+  xywh: 66,678,75,18
+
+[35] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(2)
+  xywh: 141,678,36,18
+
+[36] a type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a
+  xywh: 186,678,48,18
+
+[37] a type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a
+  xywh: 263,678,74,18
+
+[38] div type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna | Pomoc +48 510 272 829 | Baza wiedzy | Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.openRemoteHelp()
+  css: app-footer > div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5)
+  xywh: 521,677,91,20
+
+[39] a type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a
+  xywh: 615,678,48,18
+
+[40] a type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a
+  xywh: 673,678,137,18
+
+[41] a type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a
+  xywh: 820,678,27,18
+
+[42] a type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a
+  xywh: 855,678,38,18
+
+[43] a type=button
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: footer_app_dropup
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #footer_app_dropup
+  xywh: 1105,678,100,18

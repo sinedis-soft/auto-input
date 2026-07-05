@@ -1,0 +1,574 @@
+URL: https://eagent.warta.pl/view360/?continue#/app/main/sale?aid=2867416&agentOuid=A00015873003
+TITLE: Warta
+
+[0] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickStartBookmark()
+  css: div.container > div.header-wrapper > div.header-wrapper__row > div.header-wrapper__left-bookmarks:nth-of-type(1) > div.header-wrapper__logos:nth-of-type(1) > a
+  xywh: 66,15,83,23
+
+[1] a type=
+  text: Start
+  value: 
+  nearby: Start
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__bookmarks:nth-of-type(2) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 163,14,38,38
+
+[2] a type=
+  text: Sprzedaż
+  value: 
+  nearby: Sprzedaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(1) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 364,16,72,38
+
+[3] a type=
+  text: Oferty
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(2) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 471,16,50,38
+
+[4] span type=
+  text: 
+  value: 
+  nearby: Oferty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(2) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 525,24,12,12
+
+[5] a type=
+  text: Polisy
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(3) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 571,16,46,38
+
+[6] span type=
+  text: 
+  value: 
+  nearby: Polisy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(3) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 621,24,12,12
+
+[7] a type=
+  text: Klienci
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(4) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 668,16,51,38
+
+[8] span type=
+  text: 
+  value: 
+  nearby: Klienci
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(4) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 724,24,12,12
+
+[9] a type=
+  text: Rozliczenia
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(5) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 770,16,87,38
+
+[10] span type=
+  text: 
+  value: 
+  nearby: Rozliczenia
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(5) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 862,24,12,12
+
+[11] a type=
+  text: Więcej
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.pickBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(6) > div.bookmarks__bookmark.ng-scope > a.bookmarks__bookmark__link.ng-binding
+  xywh: 908,16,52,38
+
+[12] span type=
+  text: 
+  value: 
+  nearby: Więcej
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleBookmark()
+  css: div.header-wrapper__top-menu__bookmarks:nth-of-type(1) > bookmarks.ng-isolate-scope > div.bookmarks > bookmark.ng-scope.ng-isolate-scope:nth-of-type(6) > div.bookmarks__bookmark.ng-scope > span.bookmarks__bookmark__more-icon.ng-scope
+  xywh: 964,24,12,12
+
+[13] a type=
+  text: 
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toogleQuickSearch()
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks.ng-scope:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link.quick-search__link:nth-of-type(1)
+  xywh: 1016,21,25,18
+
+[14] div type=
+  text: A00015873003 198904
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.toggleContextSwitcher()
+  css: div.header-wrapper__top-menu__addition:nth-of-type(2) > div.header-wrapper__top-menu__addition__link__contract > agreement-list.ng-isolate-scope > div.context-switcher > div.context-switcher--collapsed.ng-scope:nth-of-type(2) > div.context-switcher__policy-number
+  xywh: 1050,10,112,40
+
+[15] a type=
+  text: 
+  value: 
+  nearby: A00015873003 198904
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.header-wrapper > div.header-wrapper__row > div.header-wrapper__right-bookmarks.ng-scope:nth-of-type(2) > div.header-wrapper__top-menu > div.header-wrapper__top-menu__addition:nth-of-type(2) > a.header-wrapper__top-menu__addition__link:nth-of-type(2)
+  xywh: 1180,21,25,18
+
+[16] div type=
+  text: Komunikacyjne
+  value: 
+  nearby: Komunikacyjne
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(2) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,157,255,187
+
+[17] div type=
+  text: Mieszkaniowe
+  value: 
+  nearby: Mieszkaniowe
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(3) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 396,157,255,187
+
+[18] div type=
+  text: SME
+  value: 
+  nearby: SME
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(4) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 681,157,255,187
+
+[19] div type=
+  text: Rolne
+  value: 
+  nearby: Rolne
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(5) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 966,157,255,187
+
+[20] div type=
+  text: Turystyczne i osobowe
+  value: 
+  nearby: Turystyczne i osobowe
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(6) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,374,255,187
+
+[21] div type=
+  text: Smartfon, tablet, smartwatch
+  value: 
+  nearby: Smartfon, tablet, smartwatch
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(1) > div.ng-scope:nth-of-type(7) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 396,374,255,187
+
+[22] div type=
+  text: Flotowe
+  value: 
+  nearby: Flotowe
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(2) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,664,255,187
+
+[23] div type=
+  text: OC operatora transportowego
+  value: 
+  nearby: OC operatora transportowego
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(3) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 396,664,255,187
+
+[24] div type=
+  text: OC zawodowa przewoźnika
+  value: 
+  nearby: OC zawodowa przewoźnika
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(4) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 681,664,255,187
+
+[25] div type=
+  text: Ładunki w transporcie CARGO
+  value: 
+  nearby: Ładunki w transporcie CARGO
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(5) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 966,664,255,187
+
+[26] div type=
+  text: Maszyny i Urządzenia budowlane
+  value: 
+  nearby: Maszyny i Urządzenia budowlane
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(6) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,881,255,187
+
+[27] div type=
+  text: Budowa - montaż
+  value: 
+  nearby: Budowa - montaż
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(7) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 396,881,255,187
+
+[28] div type=
+  text: Jachty
+  value: 
+  nearby: Jachty
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(8) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 681,881,255,187
+
+[29] div type=
+  text: OC zawodowa
+  value: 
+  nearby: OC zawodowa
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(9) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 966,881,255,187
+
+[30] div type=
+  text: Cyber
+  value: 
+  nearby: Cyber
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(10) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,1098,255,187
+
+[31] div type=
+  text: OC operatora drona
+  value: 
+  nearby: OC operatora drona
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(11) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 396,1098,255,187
+
+[32] div type=
+  text: Wniosek do korpo
+  value: 
+  nearby: Wniosek do korpo
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(2) > div.ng-scope:nth-of-type(12) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 681,1098,255,187
+
+[33] div type=
+  text: Życie
+  value: 
+  nearby: Życie
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.handleTileClick(tile)
+  css: div.col-md-12.ng-scope > div.container.ng-scope > div.container.ng-scope:nth-of-type(3) > div.ng-scope:nth-of-type(2) > div.product-line-choice-container__widget__tile > div.product-line-choice-container__widget
+  xywh: 111,1388,255,187
+
+[34] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(1)
+  xywh: 66,1659,75,18
+
+[35] a type=
+  text: 
+  value: 
+  nearby: 
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(1) > a:nth-of-type(2)
+  xywh: 141,1659,36,18
+
+[36] a type=
+  text: Decerto
+  value: 
+  nearby: Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block:nth-of-type(2) > a
+  xywh: 186,1659,48,18
+
+[37] a type=
+  text: Baza wiedzy
+  value: 
+  nearby: Baza wiedzy
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(3) > a
+  xywh: 263,1659,74,18
+
+[38] div type=
+  text: Pomoc zdalna
+  value: 
+  nearby: Pomoc zdalna | Pomoc +48 510 272 829 | Baza wiedzy | Decerto
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: ctrl.openRemoteHelp()
+  css: app-footer.ng-isolate-scope > div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(5)
+  xywh: 521,1658,91,20
+
+[39] a type=
+  text: eTeczka
+  value: 
+  nearby: eTeczka
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(6) > a
+  xywh: 615,1659,48,18
+
+[40] a type=
+  text: Kody Rabatowe Online
+  value: 
+  nearby: Kody Rabatowe Online
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(7) > a
+  xywh: 673,1659,137,18
+
+[41] a type=
+  text: COA
+  value: 
+  nearby: COA
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(8) > a
+  xywh: 820,1659,27,18
+
+[42] a type=
+  text: AZTEC
+  value: 
+  nearby: AZTEC
+  placeholder: 
+  name: 
+  id: 
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: div.app-footer.ng-scope > div.container > div.row > div.col-md-10:nth-of-type(1) > div.footer_info-block.footer_info-block--muted:nth-of-type(9) > a
+  xywh: 855,1659,38,18
+
+[43] a type=button
+  text: Inne systemy
+  value: 
+  nearby: Inne systemy
+  placeholder: 
+  name: 
+  id: footer_app_dropup
+  aria-label: 
+  ng-model: 
+  ng-click: 
+  css: #footer_app_dropup
+  xywh: 1105,1659,100,18
