@@ -1,16 +1,16 @@
 """Unified Bitrix deal router for insurance automation projects.
 
 The app fetches a Bitrix deal, shows copied data, detects an automation scenario
-(WARTA Poland, ASKO Kazakhstan, or a future registered scenario), and launches the
-matching raw project entry point as the first integration layer.
+
+(WARTA Poland, ASKO Kazakhstan, or a future registered scenario), and runs the
+matching integrated adapter inside this application.
+
 """
 
 from __future__ import annotations
 
 import json
 import re
-import subprocess
-import sys
 import threading
 from dataclasses import dataclass
 from datetime import datetime
@@ -20,12 +20,27 @@ from tkinter import messagebox, scrolledtext, ttk
 
 import requests
 
+
+from scenario_adapters import BaseScenarioAdapter, build_adapter
+
 ROOT = Path(__file__).resolve().parents[1]
 SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
 
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
-    "python_executable": sys.executable,
+
+    "warta_url": "",
+    "warta_login": "",
+    "warta_password": "",
+    "asko_login": "",
+    "asko_password": "",
+    "asko_chrome_profile_dir": str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"),
+    "asko_payment_type": "Безналичным",
+    "asko_payment_order": "Единовременно",
+    "asko_notification_language": "Русский",
+    "asko_client_form": "Физическое лицо",
+    "asko_term_text": "15 дней",
+
 }
 
 BITRIX_FIELD_INSURANCE_COMPANY = "UF_CRM_1686683031442"
@@ -50,7 +65,9 @@ class Scenario:
     key: str
     title: str
     description: str
-    command: list[str]
+
+    adapter_key: str
+
     keywords: tuple[str, ...]
     required_fields: dict[str, tuple[str, ...]]
 
@@ -59,8 +76,9 @@ SCENARIOS = [
     Scenario(
         key="warta_poland",
         title="WARTA — польское пограничное страхование",
-        description="Запускает текущий GUI WARTA Robot App v2 для OC graniczne.",
-        command=["warta_robot_app_v2/app.py"],
+
+        description="Выполняет интегрированную worker-логику WARTA для OC graniczne.",
+        adapter_key="warta_poland",
         keywords=("warta", "poland", "polska", "поль", "oc graniczne"),
         required_fields={
             BITRIX_FIELD_INSURANCE_COMPANY: ("231", "TUiR WARTA S.A."),
@@ -70,8 +88,9 @@ SCENARIOS = [
     Scenario(
         key="asko_kazakhstan",
         title="ASKO — казахское пограничное страхование",
-        description="Запускает текущий ASKO ← Bitrix24 filler.",
-        command=["asko_bitrix_filler/asko_bitrix_filler.py"],
+
+        description="Выполняет интегрированную Selenium/Bitrix-логику ASKO.",
+        adapter_key="asko_kazakhstan",
         keywords=("asko", "kazakhstan", "казах", "kz", "огпо"),
         required_fields={
             BITRIX_FIELD_INSURANCE_COMPANY: ("1091", "АО «Страховая Компания «АСКО»", "АСКО"),
@@ -159,25 +178,55 @@ class SettingsWindow(tk.Toplevel):
     def __init__(self, parent: "RouterApp"):
         super().__init__(parent)
         self.title("Настройки")
-        self.resizable(False, False)
+
+        self.geometry("860x620")
+        self.minsize(760, 520)
         self.parent = parent
-        self.webhook = tk.StringVar(value=parent.settings.get("bitrix_webhook_url", ""))
-        self.python = tk.StringVar(value=parent.settings.get("python_executable", sys.executable))
-        frame = ttk.Frame(self, padding=16)
-        frame.grid(sticky="nsew")
-        ttk.Label(frame, text="Bitrix24 webhook").grid(row=0, column=0, sticky="w", pady=(0, 6))
-        ttk.Entry(frame, textvariable=self.webhook, width=84, show="*").grid(row=1, column=0, sticky="ew")
-        ttk.Label(frame, text="Python executable для запуска старых проектов").grid(row=2, column=0, sticky="w", pady=(14, 6))
-        ttk.Entry(frame, textvariable=self.python, width=84).grid(row=3, column=0, sticky="ew")
-        ttk.Label(frame, text="Секреты не выводятся в журнал. Webhook хранится локально в JSON.", foreground="#666666").grid(row=4, column=0, sticky="w", pady=(12, 0))
-        buttons = ttk.Frame(frame)
-        buttons.grid(row=5, column=0, sticky="e", pady=(16, 0))
+        self.vars = {key: tk.StringVar(value=str(parent.settings.get(key, default))) for key, default in DEFAULT_SETTINGS.items()}
+        self._build_ui()
+
+    def _build_ui(self):
+        notebook = ttk.Notebook(self)
+        notebook.pack(fill="both", expand=True, padx=16, pady=16)
+        bitrix = ttk.Frame(notebook, padding=16)
+        warta = ttk.Frame(notebook, padding=16)
+        asko = ttk.Frame(notebook, padding=16)
+        notebook.add(bitrix, text="Bitrix24")
+        notebook.add(warta, text="WARTA")
+        notebook.add(asko, text="ASKO")
+
+        self._add_entry(bitrix, 0, "Bitrix24 webhook", "bitrix_webhook_url", secret=True)
+        ttk.Label(bitrix, text="Webhook скрыт и не выводится в журнал.", foreground="#666666").grid(row=1, column=1, sticky="w", pady=(4, 0))
+
+        self._add_entry(warta, 0, "WARTA URL", "warta_url")
+        self._add_entry(warta, 1, "WARTA login", "warta_login")
+        self._add_entry(warta, 2, "WARTA password", "warta_password", secret=True)
+
+        self._add_entry(asko, 0, "ASKO login", "asko_login")
+        self._add_entry(asko, 1, "ASKO password", "asko_password", secret=True)
+        self._add_entry(asko, 2, "Chrome profile dir", "asko_chrome_profile_dir")
+        self._add_entry(asko, 3, "Тип оплаты", "asko_payment_type")
+        self._add_entry(asko, 4, "Порядок оплаты", "asko_payment_order")
+        self._add_entry(asko, 5, "Язык уведомлений", "asko_notification_language")
+        self._add_entry(asko, 6, "Форма клиента", "asko_client_form")
+        self._add_entry(asko, 7, "Срок по умолчанию", "asko_term_text")
+
+        for frame in (bitrix, warta, asko):
+            frame.columnconfigure(1, weight=1)
+
+        buttons = ttk.Frame(self, padding=(16, 0, 16, 16))
+        buttons.pack(fill="x")
         ttk.Button(buttons, text="Отмена", command=self.destroy).pack(side="right")
         ttk.Button(buttons, text="Сохранить настройки", command=self.save).pack(side="right", padx=(0, 8))
 
+    def _add_entry(self, parent, row: int, label: str, key: str, secret: bool = False):
+        ttk.Label(parent, text=label).grid(row=row, column=0, sticky="w", padx=(0, 12), pady=8)
+        ttk.Entry(parent, textvariable=self.vars[key], show="*" if secret else "").grid(row=row, column=1, sticky="ew", pady=8)
+
     def save(self):
-        self.parent.settings["bitrix_webhook_url"] = self.webhook.get().strip()
-        self.parent.settings["python_executable"] = self.python.get().strip() or sys.executable
+        for key, var in self.vars.items():
+            self.parent.settings[key] = var.get().strip()
+
         save_settings(self.parent.settings)
         self.parent.set_status("Настройки сохранены.")
         self.destroy()
@@ -194,6 +243,7 @@ class RouterApp(tk.Tk):
         self.status = tk.StringVar(value="Готово. Вставьте ID сделки Bitrix и нажмите «Начать».")
         self.selected_scenario: Scenario | None = None
         self.deal: dict | None = None
+        self.adapter: BaseScenarioAdapter | None = None
         self._build_ui()
 
     def _build_ui(self):
@@ -251,6 +301,12 @@ class RouterApp(tk.Tk):
             scenario = detect_scenario(deal)
             self.deal = deal
             self.selected_scenario = scenario
+
+            if self.adapter:
+                self.adapter.shutdown()
+                self.adapter = None
+            if scenario:
+                self.adapter = build_adapter(scenario.adapter_key, self.settings.copy(), self.threadsafe_log, self.threadsafe_state, self.threadsafe_data)
             preview = {
                 "ID": deal.get("ID"),
                 "TITLE": deal.get("TITLE"),
@@ -261,8 +317,11 @@ class RouterApp(tk.Tk):
                 "route_fields": {field: normalize_bitrix_value(deal.get(field)) for field in SCENARIO_HINT_FIELDS},
             }
             self.after(0, self._show_deal, preview)
-            if scenario:
-                self.after(0, self.set_status, f"Сценарий выбран: {scenario.title}. Нажмите «Далее», чтобы запустить текущий модуль.")
+
+            if scenario and self.adapter:
+                self.after(0, self.set_status, f"Сценарий выбран: {scenario.title}. Запускаю первый шаг в новом приложении.")
+                self.adapter.start(deal_id)
+
             else:
                 self.after(0, self.set_status, "Сценарий не определен. Добавьте ключевые слова/поля маршрутизации для этой страховой.")
         except Exception as exc:
@@ -273,34 +332,43 @@ class RouterApp(tk.Tk):
         self.data_text.insert("end", json.dumps(preview, ensure_ascii=False, indent=2))
 
     def next_step(self):
-        if not self.selected_scenario:
+        if not self.adapter or not self.selected_scenario:
             messagebox.showwarning("Сценарий не выбран", "Сначала нажмите «Начать» и получите сделку Bitrix24.")
             return
-        self._launch_scenario(self.selected_scenario)
+        self.adapter.next_step()
 
     def new_policy(self):
-        if self.selected_scenario:
-            self._launch_scenario(self.selected_scenario)
-        else:
+        if not self.adapter or not self.selected_scenario:
             self.set_status("Новый полис: сначала загрузите сделку, чтобы выбрать WARTA, ASKO или будущий сценарий.")
+            return
+        self.adapter.new_policy()
 
     def reset_scenario(self):
+        if self.adapter:
+            self.adapter.reset()
+            self.adapter.shutdown()
+        self.adapter = None
         self.selected_scenario = None
         self.deal = None
         self.data_text.delete("1.0", "end")
         self.set_status("Сценарий сброшен. Можно вставить новую сделку Bitrix24.")
 
-    def _launch_scenario(self, scenario: Scenario):
-        try:
-            python = self.settings.get("python_executable") or sys.executable
-            script = ROOT / scenario.command[0]
-            if not script.exists():
-                raise FileNotFoundError(script)
-            subprocess.Popen([python, str(script)], cwd=str(script.parent))
-            self.set_status(f"Запущен модуль: {scenario.title}. Сделку можно скопировать из поля данных.")
-        except Exception as exc:
-            self.set_status(f"Не удалось запустить {scenario.title}. Детали: {exc}")
+    def threadsafe_log(self, text: str):
+        self.after(0, self.log, text)
 
+    def threadsafe_state(self, text: str):
+        self.after(0, self.set_status, text)
+
+    def threadsafe_data(self, data: dict):
+        self.after(0, self._show_deal, data)
+
+    def on_close(self):
+        if self.adapter:
+            self.adapter.shutdown()
+        self.destroy()
 
 if __name__ == "__main__":
-    RouterApp().mainloop()
+    app = RouterApp()
+    app.protocol("WM_DELETE_WINDOW", app.on_close)
+    app.mainloop()
+
