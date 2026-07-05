@@ -1010,6 +1010,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
 
     def _fill_vehicle_details_after_selection(self) -> None:
+
         """
         Заполняет только поля, которые должны меняться после ручного выбора ТС.
 
@@ -1020,6 +1021,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         country_value = self._map_vehicle_registration_country(
             getattr(self.deal, "vehicle_registration_country", "")
         )
+
 
         self._verify_vehicle_year_matches_bitrix()
         self._safe_set(ASKO_VEHICLE_FIELDS["registration_certificate"], certificate)
@@ -1035,6 +1037,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         )
 
         self.log(
+
             "ASKO: поля ТС после выбора автомобиля обработаны: "
             f"год сверен, СРТС={certificate or 'пусто'}, "
             f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
@@ -1072,6 +1075,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         digits = "".join(ch for ch in value if ch.isdigit())
         return digits[:4]
 
+
     def _map_vehicle_registration_country(self, value) -> str:
         raw = str(value or "").strip()
         if not raw:
@@ -1092,7 +1096,9 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             return
 
         self._select_asko_period(element_id, text)
+
         self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
+
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
