@@ -29,7 +29,7 @@ SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
 
-    "warta_url": "",
+    "warta_url": "https://eagent.warta.pl",
     "warta_login": "",
     "warta_password": "",
     "asko_login": "",
@@ -46,6 +46,7 @@ DEFAULT_SETTINGS = {
 BITRIX_FIELD_INSURANCE_COMPANY = "UF_CRM_1686683031442"
 BITRIX_FIELD_INSURANCE_PRODUCT = "UF_CRM_1690539097"
 BITRIX_FIELD_POLICY_COUNTRY = "UF_CRM_1700656576088"
+BITRIX_FIELD_INSURANCE_TERM = "UF_CRM_1686152209741"
 
 SCENARIO_HINT_FIELDS = [
     "TITLE",
@@ -57,6 +58,7 @@ SCENARIO_HINT_FIELDS = [
     BITRIX_FIELD_INSURANCE_COMPANY,
     BITRIX_FIELD_INSURANCE_PRODUCT,
     BITRIX_FIELD_POLICY_COUNTRY,
+    BITRIX_FIELD_INSURANCE_TERM,
 ]
 
 
@@ -154,6 +156,71 @@ def normalize_bitrix_value(value) -> str:
     return str(value)
 
 
+ASKO_TERM_BY_BITRIX_ID = {
+    "585": "15 дней",
+    "115": "1 месяц",
+    "287": "2 месяца",
+    "117": "3 месяца",
+    "591": "4 месяца",
+    "593": "5 месяцев",
+    "119": "6 месяцев",
+    "595": "7 месяцев",
+    "597": "8 месяцев",
+    "603": "9 месяцев",
+    "599": "10 месяцев",
+    "601": "11 месяцев",
+    "121": "12 месяцев",
+}
+
+ASKO_TERM_BY_MONTHS = {
+    1: "1 месяц",
+    2: "2 месяца",
+    3: "3 месяца",
+    4: "4 месяца",
+    5: "5 месяцев",
+    6: "6 месяцев",
+    7: "7 месяцев",
+    8: "8 месяцев",
+    9: "9 месяцев",
+    10: "10 месяцев",
+    11: "11 месяцев",
+    12: "12 месяцев",
+}
+
+
+def resolve_asko_term_text(deal: dict, fallback: str = "15 дней") -> str:
+    """Return ASKO period text from the Bitrix insurance term field."""
+    raw_value = deal.get(BITRIX_FIELD_INSURANCE_TERM)
+    text = normalize_bitrix_value(raw_value).strip()
+    lowered = text.lower()
+
+    if not text:
+        return fallback
+
+    if "605" in text or "другой срок" in lowered:
+        raise ValueError("В Bitrix выбран 'Другой срок'. Для ASKO срок нужно указать вручную или в комментарии.")
+
+    if text in ASKO_TERM_BY_BITRIX_ID:
+        return ASKO_TERM_BY_BITRIX_ID[text]
+
+    for bitrix_id, asko_text in ASKO_TERM_BY_BITRIX_ID.items():
+        if re.search(rf"\b{re.escape(bitrix_id)}\b", text):
+            return asko_text
+
+    if "15" in lowered and ("дн" in lowered or "day" in lowered):
+        return "15 дней"
+
+    month_match = re.search(
+        r"\b(1|2|3|4|5|6|7|8|9|10|11|12)\s*(месяц|месяца|месяцев|month|months)\b",
+        lowered,
+    )
+    if month_match:
+        months = int(month_match.group(1))
+        return ASKO_TERM_BY_MONTHS.get(months, fallback)
+
+    return fallback
+
+
 def field_matches(deal: dict, field_name: str, expected_values: tuple[str, ...]) -> bool:
     actual = normalize_bitrix_value(deal.get(field_name)).lower()
     return any(str(expected).lower() in actual for expected in expected_values)
@@ -198,18 +265,30 @@ class SettingsWindow(tk.Toplevel):
         self._add_entry(bitrix, 0, "Bitrix24 webhook", "bitrix_webhook_url", secret=True)
         ttk.Label(bitrix, text="Webhook скрыт и не выводится в журнал.", foreground="#666666").grid(row=1, column=1, sticky="w", pady=(4, 0))
 
-        self._add_entry(warta, 0, "WARTA URL", "warta_url")
-        self._add_entry(warta, 1, "WARTA login", "warta_login")
-        self._add_entry(warta, 2, "WARTA password", "warta_password", secret=True)
+        ttk.Label(
+            warta,
+            text="Здесь меняются логин и пароль для входа в кабинет WARTA. Пароль скрыт и сохраняется только локально.",
+            foreground="#666666",
+            wraplength=640,
+        ).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 12))
+        self._add_entry(warta, 1, "WARTA URL", "warta_url")
+        self._add_entry(warta, 2, "WARTA login", "warta_login")
+        self._add_entry(warta, 3, "WARTA password", "warta_password", secret=True)
 
-        self._add_entry(asko, 0, "ASKO login", "asko_login")
-        self._add_entry(asko, 1, "ASKO password", "asko_password", secret=True)
-        self._add_entry(asko, 2, "Chrome profile dir", "asko_chrome_profile_dir")
-        self._add_entry(asko, 3, "Тип оплаты", "asko_payment_type")
-        self._add_entry(asko, 4, "Порядок оплаты", "asko_payment_order")
-        self._add_entry(asko, 5, "Язык уведомлений", "asko_notification_language")
-        self._add_entry(asko, 6, "Форма клиента", "asko_client_form")
-        self._add_entry(asko, 7, "Срок по умолчанию", "asko_term_text")
+        ttk.Label(
+            asko,
+            text="Здесь меняются логин и пароль для входа в ASKO. Если пароль изменился в страховой, обновите его тут и нажмите «Сохранить настройки».",
+            foreground="#666666",
+            wraplength=640,
+        ).grid(row=0, column=0, columnspan=2, sticky="w", pady=(0, 12))
+        self._add_entry(asko, 1, "ASKO login", "asko_login")
+        self._add_entry(asko, 2, "ASKO password", "asko_password", secret=True)
+        self._add_entry(asko, 3, "Chrome profile dir", "asko_chrome_profile_dir")
+        self._add_entry(asko, 4, "Тип оплаты", "asko_payment_type")
+        self._add_entry(asko, 5, "Порядок оплаты", "asko_payment_order")
+        self._add_entry(asko, 6, "Язык уведомлений", "asko_notification_language")
+        self._add_entry(asko, 7, "Форма клиента", "asko_client_form")
+        self._add_entry(asko, 8, "Срок fallback, если в Bitrix пусто", "asko_term_text")
 
         for frame in (bitrix, warta, asko):
             frame.columnconfigure(1, weight=1)
@@ -228,7 +307,7 @@ class SettingsWindow(tk.Toplevel):
             self.parent.settings[key] = var.get().strip()
 
         save_settings(self.parent.settings)
-        self.parent.set_status("Настройки сохранены.")
+        self.parent.set_status("Настройки сохранены. Логины и пароли страховых будут использованы при следующем запуске сценария.")
         self.destroy()
 
 
@@ -305,8 +384,24 @@ class RouterApp(tk.Tk):
             if self.adapter:
                 self.adapter.shutdown()
                 self.adapter = None
+            adapter_settings = self.settings.copy()
+            asko_term_text = ""
+            if scenario and scenario.key == "asko_kazakhstan":
+                asko_term_text = resolve_asko_term_text(
+                    deal,
+                    fallback=self.settings.get("asko_term_text", DEFAULT_SETTINGS["asko_term_text"]),
+                )
+                adapter_settings["asko_term_text"] = asko_term_text
+                self.after(0, self.log, f"ASKO: период страхования из Bitrix — {asko_term_text}")
+
             if scenario:
-                self.adapter = build_adapter(scenario.adapter_key, self.settings.copy(), self.threadsafe_log, self.threadsafe_state, self.threadsafe_data)
+                self.adapter = build_adapter(
+                    scenario.adapter_key,
+                    adapter_settings,
+                    self.threadsafe_log,
+                    self.threadsafe_state,
+                    self.threadsafe_data,
+                )
             preview = {
                 "ID": deal.get("ID"),
                 "TITLE": deal.get("TITLE"),
@@ -314,6 +409,7 @@ class RouterApp(tk.Tk):
                 "STAGE_ID": deal.get("STAGE_ID"),
                 "ASSIGNED_BY_ID": deal.get("ASSIGNED_BY_ID"),
                 "detected_scenario": scenario.title if scenario else "Не определен автоматически",
+                "asko_term_text": asko_term_text,
                 "route_fields": {field: normalize_bitrix_value(deal.get(field)) for field in SCENARIO_HINT_FIELDS},
             }
             self.after(0, self._show_deal, preview)

@@ -6,7 +6,9 @@ are controlled by the new unified UI instead of launching the old GUI windows.
 
 from __future__ import annotations
 
+import shutil
 import sys
+import tempfile
 import threading
 from datetime import datetime
 from pathlib import Path
@@ -108,6 +110,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.deal = None
         self.stage = "idle"
         self._module = None
+        self._temporary_profiles: list[Path] = []
 
     def _load_module(self):
         if self._module is None:
@@ -151,6 +154,12 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             except Exception:
                 pass
             self.driver = None
+        for profile in self._temporary_profiles:
+            try:
+                shutil.rmtree(profile)
+            except OSError:
+                pass
+        self._temporary_profiles.clear()
 
     def _start_flow(self) -> None:
         self._fetch_deal()
@@ -199,19 +208,73 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.stage = "deal_loaded"
         self.state("ASKO: данные сделки получены.")
 
-    def _make_driver(self):
-        module = self._load_module()
-        from selenium import webdriver
+    def _chrome_options(self, profile: Path):
         from selenium.webdriver.chrome.options import Options
 
         options = Options()
         options.add_argument("--start-maximized")
         options.add_argument("--disable-notifications")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--no-first-run")
+        options.add_argument("--no-default-browser-check")
+        options.add_argument("--remote-allow-origins=*")
         options.add_argument("--lang=ru-RU")
-        profile = Path(self._settings_value("asko_chrome_profile_dir", str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2")))
-        profile.mkdir(parents=True, exist_ok=True)
         options.add_argument(f"--user-data-dir={profile}")
-        return webdriver.Chrome(options=options)
+        return options
+
+    def _cleanup_chrome_profile(self, profile: Path) -> None:
+        stale_paths = [
+            profile / "DevToolsActivePort",
+            profile / "SingletonLock",
+            profile / "SingletonSocket",
+            profile / "SingletonCookie",
+            profile / "LOCK",
+            profile / "Default" / "LOCK",
+        ]
+        for stale_path in stale_paths:
+            try:
+                if stale_path.is_dir():
+                    shutil.rmtree(stale_path)
+                elif stale_path.exists():
+                    stale_path.unlink()
+            except OSError:
+                self.log(f"ASKO: Chrome profile занят, не удалось удалить {stale_path.name}. Попробую запасной профиль.")
+
+    def _make_driver_with_profile(self, profile: Path):
+        from selenium import webdriver
+
+        profile.mkdir(parents=True, exist_ok=True)
+        self._cleanup_chrome_profile(profile)
+        return webdriver.Chrome(options=self._chrome_options(profile))
+
+    def _short_error(self, exc: Exception) -> str:
+        return str(exc).splitlines()[0]
+
+    def _make_driver(self):
+        from selenium.common.exceptions import SessionNotCreatedException, WebDriverException
+
+        profile = Path(self._settings_value("asko_chrome_profile_dir", str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2")))
+        try:
+            self.log(f"ASKO: запускаю Chrome с профилем {profile}")
+            return self._make_driver_with_profile(profile)
+        except (SessionNotCreatedException, WebDriverException) as exc:
+            fallback_profile = Path(tempfile.mkdtemp(prefix="asko_chrome_profile_"))
+            self._temporary_profiles.append(fallback_profile)
+            self.log(
+                "ASKO: основной Chrome profile не запустился. "
+                "Чаще всего он занят открытым Chrome или повреждён. "
+                f"Пробую чистый временный профиль: {fallback_profile}. "
+                f"Краткая ошибка: {self._short_error(exc)}"
+            )
+            try:
+                return self._make_driver_with_profile(fallback_profile)
+            except (SessionNotCreatedException, WebDriverException) as retry_exc:
+                raise RuntimeError(
+                    "Chrome для ASKO не запустился даже с чистым временным профилем. "
+                    "Закройте все окна Chrome/Chromedriver и попробуйте снова. "
+                    f"Первая ошибка: {self._short_error(exc)}; повторная ошибка: {self._short_error(retry_exc)}"
+                ) from retry_exc
 
     def _open_and_login(self) -> None:
         module = self._load_module()
@@ -256,10 +319,10 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             start_date = datetime.strptime(self.deal.start_date, "%d.%m.%Y").date()
             start_value = module.asko_start_datetime(start_date)
         code, phone = module.normalize_phone(self.deal.phone)
+        term_text = self._settings_value("asko_term_text", "15 дней")
         pairs = [
             ("blank_number", self.deal.policy_number),
             ("start_datetime", start_value),
-            ("term", self._settings_value("asko_term_text", "15 дней")),
             ("payment_type", self._settings_value("asko_payment_type", "Безналичным")),
             ("payment_order", self._settings_value("asko_payment_order", "Единовременно")),
             ("phone_code", code),
@@ -271,6 +334,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         ]
         for key, value in pairs:
             self._safe_set(module.ASKO_MAIN_FIELDS[key], value)
+        self._select_asko_period(module.ASKO_MAIN_FIELDS["term"], term_text)
         self.stage = "filled"
         self.state("ASKO: основные поля заполнены в новом приложении. Проверьте данные в браузере.")
 
@@ -293,6 +357,30 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 element,
                 value,
             )
+
+    def _select_asko_period(self, element_id: str, term_text: str) -> None:
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.common.keys import Keys
+        from selenium.webdriver.support import expected_conditions as EC
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        if not term_text:
+            return
+        wait = WebDriverWait(self.driver, 10)
+        try:
+            element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
+            element.click()
+            element.send_keys(Keys.CONTROL, "a")
+            element.send_keys(term_text)
+            option = wait.until(
+                EC.element_to_be_clickable((By.XPATH, f"//*[normalize-space(text())='{term_text}' or normalize-space(.)='{term_text}']"))
+            )
+            option.click()
+            self.log(f"ASKO: Период страхования ← {term_text}")
+        except Exception:
+            self._safe_set(element_id, term_text)
+            self.log(f"ASKO: Период страхования установлен вводом текста ← {term_text}")
+
 
     def _safe_set(self, element_id: str, value) -> None:
         from selenium.webdriver.common.by import By
