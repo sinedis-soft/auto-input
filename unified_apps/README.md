@@ -73,3 +73,21 @@ python unified_apps\bitrix_policy_router_app.py
 ```bat
 python unified_apps\bitrix_policy_router_app.py
 ```
+
+## 3. Новый PySide6 UI
+
+Новый профессиональный Windows-like интерфейс находится в `unified_apps/pyside_app.py`. Он не удаляет старый Tkinter router и использует тот же файл настроек:
+
+- настройки: `unified_apps/bitrix_policy_router.settings.json`;
+- новый UI: `python -m unified_apps.pyside_app` или `python unified_apps\pyside_app.py`;
+- старый fallback UI: `python unified_apps\bitrix_policy_router_app.py`.
+
+Перед запуском установите зависимости:
+
+```bat
+pip install -r requirements.txt
+```
+
+В новом UI доступны разделы «Сделка», «ASKO», «WARTA», «Журнал» и «Настройки». Долгие операции Bitrix/Selenium/WARTA запускаются в фоне через Qt worker, а события сценариев попадают в верхний статус и общий журнал.
+
+Для ASKO сохранена существующая Selenium/Bitrix-логика адаптера. После заполнения основных полей приложение больше не нажимает «Далее» автоматически: оператор проверяет данные и вручную нажимает «Далее» в ASKO, затем нажимает «Далее» в приложении для добавления застрахованного юрлица.
