@@ -217,3 +217,49 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 asko_bitrix_filler/chrome_profile_asko2/
+# Local Chrome profiles / browser state
+**/chrome_profile*/
+**/chrome_profile_asko2/
+**/Default/Cache/
+**/Default/Code Cache/
+**/Default/GPUCache/
+**/Default/DawnWebGPUCache/
+**/Default/Service Worker/
+**/Default/Session Storage/
+**/Default/Sessions/
+**/Default/Local Storage/
+**/Default/IndexedDB/
+**/Default/Network/
+**/Default/WebStorage/
+**/Default/File System/
+**/Default/Extension State/
+**/Default/GCM Store/
+**/Default/Sync Data/
+**/Default/Site Characteristics Database/
+**/Default/shared_proto_db/
+**/Default/segmentation_platform/
+**/Default/optimization_guide_model_store/
+**/Default/blob_storage/
+
+# Chrome profile files
+**/DevToolsActivePort
+**/First Run
+**/Local State
+**/Preferences
+**/Secure Preferences
+**/History
+**/Cookies
+**/Web Data
+**/Network Persistent State
+**/Reporting and NEL
+**/TransportSecurity
+**/QuotaManager
+**/LOG
+**/LOG.old
+
+# ASKO inspector generated scans
+asko_field_inspector/asko2_scans/
+asko_field_inspector/*_scans/
+fields_*.json
+fields_*.txt
+screenshot_*.png

@@ -26,6 +26,16 @@ ASKO_INSURED_LEGAL_FIELDS = {
 }
 
 
+ASKO_VEHICLE_FIELDS = {
+    "reg_number": "ext-comp-1986",
+    "registration_certificate": "ext-comp-1988",
+    "vin": "ext-comp-1984",
+    "search_button": "ext-gen1537",
+    "selected_vehicle": "ext-comp-1991",
+    "apply_button": "ext-gen1648",
+}
+
+
 class AskoIntegratedAdapter(BaseScenarioAdapter):
     """Selenium ASKO scenario adapted from asko_bitrix_filler without its old GUI."""
 
@@ -405,6 +415,14 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.state("ASKO: вход выполнен или ожидается загрузка кабинета.")
 
     def _open_new_policy(self) -> None:
+        """
+        Открывает вкладку «Полис ОГПО» и форму «Новый полис».
+
+        Важно: ext-gen* в ASKO/ExtJS нестабильны. По актуальному снимку:
+        - «Полис ОГПО» = ext-gen234;
+        - «Новый полис» = ext-gen273.
+        Если ID не сработает, метод переходит к поиску по тексту.
+        """
         from selenium.webdriver.common.by import By
         from selenium.webdriver.support import expected_conditions as EC
         from selenium.webdriver.support.ui import WebDriverWait
@@ -414,10 +432,10 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self._switch_to_asko_browser_tab()
 
-        self._click_text_or_id("Полис ОГПО", "ext-gen238")
+        self._click_text_or_id("Полис ОГПО", "ext-gen234")
 
         try:
-            self._click_text_or_id("Новый полис", "ext-gen277")
+            self._click_text_or_id("Новый полис", "ext-gen273")
         except Exception:
             self._click_text_or_id("ОС ГПО BTC", "ext-gen1026")
 
@@ -427,6 +445,26 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self.stage = "policy_opened"
         self.state("ASKO: форма нового полиса открыта.")
+
+    def _click_text_or_id(self, text: str, element_id: str | None = None) -> None:
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support import expected_conditions as EC
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        if element_id:
+            try:
+                WebDriverWait(self.driver, 1).until(
+                    EC.element_to_be_clickable((By.ID, element_id))
+                ).click()
+                return
+            except Exception:
+                pass
+
+        xpath = f"//*[normalize-space(text())='{text}' or contains(normalize-space(.), '{text}')]"
+
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, xpath))
+        ).click()
 
     def _ensure_policy_form_opened(self) -> None:
         module = self._load_module()
@@ -490,8 +528,8 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         self.stage = "main_filled_wait_operator_next"
         self.state(
             "ASKO: основные поля полиса заполнены. "
-            "Проверьте данные и вручную нажмите «Далее» в ASKO. "
-            "После перехода нажмите «Далее» в приложении, чтобы добавить застрахованное юрлицо."
+            "Нажмите «Далее» в приложении — робот сразу откроет "
+            "«Список застрахованных» → «Добавить» без нажатия «Далее» в ASKO."
         )
 
     def _open_insured_list_add(self) -> None:
@@ -534,14 +572,13 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         """
         Заполняет застрахованного как юридическое лицо.
 
-        Логика ASKO:
-        1. Включить «Юридическое лицо» ext-comp-1564.
-        2. Выключить «Резидент/Гражданин РК» ext-comp-1565, если включён.
-        3. Вставить ИД в ext-comp-1740.
-        4. Обязательно нажать кнопку «поиск» ext-gen1244.
-        5. Дождаться результата поиска.
-        6. Выбрать найденного клиента.
-        7. Проверить, что подтянулись выбранный клиент, наименование и страна.
+        Кнопка «поиск» в ASKO не запускается надёжно через Selenium, поэтому:
+        1. Робот включает юрлицо, снимает резидентство РК и вводит ИД.
+        2. Оператор вручную нажимает «поиск» и выбирает найденного клиента.
+        3. Робот ждёт, пока поля клиента подтянутся.
+        4. Робот просит оператора нажать «Применить».
+        5. Робот ждёт, пока слева «Страхователь / Выбрать» сменится на компанию.
+        6. Робот автоматически открывает «Список ТС» → «Добавить».
         """
         from selenium.webdriver.common.by import By
         from selenium.webdriver.common.keys import Keys
@@ -618,129 +655,318 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self.log(f"ASKO: ИД юрлица введён ← {asko_company_id}")
 
-        self._click_asko_search_button()
-        self._click_asko_company_search_result(asko_company_id)
-        self._verify_asko_legal_insured_selected(asko_company_id)
+        company_name = self._wait_for_manual_asko_company_search_result(asko_company_id)
 
-        self.stage = "insured_filled"
+        self.stage = "legal_insured_wait_operator_apply"
         self.state(
-            f"ASKO: застрахованное юрлицо выбрано по ИД {asko_company_id}. "
-            "Проверьте подтянутые данные в ASKO."
+            "ASKO: клиент найден и поля застрахованного заполнены. "
+            "Нажмите «Применить» в ASKO. Робот ждёт подтверждение и затем сам откроет «Список ТС» → «Добавить»."
         )
+
+        self._wait_policyholder_applied_then_open_vehicle_add(
+            expected_company_name=company_name,
+            timeout=240,
+        )
+
+        self.stage = "vehicle_add_opened"
+        self.state("ASKO: страхователь подтверждён. Открыта форма добавления ТС.")
 
     def _sleep_short(self, seconds: float = 0.8) -> None:
         import time
         time.sleep(seconds)
 
-    def _click_asko_search_button(self) -> None:
+    def _wait_for_manual_asko_company_search_result(self, asko_company_id: str, timeout: int = 240) -> str:
         """
-        Нажимает кнопку «поиск» на форме застрахованного.
+        Ждёт ручное действие оператора:
+        оператор нажимает «поиск», выбирает клиента из выпадающего списка,
+        после чего ASKO подтягивает selected_company/name/country.
+        """
+        import time
 
-        В ASKO это ExtJS-ссылка a#ext-gen1244. Обычный Selenium click()
-        иногда не запускает обработчик, поэтому используются несколько способов.
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        self.state(
+            f"ASKO: ИД {asko_company_id} введён. "
+            "Нажмите «поиск» в ASKO и выберите найденного клиента. Робот ждёт заполнения полей."
+        )
+
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=0.8)
+
+        def fields_filled(driver):
+            selected_value = (
+                driver.find_element(By.ID, ASKO_INSURED_LEGAL_FIELDS["selected_company"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+            name_value = (
+                driver.find_element(By.ID, ASKO_INSURED_LEGAL_FIELDS["name"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+            country_value = (
+                driver.find_element(By.ID, ASKO_INSURED_LEGAL_FIELDS["country"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+
+            if asko_company_id in selected_value and name_value and country_value:
+                return name_value
+
+            return False
+
+        try:
+            company_name = wait.until(fields_filled)
+        except Exception as exc:
+            selected_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["selected_company"])
+            name_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["name"])
+            country_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["country"])
+            raise RuntimeError(
+                "ASKO: клиент не выбран после ручного поиска. "
+                f"Ожидали ИД {asko_company_id}. "
+                f"Результат: {selected_value!r}; "
+                f"Наименование: {name_value!r}; "
+                f"Страна: {country_value!r}."
+            ) from exc
+
+        selected_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["selected_company"])
+        country_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["country"])
+        address_value = self._read_input_value(ASKO_INSURED_LEGAL_FIELDS["address"])
+
+        self.log(
+            "ASKO: юрлицо найдено после ручного поиска. "
+            f"Результат: {selected_value}; "
+            f"Наименование: {company_name}; "
+            f"Страна: {country_value}; "
+            f"Адрес: {address_value or 'не заполнен'}"
+        )
+
+        return str(company_name).strip()
+
+    def _read_input_value(self, element_id: str) -> str:
+        from selenium.webdriver.common.by import By
+
+        try:
+            return (self.driver.find_element(By.ID, element_id).get_attribute("value") or "").strip()
+        except Exception:
+            return ""
+
+    def _wait_policyholder_applied_then_open_vehicle_add(
+        self,
+        expected_company_name: str = "",
+        timeout: int = 240,
+    ) -> None:
+        """
+        После ручного нажатия «Применить» ждёт, что в левой панели
+        блок «Страхователь» перестанет быть «Выбрать» и станет выбранной компанией.
+        Затем автоматически нажимает «Список ТС» → «Добавить».
+        """
+        import time
+
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        expected_company_name = (expected_company_name or "").strip()
+        start = time.time()
+        last_state = ""
+
+        def policyholder_selected(driver):
+            nonlocal last_state
+            body_text = driver.find_element(By.TAG_NAME, "body").text or ""
+            lines = [line.strip() for line in body_text.splitlines() if line.strip()]
+
+            selected_by_company = bool(expected_company_name and expected_company_name in body_text)
+
+            selected_by_block = False
+            for index, line in enumerate(lines):
+                if line == "Страхователь":
+                    nearby = " ".join(lines[index:index + 4])
+                    last_state = nearby
+                    if "Выбрать" not in nearby:
+                        selected_by_block = True
+                    break
+
+            if selected_by_company or selected_by_block:
+                return True
+
+            if time.time() - start > timeout:
+                return False
+
+            return False
+
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=1.0)
+
+        try:
+            wait.until(policyholder_selected)
+        except Exception as exc:
+            raise RuntimeError(
+                "ASKO: после нажатия «Применить» страхователь в левой панели не подтвердился. "
+                f"Последнее состояние блока: {last_state or 'не определено'}."
+            ) from exc
+
+        self.log("ASKO: страхователь подтверждён в левой панели. Открываю «Список ТС» → «Добавить».")
+        self._open_vehicle_list_add()
+
+    def _open_vehicle_list_add(self) -> None:
+        """
+        Открывает «Список ТС» → «Добавить», затем заполняет госномер ТС.
+
+        По текущему экрану ASKO:
+        - «Список ТС» → «Добавить» — ext-gen294;
+        - поле «Гос номер» — ext-comp-1986;
+        - кнопка «поиск» по ТС — ext-gen1537;
+        - поле выбранного ТС / результата — ext-comp-1991.
         """
         from selenium.webdriver.common.by import By
-        from selenium.webdriver.common.action_chains import ActionChains
         from selenium.webdriver.support import expected_conditions as EC
         from selenium.webdriver.support.ui import WebDriverWait
 
-        wait = WebDriverWait(self.driver, 15)
-        button_id = ASKO_INSURED_LEGAL_FIELDS["search_button"]
+        self._switch_to_asko_browser_tab()
 
-        search_button = wait.until(
-            EC.presence_of_element_located((By.ID, button_id))
+        try:
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.ID, "ext-gen294"))
+            ).click()
+            self.log("ASKO: нажато «Список ТС» → «Добавить» через ext-gen294.")
+        except Exception:
+            xpath = (
+                "//*[contains(normalize-space(.), 'Список ТС')]"
+                "/following::*[normalize-space(.)='Добавить'][1]"
+            )
+            WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, xpath))
+            ).click()
+            self.log("ASKO: нажато «Список ТС» → «Добавить» через XPath.")
+
+        WebDriverWait(self.driver, 20).until(
+            EC.presence_of_element_located((By.ID, ASKO_VEHICLE_FIELDS["reg_number"]))
         )
+
+        self.stage = "vehicle_add_opened"
+        self._fill_vehicle_reg_number_and_wait_manual_search()
+
+    def _fill_vehicle_reg_number_and_wait_manual_search(self, timeout: int = 240) -> None:
+        """
+        Заполняет госномер ТС из Bitrix и ждёт ручной поиск/выбор ТС оператором.
+
+        Кнопку «поиск» по ТС оставляем оператору по той же причине, что и поиск юрлица:
+        ExtJS-кнопки ASKO нестабильно запускаются через Selenium.
+        """
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.common.keys import Keys
+        from selenium.webdriver.support import expected_conditions as EC
+        from selenium.webdriver.support.ui import WebDriverWait
+
+        if not self.deal:
+            self._fetch_deal()
+
+        reg_number = str(getattr(self.deal, "reg_number", "") or "").strip()
+        if not reg_number:
+            raise RuntimeError("ASKO: в сделке Bitrix не найден госномер ТС reg_number.")
+
+        wait = WebDriverWait(self.driver, 20)
+        reg_input = wait.until(
+            EC.element_to_be_clickable((By.ID, ASKO_VEHICLE_FIELDS["reg_number"]))
+        )
+
+        reg_input.click()
+        reg_input.send_keys(Keys.CONTROL, "a")
+        reg_input.send_keys(Keys.BACKSPACE)
+        reg_input.send_keys(reg_number)
 
         self.driver.execute_script(
-            "arguments[0].scrollIntoView({block: 'center', inline: 'center'});",
-            search_button,
+            """
+            const el = arguments[0];
+            el.dispatchEvent(new Event("input", {bubbles: true}));
+            el.dispatchEvent(new Event("change", {bubbles: true}));
+            """,
+            reg_input,
         )
-        self._sleep_short(0.3)
 
-        methods = []
+        self.log(f"ASKO: Гос номер ТС введён ← {reg_number}")
+        self.stage = "vehicle_wait_operator_search"
+        self.state(
+            f"ASKO: госномер ТС {reg_number} введён. "
+            "Нажмите «поиск» в ASKO и выберите выпавший автомобиль. Робот ждёт подтверждения выбора."
+        )
 
-        def selenium_click():
-            wait.until(EC.element_to_be_clickable((By.ID, button_id))).click()
+        self._wait_for_manual_vehicle_search_result(reg_number, timeout=timeout)
 
-        def js_click():
-            self.driver.execute_script("arguments[0].click();", search_button)
+        self.stage = "vehicle_selected"
+        self.state(
+            "ASKO: автомобиль выбран и данные ТС подтянулись. "
+            "Проверьте форму ТС и нажмите «Применить» в ASKO, если данные корректны."
+        )
 
-        def action_click():
-            ActionChains(self.driver).move_to_element(search_button).pause(0.2).click().perform()
+    def _wait_for_manual_vehicle_search_result(self, reg_number: str, timeout: int = 240) -> None:
+        """
+        Ждёт, пока оператор вручную нажмёт «поиск» по госномеру и выберет ТС.
+        Подтверждаем выбор по полю результата, VIN или другим подтянутым полям формы.
+        """
+        from selenium.webdriver.common.by import By
+        from selenium.webdriver.support.ui import WebDriverWait
 
-        def cdp_coordinate_click():
-            rect = search_button.rect
-            x = int(rect["x"] + rect["width"] / 2)
-            y = int(rect["y"] + rect["height"] / 2)
+        reg_number_norm = self._normalize_vehicle_reg_number(reg_number)
+        wait = WebDriverWait(self.driver, timeout, poll_frequency=0.8)
 
-            self.driver.execute_cdp_cmd(
-                "Input.dispatchMouseEvent",
-                {
-                    "type": "mousePressed",
-                    "x": x,
-                    "y": y,
-                    "button": "left",
-                    "clickCount": 1,
-                },
-            )
-            self.driver.execute_cdp_cmd(
-                "Input.dispatchMouseEvent",
-                {
-                    "type": "mouseReleased",
-                    "x": x,
-                    "y": y,
-                    "button": "left",
-                    "clickCount": 1,
-                },
-            )
+        def vehicle_selected(driver):
+            selected_value = (
+                driver.find_element(By.ID, ASKO_VEHICLE_FIELDS["selected_vehicle"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+            vin_value = (
+                driver.find_element(By.ID, ASKO_VEHICLE_FIELDS["vin"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+            certificate_value = (
+                driver.find_element(By.ID, ASKO_VEHICLE_FIELDS["registration_certificate"])
+                .get_attribute("value")
+                or ""
+            ).strip()
+            body_text = driver.find_element(By.TAG_NAME, "body").text or ""
 
-        def extjs_fire_click():
-            result = self.driver.execute_script(
-                """
-                const id = arguments[0];
-                const el = document.getElementById(id);
+            combined = " ".join([selected_value, vin_value, certificate_value, body_text])
+            combined_norm = self._normalize_vehicle_reg_number(combined)
 
-                if (!el) {
-                    return {ok: false, reason: "element not found"};
-                }
+            # Основной признак: найденный/выбранный автомобиль содержит госномер.
+            if reg_number_norm and reg_number_norm in combined_norm:
+                return True
 
-                const eventTypes = ["mouseover", "mousedown", "mouseup", "click"];
-                for (const eventType of eventTypes) {
-                    const ev = new MouseEvent(eventType, {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window
-                    });
-                    el.dispatchEvent(ev);
-                }
+            # Запасной признак: после выбора ТС ASKO подтянул VIN или СРТС.
+            if vin_value or certificate_value:
+                return True
 
-                return {ok: true};
-                """,
-                button_id,
-            )
+            return False
 
-            if not result or not result.get("ok"):
-                raise RuntimeError(result)
+        try:
+            wait.until(vehicle_selected)
+        except Exception as exc:
+            selected_value = self._read_input_value(ASKO_VEHICLE_FIELDS["selected_vehicle"])
+            vin_value = self._read_input_value(ASKO_VEHICLE_FIELDS["vin"])
+            certificate_value = self._read_input_value(ASKO_VEHICLE_FIELDS["registration_certificate"])
+            raise RuntimeError(
+                "ASKO: автомобиль не выбран после ручного поиска. "
+                f"Ожидали госномер {reg_number}. "
+                f"Результат: {selected_value!r}; "
+                f"VIN: {vin_value!r}; "
+                f"СРТС: {certificate_value!r}."
+            ) from exc
 
-        methods.append(("обычный Selenium click", selenium_click))
-        methods.append(("JS click", js_click))
-        methods.append(("ActionChains click", action_click))
-        methods.append(("CDP coordinate click", cdp_coordinate_click))
-        methods.append(("ExtJS mouse events", extjs_fire_click))
+        selected_value = self._read_input_value(ASKO_VEHICLE_FIELDS["selected_vehicle"])
+        vin_value = self._read_input_value(ASKO_VEHICLE_FIELDS["vin"])
+        certificate_value = self._read_input_value(ASKO_VEHICLE_FIELDS["registration_certificate"])
 
-        last_error = None
+        self.log(
+            "ASKO: ТС найдено после ручного поиска. "
+            f"Результат: {selected_value or 'не заполнен'}; "
+            f"VIN: {vin_value or 'не заполнен'}; "
+            f"СРТС: {certificate_value or 'не заполнен'}"
+        )
 
-        for method_name, method in methods:
-            try:
-                method()
-                self.log(f"ASKO: кнопка «поиск» нажата способом: {method_name}")
-                self._sleep_short(1.2)
-                return
-            except Exception as exc:
-                last_error = exc
-                self.log(f"ASKO: способ нажатия «{method_name}» не сработал: {exc}")
-
-        raise RuntimeError(f"ASKO: не удалось нажать кнопку «поиск». Последняя ошибка: {last_error}")
+    def _normalize_vehicle_reg_number(self, value: str) -> str:
+        return "".join(ch for ch in str(value or "").upper() if ch.isalnum())
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
@@ -1143,25 +1369,5 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         except Exception as exc:
             self.log(f"ASKO: не заполнено {element_id}: {exc}")
-
-    def _click_text_or_id(self, text: str, element_id: str | None = None) -> None:
-        from selenium.webdriver.common.by import By
-        from selenium.webdriver.support import expected_conditions as EC
-        from selenium.webdriver.support.ui import WebDriverWait
-
-        if element_id:
-            try:
-                WebDriverWait(self.driver, 5).until(
-                    EC.element_to_be_clickable((By.ID, element_id))
-                ).click()
-                return
-            except Exception:
-                pass
-
-        xpath = f"//*[normalize-space(text())='{text}' or contains(normalize-space(.), '{text}')]"
-
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, xpath))
-        ).click()
 
 
