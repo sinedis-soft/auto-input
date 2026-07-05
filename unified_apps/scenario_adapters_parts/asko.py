@@ -1035,16 +1035,18 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
         )
 
         self.log(
+
             "ASKO: поля ТС после выбора автомобиля обработаны: "
             f"СРТС={certificate or 'пусто'}, "
+
             f"регион={ASKO_TEMPORARY_ENTRY_REGION}, "
             f"страна={country_value}. Остальные поля ТС не менялись."
         )
 
     def _verify_vehicle_year_matches_bitrix(self) -> None:
+
         """Нефатально сверяет год ASKO с Bitrix, дожидаясь загрузки поля ASKO."""
         import time
-
         bitrix_year = self._normalize_year(getattr(self.deal, "vehicle_year", ""))
 
         if not bitrix_year:
@@ -1079,12 +1081,14 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             )
             return
 
+
         self.log(f"ASKO: год ТС сверен с Bitrix ← {bitrix_year}")
 
     def _normalize_year(self, value) -> str:
         value = str(value or "")
         digits = "".join(ch for ch in value if ch.isdigit())
         return digits[:4]
+
 
     def _map_vehicle_registration_country(self, value) -> str:
         raw = str(value or "").strip()
@@ -1107,6 +1111,7 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         self._select_asko_period(element_id, text)
         self.log(f"ASKO: {label} выбран и подтверждён ← {text}")
+
 
     def _click_asko_company_search_result(self, asko_company_id: str) -> None:
         """
