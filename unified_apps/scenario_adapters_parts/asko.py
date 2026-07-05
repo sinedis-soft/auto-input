@@ -1043,12 +1043,25 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             ASKO_VEHICLE_FIELDS["registration_certificate_issue_date"],
             certificate_issue_date,
         )
-        self._select_asko_combo_text(
+        self._select_asko_period(
+            ASKO_VEHICLE_FIELDS["registration_region"],
+            ASKO_TEMPORARY_ENTRY_REGION,
+            label="Регион регистрации",
+            require_click_confirmation=True,
+        )
+        self._verify_asko_combo_or_raise(
             ASKO_VEHICLE_FIELDS["registration_region"],
             ASKO_TEMPORARY_ENTRY_REGION,
             "Регион регистрации",
         )
-        self._select_asko_combo_text(
+        self._sleep_short(0.5)
+        self._select_asko_period(
+            ASKO_VEHICLE_FIELDS["registration_country"],
+            country_value,
+            label="Страна регистрации ТС",
+            require_click_confirmation=True,
+        )
+        self._verify_asko_combo_or_raise(
             ASKO_VEHICLE_FIELDS["registration_country"],
             country_value,
             "Страна регистрации ТС",
@@ -1474,7 +1487,24 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             )
             return False
 
-    def _select_asko_period(self, element_id: str, term_text: str, label: str = "Период страхования") -> None:
+
+    def _verify_asko_combo_or_raise(self, element_id: str, expected_text: str, label: str) -> None:
+        if self._verify_asko_combo_selected(element_id, expected_text):
+            self.log(f"ASKO: {label} подтверждён ← {expected_text}")
+            return
+
+        raise RuntimeError(
+            f"ASKO: {label} не подтвердился после выбора из выпадающего списка. "
+            f"Ожидали: {expected_text}"
+        )
+
+    def _select_asko_period(
+        self,
+        element_id: str,
+        term_text: str,
+        label: str = "Период страхования",
+        require_click_confirmation: bool = False,
+    ) -> None:
         from selenium.webdriver.common.by import By
         from selenium.webdriver.common.keys import Keys
         from selenium.webdriver.common.action_chains import ActionChains
@@ -1560,6 +1590,8 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             term_text,
         )
 
+        ext_verified = False
+
         if ext_result and ext_result.get("ok"):
             try:
                 element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
@@ -1569,15 +1601,20 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             except Exception:
                 pass
 
-            if self._verify_asko_combo_selected(element_id, term_text):
+            ext_verified = self._verify_asko_combo_selected(element_id, term_text)
+            if ext_verified and not require_click_confirmation:
                 self.log(f"ASKO: {label} выбран через ExtJS ← {term_text}")
                 return
 
-            self.log(
-                f"ASKO: {label} после ExtJS-выбора не подтвердился, "
-                "повторяю выбор кликом из списка."
-            )
-
+            if ext_verified:
+                self.log(
+                    f"ASKO: {label} установлен через ExtJS, подтверждаю выбор кликом ← {term_text}"
+                )
+            else:
+                self.log(
+                    f"ASKO: {label} после ExtJS-выбора не подтвердился, "
+                    "повторяю выбор кликом из списка."
+                )
         else:
             self.log(f"ASKO: ExtJS-выбор выпадающего списка не сработал: {ext_result}")
 
@@ -1643,9 +1680,18 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
                 f"[normalize-space(.)='{term_text}']"
             )
 
-            option = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
-
-            ActionChains(self.driver).move_to_element(option).click(option).perform()
+            try:
+                option = wait.until(EC.element_to_be_clickable((By.XPATH, option_xpath)))
+                ActionChains(self.driver).move_to_element(option).click(option).perform()
+                clicked_by_js = True
+            except Exception as exc:
+                if ext_verified:
+                    self.log(
+                        f"ASKO: {label} уже подтверждён через ExtJS; "
+                        f"видимый пункт списка не кликнулся: {exc}"
+                    )
+                else:
+                    raise
 
         try:
             element = wait.until(EC.element_to_be_clickable((By.ID, element_id)))
@@ -1666,13 +1712,12 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             element_id,
         )
 
-        if not self._verify_asko_combo_selected(element_id, term_text):
-            raise RuntimeError(
-                f"ASKO: {label} не подтвердился после выбора из выпадающего списка. "
-                f"Ожидали: {term_text}"
-            )
+        self._verify_asko_combo_or_raise(element_id, term_text, label)
 
-        self.log(f"ASKO: {label} выбран кликом из списка ← {term_text}")
+        if clicked_by_js:
+            self.log(f"ASKO: {label} выбран кликом из списка ← {term_text}")
+        else:
+            self.log(f"ASKO: {label} выбран через ExtJS без видимого клика ← {term_text}")
 
     def _safe_set(self, element_id: str, value) -> None:
         from selenium.webdriver.common.by import By
