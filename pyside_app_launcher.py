@@ -1,4 +1,4 @@
-import runpy
+from unified_apps.pyside_app import main
 
 if __name__ == "__main__":
-    runpy.run_module("unified_apps.pyside_app", run_name="__main__")
+    main()
