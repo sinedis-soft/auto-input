@@ -18,19 +18,21 @@ def is_frozen() -> bool:
 
 
 def external_app_dir() -> Path:
-    """Return a writable external directory for frozen app data."""
+    """Return a writable external directory for app data outside Program Files."""
+    appdata = os.environ.get("APPDATA")
+    if appdata:
+        return Path(appdata) / APP_NAME
     if is_frozen():
-        appdata = os.environ.get("APPDATA")
-        if appdata:
-            return Path(appdata) / APP_NAME
-        return Path(sys.executable).resolve().parent
+        return Path.home() / "AppData" / "Roaming" / APP_NAME
     return ROOT
 
 
 def default_asko_chrome_profile_dir() -> Path:
-    if is_frozen():
-        return Path(sys.executable).resolve().parent / "chrome_profile_asko2"
-    return ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"
+    """Return the default writable Chrome profile directory for ASKO."""
+    appdata = os.environ.get("APPDATA")
+    if appdata:
+        return Path(appdata) / APP_NAME / "chrome_profile_asko2"
+    return Path.home() / "AppData" / "Roaming" / APP_NAME / "chrome_profile_asko2"
 
 
 def settings_file_path() -> Path:
