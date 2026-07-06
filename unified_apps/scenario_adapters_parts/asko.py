@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 import sys
 import tempfile
@@ -13,6 +14,7 @@ from typing import Callable
 from .base import BaseScenarioAdapter, DataCallback, LogCallback, StateCallback
 
 ROOT = Path(__file__).resolve().parents[2]
+APP_NAME = "BitrixPolicyAutomationHub"
 
 ASKO_INSURED_LEGAL_FIELDS = {
     "legal_entity": "ext-comp-1564",
@@ -379,6 +381,28 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
 
         return webdriver.Chrome(options=self._chrome_options(profile))
 
+    def _default_asko_profile_dir(self) -> Path:
+        """Return a user-writable default ASKO Chrome profile directory."""
+        appdata = os.environ.get("APPDATA")
+        if appdata:
+            return Path(appdata) / APP_NAME / "chrome_profile_asko2"
+
+        return Path.home() / "AppData" / "Roaming" / APP_NAME / "chrome_profile_asko2"
+
+    def _is_program_files_path(self, path: Path) -> bool:
+        """Return True if path points inside a Windows Program Files directory."""
+        path_text = str(path).lower()
+        program_files_dirs = [
+            os.environ.get("ProgramFiles"),
+            os.environ.get("ProgramFiles(x86)"),
+            os.environ.get("ProgramW6432"),
+        ]
+        for program_files_dir in program_files_dirs:
+            if program_files_dir and path_text.startswith(str(Path(program_files_dir)).lower()):
+                return True
+
+        return "program files" in path_text
+
     def _short_error(self, exc: Exception) -> str:
         return str(exc).splitlines()[0]
 
@@ -398,25 +422,29 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
     def _make_driver(self):
         from selenium.common.exceptions import SessionNotCreatedException, WebDriverException
 
-        profile_setting = self._settings_value("asko_chrome_profile_dir", "")
-        if profile_setting:
-            profile = Path(profile_setting).expanduser()
-        elif getattr(sys, "frozen", False):
-            profile = Path(sys.executable).resolve().parent / "chrome_profile_asko2"
+        configured_profile = self._settings_value("asko_chrome_profile_dir", "").strip()
+        if configured_profile:
+            profile = Path(configured_profile).expanduser()
         else:
-            profile = ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"
+            profile = self._default_asko_profile_dir()
+
+        if self._is_program_files_path(profile):
+            self.log(
+                "ASKO: Chrome profile был указан внутри Program Files. "
+                "Это запрещено Windows для записи. Переключаю на пользовательскую папку AppData."
+            )
+            profile = self._default_asko_profile_dir()
 
         try:
             self.log(f"ASKO: запускаю Chrome с профилем {profile}")
             return self._make_driver_with_profile(profile)
 
-        except (SessionNotCreatedException, WebDriverException) as exc:
+        except (SessionNotCreatedException, WebDriverException, PermissionError, OSError) as exc:
             fallback_profile = Path(tempfile.mkdtemp(prefix="asko_chrome_profile_"))
             self._temporary_profiles.append(fallback_profile)
 
             self.log(
                 "ASKO: основной Chrome profile не запустился. "
-                "Чаще всего он занят открытым Chrome или повреждён. "
                 f"Пробую чистый временный профиль: {fallback_profile}. "
                 f"Краткая ошибка: {self._short_error(exc)}"
             )
@@ -424,10 +452,10 @@ class AskoIntegratedAdapter(BaseScenarioAdapter):
             try:
                 return self._make_driver_with_profile(fallback_profile)
 
-            except (SessionNotCreatedException, WebDriverException) as retry_exc:
+            except (SessionNotCreatedException, WebDriverException, PermissionError, OSError) as retry_exc:
                 raise RuntimeError(
                     "Chrome для ASKO не запустился даже с чистым временным профилем. "
-                    "Закройте все окна Chrome/Chromedriver и попробуйте снова. "
+                    "Проверьте права доступа и закройте все окна Chrome/Chromedriver. "
                     f"Первая ошибка: {self._short_error(exc)}; "
                     f"повторная ошибка: {self._short_error(retry_exc)}"
                 ) from retry_exc

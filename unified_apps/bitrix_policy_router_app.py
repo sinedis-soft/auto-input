@@ -10,6 +10,7 @@ matching integrated adapter inside this application.
 from __future__ import annotations
 
 import json
+import os
 import re
 import threading
 from dataclasses import dataclass
@@ -28,6 +29,14 @@ else:
 
 ROOT = Path(__file__).resolve().parents[1]
 SETTINGS_FILE = ROOT / "unified_apps" / "bitrix_policy_router.settings.json"
+APP_NAME = "BitrixPolicyAutomationHub"
+
+
+def default_asko_chrome_profile_dir() -> Path:
+    appdata = os.environ.get("APPDATA")
+    if appdata:
+        return Path(appdata) / APP_NAME / "chrome_profile_asko2"
+    return Path.home() / "AppData" / "Roaming" / APP_NAME / "chrome_profile_asko2"
 
 DEFAULT_SETTINGS = {
     "bitrix_webhook_url": "",
@@ -37,7 +46,7 @@ DEFAULT_SETTINGS = {
     "warta_password": "",
     "asko_login": "",
     "asko_password": "",
-    "asko_chrome_profile_dir": str(ROOT / "asko_bitrix_filler" / "chrome_profile_asko2"),
+    "asko_chrome_profile_dir": str(default_asko_chrome_profile_dir()),
     "asko_payment_type": "Безналичным",
     "asko_payment_order": "Единовременно",
     "asko_notification_language": "Русский",
